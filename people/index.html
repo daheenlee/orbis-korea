@@ -2,109 +2,80 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>구성원 소개 | ORBIS 대한민국지부</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>오르비스 지부 직원 프로필</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" href="../img/emblem.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --bg: #070a14; --bg2: #121a33; --card: #141a2b; --ink: #e8ecf7; 
+      --sub: #8e98b3; --line: #2a3350; --red: #ff5a66; --dark: #0a0d18; 
+      --soft: #1b2238; --glow: 0 0 28px rgba(255,90,102,.18);
+      color-scheme: dark;
+      box-sizing: border-box;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%) fixed;
+      color: var(--ink);
+      font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+      line-height: 1.5;
+    }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 28px 16px 56px; }
+    h1 { font-size: 22px; margin: 0 0 4px; letter-spacing: -.02em; }
+    .lead { color: var(--sub); font-size: 14px; margin: 0 0 24px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; justify-items: center; }
+    .badge { width: 100%; max-width: 340px; perspective: 1200px; background: none; border: 0; padding: 0; text-align: left; cursor: pointer; font: inherit; color: inherit; }
+    .badge:focus-visible { outline: 3px solid var(--red); outline-offset: 6px; border-radius: 14px; }
+    .inner { position: relative; width: 100%; height: 520px; transition: transform .6s; transform-style: preserve-3d; }
+    .badge.flip .inner { transform: rotateY(180deg); }
+    @media (prefers-reduced-motion: reduce) { .inner { transition: none; } }
+    .face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--glow); }
+    .back { transform: rotateY(180deg); }
+    .slot { width: 56px; height: 10px; border-radius: 6px; background: var(--bg); border: 1px solid var(--line); margin: 12px auto 0; }
+    .head { margin: 12px 0 0; padding: 8px 18px; background: var(--dark); color: #fff; display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+    .head b { letter-spacing: .04em; }
+    .head span { color: var(--red); font-weight: 700; }
+    .photo { position: relative; margin: 16px auto 10px; width: 150px; height: 195px; border-radius: 8px; background: var(--soft); border: 1px solid var(--line); display: flex; align-items: flex-end; justify-content: center; overflow: hidden; }
+    .photo svg { width: 120px; height: 140px; fill: var(--line); }
+    .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .name { text-align: center; font-size: 24px; font-weight: 700; letter-spacing: .04em; margin: 0; }
+    .eng { text-align: center; font-size: 12px; color: var(--sub); margin: 0 0 10px; }
+    .info { margin: 0 18px; padding: 0; list-style: none; font-size: 13px; }
+    .info li { display: flex; justify-content: space-between; gap: 12px; padding: 5px 0; border-bottom: 1px solid var(--line); }
+    .info li span:first-child { color: var(--sub); flex: none; }
+    .info li span:last-child { text-align: right; }
+    .stripe { margin-top: auto; height: 26px; background: var(--red); color: #fff; font-size: 11px; display: flex; align-items: center; justify-content: center; }
+    .hint { font-size: 11px; color: var(--sub); text-align: center; padding: 6px 0; }
+    .bk { padding: 16px 18px; font-size: 13px; overflow: auto; }
+    .bk h2 { font-size: 12px; margin: 12px 0 4px; color: var(--red); }
+    .bk h2:first-child { margin-top: 0; }
+    .bk p { margin: 0; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tags span { font-size: 12px; border: 1px solid var(--line); border-radius: 10px; padding: 2px 9px; background: var(--soft); }
+    .bk ul { margin: 0; padding-left: 16px; }
+    .lock { margin-top: 12px; border: 1px dashed var(--red); border-radius: 8px; padding: 8px 10px; font-size: 12px; color: var(--sub); }
+  </style>
 </head>
 <body>
   <div id="site-header"></div>
-  <header class="page-hero">
-    <div class="wrap">
-      <div class="crumb"><a href="../index.html">홈</a> · 구성원 소개</div>
-      <h1>구성원 소개</h1>
-      <p>공식 명부에 등재된 주요 보직자를 소개합니다.</p>
-    </div>
-  </header>
-  <main id="content" class="section">
-    <div class="wrap">
-      <p class="lead">인물 기록은 정보분석국 인물관리과가 관리합니다. 성격 서술은 ‘업무 성향’으로만 공시합니다.</p>
-      <div class="people">
-        <article class="person">
-          <div class="avatar">지부장</div>
-          <div>
-            <h3>한서윤</h3>
-            <p class="rank">대한민국지부 지부장</p>
-            <p>지부 운영의 최종 책임자. 대외 공문과 긴급명령을 전결한다. 업무 성향은 짧게 지시하고 기록으로 남기는 쪽이다. 현장 순시는 예고 없이 하는 경우가 많다.</p>
-          </div>
-        </article>
-        <article class="person">
-          <div class="avatar">실장</div>
-          <div>
-            <h3>권민재</h3>
-            <p class="rank">기획조정실장 (부지부 보좌)</p>
-            <p>예산·규정·대외 일정을 묶는 자리. 조문이 없으면 일을 시작하지 않는다. 지부장의 구두 지시를 공문으로 바꾸는 역할을 한다.</p>
-          </div>
-        </article>
-        <article class="person">
-          <div class="avatar">감시국장</div>
-          <div>
-            <h3>이도하</h3>
-            <p class="rank">궤도감시국장</p>
-            <p>12궤도 관측망과 경보 권한을 가진다. 수치와 좌표를 먼저 보고, 해석은 나중에 말한다. 허위 경보를 가장 싫어한다.</p>
-          </div>
-        </article>
-        <article class="person">
-          <div class="avatar">대응국장</div>
-          <div>
-            <h3>박하린</h3>
-            <p class="rank">현장대응국장</p>
-            <p>봉쇄와 격리의 현장 지휘관. 말보다 대열이 먼저다. 민간 접근을 끊는 결단이 빠르며, 복구가 끝날 때까지 현장을 비우지 않는다.</p>
-          </div>
-        </article>
-        <article class="person">
-          <div class="avatar">분석국장</div>
-          <div>
-            <h3>최은설</h3>
-            <p class="rank">정보분석국장</p>
-            <p>세계관과 인물의 공신력을 지킨다. 구전과 공식 기록을 가르는 최종 검토자. 문장 한 줄의 시제를 고치는 일로도 회의를 연다.</p>
-          </div>
-        </article>
-        <article class="person">
-          <div class="avatar">운영국장</div>
-          <div>
-            <h3>정시우</h3>
-            <p class="rank">운영지원국장</p>
-            <p>인사, 제복, 청사 출입을 관장한다. 구성원이 같은 시간에 같은 옷을 입고 같은 문으로 들어가게 만드는 사람이다.</p>
-          </div>
-        </article>
-        <article class="person">
-          <div class="avatar">감사관</div>
-          <div>
-            <h3>윤가온</h3>
-            <p class="rank">감찰감사관 (지부장 직속)</p>
-            <p>복무 일탈과 기록 변조를 조사한다. 친소를 업무에 넣지 않으며, 보고서 첫머리에 사실만 적는다.</p>
-          </div>
-        </article>
-        <article class="person">
-          <div class="avatar">팀장</div>
-          <div>
-            <h3>서유진</h3>
-            <p class="rank">신속대응과장</p>
-            <p>경보 후 가장 먼저 도착하는 조의 장. 현장복 착용 상태를 직접 점검한다. 대열 붕괴를 사고의 시작으로 본다.</p>
-          </div>
-        </article>
-        <article class="person">
-          <div class="avatar">기록관</div>
-          <div>
-            <h3>김나율</h3>
-            <p class="rank">세계관기록관</p>
-            <p>연혁과 설정의 원문을 보관한다. 구술을 받아 적을 때에도 출처를 남긴다. 공시 전에는 반드시 대조표를 첨부한다.</p>
-          </div>
-        </article>
-        <article class="person">
-          <div class="avatar">의전</div>
-          <div>
-            <h3>오세린</h3>
-            <p class="rank">제복의전담당</p>
-            <p>정복·근무복·현장복의 세부 기준과 휘장 부착 위치를 고시한다. 색이 달라도 규격이 같으면 같은 제복으로 본다.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </main>
-  <footer class="site-footer" id="site-footer"></footer>
-  <script src="../js/app.js"></script>
-</body>
-</html>
+  
+  <div class="wrap">
+    <h1>오르비스 지부 직원 프로필</h1>
+    <p class="lead">카드를 누르면 뒷면(능력, 성격)이 보여요</p>
+    
+    <div class="grid">
+      <!-- 서이현 카드 -->
+      <button class="badge" type="button" aria-label="서이현 사원증, 눌러서 뒷면 보기">
+        <div class="inner">
+          <div class="face front">
+            <div class="slot"></div>
+            <div class="head"><b>ORBIS</b><span>대응팀 1</span></div>
+            <div class="photo">
+              <svg viewBox="0 0 100 120"><circle cx="50" cy="38" r="22"/><path d="M8 120c0-30 18-46 42-46s42 16 42 46z"/></svg>
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAACCCAIAAAA/nfqcAAAACXBIWXMAAAsTAAALEwEAmpwYAABjiElEQVR4nHW9Z5cdV3YlGBE3vHn+vfQOCSQ8CBJ0xWIVCZaTVCUzkrrVo9Gs1bO6v/d8mO6/MK1eY/rjzHyY9qOWWqVSlVROVSxDB4KgAwGSMAkkEunds+EjbsSsfe5LVPWs0QMJgsjM9yJu3HvMPvvsI9tOXZLLsih4UZS8KCVJxkuRZZkxpigK/pXxq5CloijLspA4l2QZ36jI9A1MVmSVMVXV5FIp5UKSyqIoOC8kSeI8L8qiLGWpLGQFb4t3VxRZksqy5Jy+D5+Pb8bH0gXwAi9ZlsuyxKcWksQk+hH8y4siz/GTEj6plCR8oqpruIu8lKRckhRJUSVJwudJ0pNLFbfkWLam6wqTJUlmCsNnyoplmaZparkqqabppGKZpMlVVx//i1vAPvaPCJUmmz0vSLE9TWVFKWZIzcXfjOyhLKedc4gVdMq4P10TrKOPepbLAP1LJ6XJxW9L/z0vGfeN38WfcML0U+k35tY+UeM7xbOgBMhWPrZRwY0xhTJWVAj/CeS5JrChSuSwVphayJMu6LMm4ODwVucSzwpPAG/Eiy/MnIfG/ePKFNF7r4u+/4F+7dMet496lUpbxqCWZ0X8LesB41vRIaDXxBXyngoeNj8cyM2wr/BzdEi+4VHC5LPM8L8pSkRU8BPwBK8DwFOkWFOwdXDzPi4KX+GAJq8FYTh/M8LiwIcX2wVVItB1liZfjK5HLkuc5fpc+UZJ4WUqlosmypOANZDoVWLyCjgJOAF7ivnHN2Lz4c4mLL/DT9LPj7Uhvi++lU8EVSVbFotDWKHFBsorDgRMkl+JupJxxtVAUqSchlWZHwt3hTsZz4YToa4rPw8QVWiv6i5PhOvLParasIlKJpKzKJZWK2j1QzWOSK6q6hq3L0rStC0p1g6n66ap6zLdNA3bNCzd8nXdMqxQVTUtr6pqaJpuGJauUqqCIIqqiuHn+eQeeocO1Xo086GZ70uS5Jmm7fuyrA7DMIyiqGmq3ffz8DzPkiwMwziOwxD4v/gJ/3jO0G7XJmK8v//t7x547vnvvfD8E090O73BYFBVVbVavbGx4UeRoqrq+vr6wcFBFEWqquI4DofD3aPj6aPH7o6Go139dK1el2XZsu3lcq1ar2c5e5Zluq7pumHruuvbnuVlWRK5L4IwjCKv26bjuq7jOEbVlKaqml5RVRRFw7Jc1w1Dw7WbZquu47qWbWka8x2v10uzjHDOsqwriqpOquZ5jm1ZzrmqK0hTVRVVVdZpWZbleV6qq6rrW7apK6pru7qu65phGqqqqpoqeI7veVn+xI/P/+Tff+vB//G3f9/1RkVRtNstSZZxHPM8W1xcPDk5yXnebrdXq9WyLOv3B/2Rz/0u8D97m73+9+n//MOPfvRjv9Ntt3tXV1c//vGPc/v62tpaHEU5r5M4CMMw7LIsC6LkeZ7jOKZpuq7j8+fPf/3rX//qV7/qDwct07T7/X693pTl8vLysu84juu7rm2brut7nuO7lm1bluXbvuu5juf5ruU4lmO5tmNZluX5nuv4ruW4nm1bmuN5rm2bbuS4tuW5nm1bjiu7ruW4rmu7ruW7ruM6juM4juNYluNbluVYluVblu1Ztu3Ltm15ju3blu3Ilu3Lju3Itu3ItuNblu3Ilu3Lji3Itu3ItuXbli1blu3Ltm3bli1blm07ruXblu1Ylu1Ztu3Itu3Itu24ji27tmXbju1btm07rmvbbuTYduTYtmzbtm3bjuPYbuPYtiw7rmPbmuXYjuXYsW17ju3YtuXYduTYtm3bduQ4dmw7rmPbjuXYtm3bju3Yjm07lu07duQ4dmzbtuXYji3bjuXYtuU4tuXYtuXYduTYtuXYtm07ruW7tu3Ltm3bju3Ytu3Ltu1btm07ruXbju3Ldu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3It3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itv3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3It3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3Itu3

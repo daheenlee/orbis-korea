@@ -1,87 +1,97 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>조직도 | ORBIS 대한민국지부</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="icon" href="../img/emblem.svg" type="image/svg+xml">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>오르비스 지부 조직도</title>
+<style>
+:root{--bg:#f2f3f5;--surface:#fff;--ink:#16181d;--sub:#5b6270;--line:#b9bec8;--red:#c8323c;--teal:#1d9a96;--navy:#2b3f73;--green:#2f6b4a;--gray:#7a808c;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101216;--surface:#1b1e25;--ink:#eceef2;--sub:#98a0ae;--line:#3a404c;--red:#e5555f;--teal:#3cc0bb;--navy:#7d93d6;--green:#5fb583;--gray:#9aa1ad}}
+:root[data-theme="dark"]{--bg:#101216;--surface:#1b1e25;--ink:#eceef2;--sub:#98a0ae;--line:#3a404c;--red:#e5555f;--teal:#3cc0bb;--navy:#7d93d6;--green:#5fb583;--gray:#9aa1ad}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo",sans-serif;line-height:1.5}
+.wrap{max-width:1100px;margin:0 auto;padding:28px 16px 56px}
+h1{font-size:24px;margin:0 0 4px;letter-spacing:-.02em}
+.lead{color:var(--sub);margin:0 0 24px;font-size:14px}
+.node{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:10px 14px;text-align:center;font-size:14px}
+.node b{display:block;font-size:15px}
+.node small{color:var(--sub);font-size:12px}
+.top{max-width:260px;margin:0 auto;border-top:4px solid var(--ink)}
+.vline{width:2px;height:22px;background:var(--line);margin:0 auto}
+.deputies{display:grid;grid-template-columns:1fr 1fr;gap:16px;position:relative;padding-top:22px;margin-top:0}
+.deputies::before{content:"";position:absolute;top:0;left:25%;right:25%;height:2px;background:var(--line)}
+.deputies::after{content:"";position:absolute;top:0;left:50%;width:2px;height:22px;background:var(--line)}
+.dep{position:relative}
+.dep::before{content:"";position:absolute;top:-22px;left:50%;width:2px;height:22px;background:var(--line)}
+.dep .node{border-top:3px solid var(--ink)}
+.staff{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:18px 0 6px}
+.staff .node{flex:1 1 220px;max-width:340px;border-style:dashed}
+.staff .secret{border-color:var(--red)}
+.cols{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:20px}
+.dept{background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.dept h2{margin:0;padding:10px 12px;font-size:14px;color:#fff}
+.dept h2 span{display:block;font-size:11px;font-weight:400;opacity:.9}
+.dept ul{list-style:none;margin:0;padding:6px 12px 10px}
+.dept li{padding:6px 0;border-bottom:1px solid var(--line);font-size:13px}
+.dept li:last-child{border-bottom:0}
+.dept li i{display:block;font-style:normal;color:var(--sub);font-size:11.5px}
+.c-red h2{background:#b02a34}.c-gray h2{background:#6a707c}.c-teal h2{background:#177c79}.c-navy h2{background:#2b3f73}.c-green h2{background:#2f6b4a}
+.group{font-size:12px;color:var(--sub);margin:22px 0 6px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.chip{font-size:12px;padding:3px 10px;border-radius:12px;border:1px solid var(--line);background:var(--surface)}
+.med{margin-top:18px;border:2px solid var(--teal);border-radius:6px;padding:10px 14px;text-align:center;font-size:14px;background:var(--surface)}
+.med small{color:var(--sub);display:block}
+.note{margin-top:22px;font-size:13px;color:var(--sub)}
+@media (max-width:900px){.cols{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.cols{grid-template-columns:1fr}.deputies{grid-template-columns:1fr}.deputies::before,.deputies::after,.dep::before{display:none}.deputies{padding-top:12px}}
+</style>
 </head>
 <body>
-  <div id="site-header"></div>
-  <header class="page-hero">
-    <div class="wrap">
-      <div class="crumb"><a href="../index.html">홈</a> · 조직도</div>
-      <h1>조직도</h1>
-      <p>지부장 아래 1실 4국 및 감찰감사관으로 구성됩니다.</p>
-    </div>
-  </header>
-  <main id="content" class="section">
-    <div class="wrap panel">
-      <p class="lead">직제는 「대한민국지부 직제규정」에 따릅니다. 실·국장은 지부장이 보하며, 과의 분장은 운영지원국 인사복무과가 관리합니다.</p>
-      <div class="org">
-        <div class="org-box">지부장<small>한서윤</small></div>
-        <div class="org-box" style="background:#fff;color:#003a70;">감찰감사관<small>윤가온 · 지부장 직속</small></div>
-        <div class="org-row">
-          <section class="org-unit">
-            <h4>기획조정실</h4>
-            <ul>
-              <li>기획예산과</li>
-              <li>법무규정과</li>
-              <li>대외협력과</li>
-            </ul>
-          </section>
-          <section class="org-unit">
-            <h4>궤도감시국</h4>
-            <ul>
-              <li>관측1과</li>
-              <li>관측2과</li>
-              <li>경보체계과</li>
-            </ul>
-          </section>
-          <section class="org-unit">
-            <h4>현장대응국</h4>
-            <ul>
-              <li>신속대응과</li>
-              <li>봉쇄격리과</li>
-              <li>복구지원과</li>
-            </ul>
-          </section>
-          <section class="org-unit">
-            <h4>정보분석국</h4>
-            <ul>
-              <li>세계관기록과</li>
-              <li>인물관리과</li>
-              <li>암호통신과</li>
-            </ul>
-          </section>
-          <section class="org-unit">
-            <h4>운영지원국</h4>
-            <ul>
-              <li>인사복무과</li>
-              <li>제복의전과</li>
-              <li>시설보안과</li>
-            </ul>
-          </section>
-        </div>
-      </div>
-      <table class="doc-table">
-        <thead>
-          <tr><th>단위</th><th>주된 직무</th></tr>
-        </thead>
-        <tbody>
-          <tr><th>기획조정실</th><td>연간 계획, 예산, 규정 정비, 대외 공문</td></tr>
-          <tr><th>궤도감시국</th><td>12궤도 상시 관측, 경보 발령, 좌표 대조</td></tr>
-          <tr><th>현장대응국</th><td>균열 봉쇄, 월경 격리, 기준궤도 복구</td></tr>
-          <tr><th>정보분석국</th><td>공식 세계관·인물 기록, 내부 통신</td></tr>
-          <tr><th>운영지원국</th><td>인사, 제복, 청사 보안</td></tr>
-          <tr><th>감찰감사관</th><td>복무 일탈·규정 위반 조사, 지부장 보고</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </main>
-  <footer class="site-footer" id="site-footer"></footer>
-  <script src="../js/app.js"></script>
+<div class="wrap">
+<h1>한국지부 오르비스 지부 조직도</h1>
+<p class="lead">야간 근무제 · 팀별 색상은 어깨 견장과 팔 완장 색과 같아요</p>
+
+<div class="node top"><b>지부장</b><small>오르비스 지부 총괄</small></div>
+<div class="vline"></div>
+<div class="deputies">
+  <div class="dep"><div class="node"><b>부지부장 (작전)</b><small>대응팀 · 단속반 · 상황실</small></div></div>
+  <div class="dep"><div class="node"><b>부지부장 (행정)</b><small>등록과 · 감사과 · 행정·총무과</small></div></div>
+</div>
+
+<div class="staff">
+  <div class="node"><b>상황실</b><small>균열 관제 · 비상 소집 발령</small></div>
+  <div class="node secret"><b>특수관리팀</b><small>균열 공명계 · 판정 불가 관리 (비공개)</small></div>
+</div>
+
+<div class="cols">
+  <section class="dept c-red"><h2>균열 대응팀<span>적색 · 2교대</span></h2><ul>
+    <li>1팀 전방 제압<i>서이현</i></li>
+    <li>2팀 탐지·공간<i>강태희</i></li>
+    <li>3팀 방호·지원</li>
+    <li>4팀 여명조<i>새벽 전담</i></li></ul></section>
+  <section class="dept c-green"><h2>단속반<span>진녹색 · 2교대</span></h2><ul>
+    <li>추적팀</li><li>검거·호송팀</li><li>정보수집팀</li><li>불법의료시설 전담팀</li></ul></section>
+  <section class="dept c-gray"><h2>등록과<span>기본 근무</span></h2><ul>
+    <li>접수팀</li><li>측정팀</li><li>재판정·사후관리팀</li></ul></section>
+  <section class="dept c-navy"><h2>감사과<span>남색 · 기본 근무</span></h2><ul>
+    <li>등급심사팀</li><li>정보보안팀</li><li>내부감찰팀</li></ul></section>
+  <section class="dept c-gray"><h2>행정·총무과<span>비각성자 중심</span></h2><ul>
+    <li>총무팀</li><li>인사·근태팀</li><li>시설·장비팀</li><li>대외협력팀</li></ul></section>
+  <section class="dept c-teal"><h2>의료 지원과<span>청록</span></h2><ul>
+    <li>응급처치팀</li><li>치유팀</li><li>약제·안정제관리팀</li><li>연구연락팀</li></ul></section>
+</div>
+
+<div class="med"><b>메디컬 센터</b><small>지부 본부 옆 초대형 의료 단지 · 연결 통로 · 등록자 치료 원칙 (제10조 긴급 예외)</small></div>
+
+<p class="group">주요 갈등선</p>
+<div class="bar">
+  <span class="chip">작전 라인 ↔ 행정 라인</span>
+  <span class="chip">대응팀 ↔ 감사과</span>
+  <span class="chip">단속반 ↔ 의료 지원과 (불법 병원)</span>
+  <span class="chip">지부 ↔ 본부(IRMO)</span>
+</div>
+<p class="note">상위 기관: 국제 균열 관리기구(가칭) · 협력: 민간 용역 업체</p>
+</div>
 </body>
 </html>
