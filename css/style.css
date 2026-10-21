@@ -444,3 +444,5 @@ h3 { color: var(--navy); letter-spacing: -0.02em; }
   .header-inner { min-height: 72px; }
   .brand-text strong { font-size: 16px; }
 }
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
