@@ -45,7 +45,7 @@ const pages = [
       <div class="site-header">
         <div class="header-inner">
           <a class="brand" href="${base}index.html">
-            <img src="${base}img/emblem.svg" alt="ORBIS 대한민국지부 휘장">
+           <img src="${base}img/logo.png?v=11" alt="ORBIS 대한민국지부 로고">
             <span class="brand-text">
               <strong>ORBIS 대한민국지부</strong>
               <span>궤도질서관리기구 · Republic of Korea Branch</span>
