@@ -36,9 +36,9 @@ const CONFIG = {
 
   // 이미지가 없거나 로딩에 실패하면 CSS로 준비된 로고 대체 화면을 사용합니다.
   const photo = new Image();
-  photo.onload = () => { visual.style.backgroundImage = 'url("../img/branch.jpg")'; visual.classList.add('has-image'); };
+  photo.onload = () => { visual.style.backgroundImage = 'url("../img/branch.png")'; visual.classList.add('has-image'); };
   photo.onerror = () => {};
-  photo.src = '../img/branch.jpg';
+  photo.src = '../img/branch.png';
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { finish(); return; }
   const animate = (el, from, to, duration) => {
