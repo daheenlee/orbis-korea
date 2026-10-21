@@ -1,18 +1,23 @@
 (function () {
   const path = location.pathname.replace(/\\/g, "/");
   const depth = path.split("/").filter(Boolean).length;
-  const inSub = /\/(org|world|history|rules|people|uniform)(\/|$)/.test(path);
+
+const inSub = /\/(org|world|history|rules|people|uniform|floor)(\/|$)/.test(path);
+
   const base = inSub ? "../" : "";
 
-  const pages = [
-    ["index.html", "홈"],
-    ["world/index.html", "세계관"],
-    ["history/index.html", "연혁"],
-    ["org/index.html", "조직도"],
-    ["rules/index.html", "규칙"],
-    ["people/index.html", "구성원 소개"],
-    ["uniform/index.html", "복장"]
-  ];
+
+const pages = [
+  ["index.html", "홈"],
+  ["world/index.html", "세계관"],
+  ["history/index.html", "연혁"],
+  ["org/index.html", "조직도"],
+  ["floor/index.html", "층별 안내"],
+  ["rules/index.html", "규칙"],
+  ["people/index.html", "구성원 소개"],
+  ["uniform/index.html", "복장"]
+];
+
 
   function currentHref(href) {
     if (href === "index.html") {
