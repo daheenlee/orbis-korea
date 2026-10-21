@@ -1,97 +1,496 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>오르비스 지부 조직도</title>
-<style>
-:root{--bg:#f2f3f5;--surface:#fff;--ink:#16181d;--sub:#5b6270;--line:#b9bec8;--red:#c8323c;--teal:#1d9a96;--navy:#2b3f73;--green:#2f6b4a;--gray:#7a808c;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101216;--surface:#1b1e25;--ink:#eceef2;--sub:#98a0ae;--line:#3a404c;--red:#e5555f;--teal:#3cc0bb;--navy:#7d93d6;--green:#5fb583;--gray:#9aa1ad}}
-:root[data-theme="dark"]{--bg:#101216;--surface:#1b1e25;--ink:#eceef2;--sub:#98a0ae;--line:#3a404c;--red:#e5555f;--teal:#3cc0bb;--navy:#7d93d6;--green:#5fb583;--gray:#9aa1ad}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo",sans-serif;line-height:1.5}
-.wrap{max-width:1100px;margin:0 auto;padding:28px 16px 56px}
-h1{font-size:24px;margin:0 0 4px;letter-spacing:-.02em}
-.lead{color:var(--sub);margin:0 0 24px;font-size:14px}
-.node{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:10px 14px;text-align:center;font-size:14px}
-.node b{display:block;font-size:15px}
-.node small{color:var(--sub);font-size:12px}
-.top{max-width:260px;margin:0 auto;border-top:4px solid var(--ink)}
-.vline{width:2px;height:22px;background:var(--line);margin:0 auto}
-.deputies{display:grid;grid-template-columns:1fr 1fr;gap:16px;position:relative;padding-top:22px;margin-top:0}
-.deputies::before{content:"";position:absolute;top:0;left:25%;right:25%;height:2px;background:var(--line)}
-.deputies::after{content:"";position:absolute;top:0;left:50%;width:2px;height:22px;background:var(--line)}
-.dep{position:relative}
-.dep::before{content:"";position:absolute;top:-22px;left:50%;width:2px;height:22px;background:var(--line)}
-.dep .node{border-top:3px solid var(--ink)}
-.staff{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:18px 0 6px}
-.staff .node{flex:1 1 220px;max-width:340px;border-style:dashed}
-.staff .secret{border-color:var(--red)}
-.cols{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:20px}
-.dept{background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden}
-.dept h2{margin:0;padding:10px 12px;font-size:14px;color:#fff}
-.dept h2 span{display:block;font-size:11px;font-weight:400;opacity:.9}
-.dept ul{list-style:none;margin:0;padding:6px 12px 10px}
-.dept li{padding:6px 0;border-bottom:1px solid var(--line);font-size:13px}
-.dept li:last-child{border-bottom:0}
-.dept li i{display:block;font-style:normal;color:var(--sub);font-size:11.5px}
-.c-red h2{background:#b02a34}.c-gray h2{background:#6a707c}.c-teal h2{background:#177c79}.c-navy h2{background:#2b3f73}.c-green h2{background:#2f6b4a}
-.group{font-size:12px;color:var(--sub);margin:22px 0 6px}
-.bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
-.chip{font-size:12px;padding:3px 10px;border-radius:12px;border:1px solid var(--line);background:var(--surface)}
-.med{margin-top:18px;border:2px solid var(--teal);border-radius:6px;padding:10px 14px;text-align:center;font-size:14px;background:var(--surface)}
-.med small{color:var(--sub);display:block}
-.note{margin-top:22px;font-size:13px;color:var(--sub)}
-@media (max-width:900px){.cols{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:520px){.cols{grid-template-columns:1fr}.deputies{grid-template-columns:1fr}.deputies::before,.deputies::after,.dep::before{display:none}.deputies{padding-top:12px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#08090b">
+  <meta name="description" content="ORBIS 대한민국지부 조직도 및 부서 편제">
+  <title>조직도 | ORBIS 대한민국지부</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" href="../img/branch.png?v=11" type="image/png">
+
+  <style>
+    /* 조직도 전용 스타일 - 공통 헤더와 분리 */
+    .org-page {
+      --org-bg: #f2f3f5;
+      --org-surface: #ffffff;
+      --org-ink: #16181d;
+      --org-sub: #5b6270;
+      --org-line: #b9bec8;
+      --org-red: #c8323c;
+      --org-teal: #1d9a96;
+      --org-navy: #2b3f73;
+      --org-green: #2f6b4a;
+
+      background: var(--org-bg);
+      color: var(--org-ink);
+      font-family: Pretendard, "Noto Sans KR", sans-serif;
+      line-height: 1.5;
+      padding: 42px 16px 70px;
+    }
+
+    .org-page,
+    .org-page * {
+      box-sizing: border-box;
+    }
+
+    .org-page .org-wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .org-page .org-heading {
+      margin-bottom: 34px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--org-line);
+    }
+
+    .org-page .org-eyebrow {
+      font-size: 11px;
+      letter-spacing: .18em;
+      color: var(--org-red);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .org-page h1 {
+      color: var(--org-ink);
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 800;
+      margin: 0 0 12px;
+      letter-spacing: -.04em;
+    }
+
+    .org-page .org-lead {
+      color: var(--org-sub);
+      font-size: 14px;
+      margin: 0;
+      line-height: 1.8;
+    }
+
+    .org-page .org-section-title {
+      font-size: 19px;
+      font-weight: 800;
+      margin: 36px 0 18px;
+      color: var(--org-ink);
+    }
+
+    /* 조직도 상단 */
+    .org-page .org-node {
+      background: var(--org-surface);
+      border: 1px solid var(--org-line);
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .org-page .org-node b {
+      display: block;
+      font-size: 16px;
+      color: var(--org-ink);
+      margin-bottom: 4px;
+    }
+
+    .org-page .org-node small {
+      display: block;
+      color: var(--org-sub);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .org-page .org-chief {
+      max-width: 300px;
+      margin: 0 auto;
+      border-top: 4px solid var(--org-red);
+    }
+
+    .org-page .org-vline {
+      width: 2px;
+      height: 24px;
+      background: var(--org-line);
+      margin: 0 auto;
+    }
+
+    .org-page .org-deputies {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      position: relative;
+      padding-top: 24px;
+    }
+
+    .org-page .org-deputies::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 25%;
+      right: 25%;
+      height: 2px;
+      background: var(--org-line);
+    }
+
+    .org-page .org-deputies::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      height: 24px;
+      width: 2px;
+      background: var(--org-line);
+    }
+
+    .org-page .org-deputy {
+      position: relative;
+    }
+
+    .org-page .org-deputy::before {
+      content: "";
+      position: absolute;
+      top: -24px;
+      left: 50%;
+      width: 2px;
+      height: 24px;
+      background: var(--org-line);
+    }
+
+    .org-page .org-deputy .org-node {
+      border-top: 3px solid #444b58;
+    }
+
+    .org-page .org-staff {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin: 24px auto 0;
+      max-width: 760px;
+    }
+
+    .org-page .org-staff .org-node {
+      border-style: dashed;
+    }
+
+    .org-page .org-staff .org-secret {
+      border-color: var(--org-red);
+      background: #fff6f6;
+    }
+
+    /* 부서별 편제 */
+    .org-page .org-departments {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .org-page .org-dept {
+      background: var(--org-surface);
+      border: 1px solid var(--org-line);
+      border-radius: 8px;
+      overflow: hidden;
+      min-width: 0;
+    }
+
+    .org-page .org-dept h3 {
+      margin: 0;
+      padding: 16px;
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .org-page .org-dept h3 span {
+      display: block;
+      font-size: 11px;
+      font-weight: 400;
+      opacity: .9;
+      margin-top: 4px;
+    }
+
+    .org-page .org-dept ul {
+      list-style: none;
+      padding: 10px 16px 16px;
+      margin: 0;
+    }
+
+    .org-page .org-dept li {
+      padding: 11px 0;
+      border-bottom: 1px solid #e3e5e9;
+      font-size: 13px;
+      color: var(--org-ink);
+    }
+
+    .org-page .org-dept li:last-child {
+      border-bottom: 0;
+    }
+
+    .org-page .org-dept li i {
+      display: block;
+      font-style: normal;
+      font-size: 12px;
+      color: var(--org-sub);
+      margin-top: 4px;
+    }
+
+    .org-page .org-red h3 { background: #b02a34; }
+    .org-page .org-green h3 { background: #2f6b4a; }
+    .org-page .org-gray h3 { background: #6a707c; }
+    .org-page .org-navy h3 { background: #2b3f73; }
+    .org-page .org-teal h3 { background: #177c79; }
+
+    /* 의료 단지 */
+    .org-page .org-medical {
+      margin-top: 26px;
+      border: 2px solid var(--org-teal);
+      border-radius: 8px;
+      background: var(--org-surface);
+      padding: 22px;
+      text-align: center;
+    }
+
+    .org-page .org-medical b {
+      display: block;
+      color: var(--org-teal);
+      font-size: 19px;
+      margin-bottom: 8px;
+    }
+
+    .org-page .org-medical small {
+      color: var(--org-sub);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* 갈등선 */
+    .org-page .org-relations {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .org-page .org-chip {
+      background: var(--org-surface);
+      border: 1px solid var(--org-line);
+      border-radius: 30px;
+      padding: 9px 15px;
+      font-size: 12px;
+      color: var(--org-ink);
+    }
+
+    .org-page .org-note {
+      font-size: 12px;
+      color: var(--org-sub);
+      margin-top: 24px;
+      line-height: 1.8;
+    }
+
+    /* 태블릿 */
+    @media (max-width: 900px) {
+      .org-page .org-departments {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    /* 모바일 */
+    @media (max-width: 600px) {
+      .org-page {
+        padding: 28px 14px 48px;
+      }
+
+      .org-page .org-deputies,
+      .org-page .org-staff,
+      .org-page .org-departments {
+        grid-template-columns: 1fr;
+      }
+
+      .org-page .org-deputies {
+        padding-top: 12px;
+        gap: 12px;
+      }
+
+      .org-page .org-deputies::before,
+      .org-page .org-deputies::after,
+      .org-page .org-deputy::before {
+        display: none;
+      }
+
+      .org-page .org-staff {
+        margin-top: 16px;
+      }
+
+      .org-page .org-node {
+        padding: 14px;
+      }
+
+      .org-page .org-section-title {
+        margin-top: 30px;
+      }
+    }
+  </style>
+
+  <script src="../js/app.js" defer></script>
 </head>
+
 <body>
-<div class="wrap">
-<h1>한국지부 오르비스 지부 조직도</h1>
-<p class="lead">야간 근무제 · 팀별 색상은 어깨 견장과 팔 완장 색과 같아요</p>
 
-<div class="node top"><b>지부장</b><small>오르비스 지부 총괄</small></div>
-<div class="vline"></div>
-<div class="deputies">
-  <div class="dep"><div class="node"><b>부지부장 (작전)</b><small>대응팀 · 단속반 · 상황실</small></div></div>
-  <div class="dep"><div class="node"><b>부지부장 (행정)</b><small>등록과 · 감사과 · 행정·총무과</small></div></div>
-</div>
+  <!-- 공통 헤더 -->
+  <div id="site-header"></div>
 
-<div class="staff">
-  <div class="node"><b>상황실</b><small>균열 관제 · 비상 소집 발령</small></div>
-  <div class="node secret"><b>특수관리팀</b><small>균열 공명계 · 판정 불가 관리 (비공개)</small></div>
-</div>
+  <main id="content" class="org-page">
+    <div class="org-wrap">
 
-<div class="cols">
-  <section class="dept c-red"><h2>균열 대응팀<span>적색 · 2교대</span></h2><ul>
-    <li>1팀 전방 제압<i>서이현</i></li>
-    <li>2팀 탐지·공간<i>강태희</i></li>
-    <li>3팀 방호·지원</li>
-    <li>4팀 여명조<i>새벽 전담</i></li></ul></section>
-  <section class="dept c-green"><h2>단속반<span>진녹색 · 2교대</span></h2><ul>
-    <li>추적팀</li><li>검거·호송팀</li><li>정보수집팀</li><li>불법의료시설 전담팀</li></ul></section>
-  <section class="dept c-gray"><h2>등록과<span>기본 근무</span></h2><ul>
-    <li>접수팀</li><li>측정팀</li><li>재판정·사후관리팀</li></ul></section>
-  <section class="dept c-navy"><h2>감사과<span>남색 · 기본 근무</span></h2><ul>
-    <li>등급심사팀</li><li>정보보안팀</li><li>내부감찰팀</li></ul></section>
-  <section class="dept c-gray"><h2>행정·총무과<span>비각성자 중심</span></h2><ul>
-    <li>총무팀</li><li>인사·근태팀</li><li>시설·장비팀</li><li>대외협력팀</li></ul></section>
-  <section class="dept c-teal"><h2>의료 지원과<span>청록</span></h2><ul>
-    <li>응급처치팀</li><li>치유팀</li><li>약제·안정제관리팀</li><li>연구연락팀</li></ul></section>
-</div>
+      <div class="org-heading">
+        <div class="org-eyebrow">
+          ORBIS · ORGANIZATION STRUCTURE
+        </div>
 
-<div class="med"><b>메디컬 센터</b><small>지부 본부 옆 초대형 의료 단지 · 연결 통로 · 등록자 치료 원칙 (제10조 긴급 예외)</small></div>
+        <h1>오르비스 대한민국지부 조직도</h1>
 
-<p class="group">주요 갈등선</p>
-<div class="bar">
-  <span class="chip">작전 라인 ↔ 행정 라인</span>
-  <span class="chip">대응팀 ↔ 감사과</span>
-  <span class="chip">단속반 ↔ 의료 지원과 (불법 병원)</span>
-  <span class="chip">지부 ↔ 본부(IRMO)</span>
-</div>
-<p class="note">상위 기관: 국제 균열 관리기구(가칭) · 협력: 민간 용역 업체</p>
-</div>
+        <p class="org-lead">
+          야간 근무제 운영 기관 · 균열 관측 및 대응 조직<br>
+          팀별 식별색은 제복의 어깨 견장과 왼팔 완장에 적용됩니다.
+        </p>
+      </div>
+
+      <!-- 지휘부 -->
+      <h2 class="org-section-title">지부 지휘체계</h2>
+
+      <div class="org-node org-chief">
+        <b>지부장</b>
+        <small>오르비스 대한민국지부 총괄</small>
+      </div>
+
+      <div class="org-vline"></div>
+
+      <div class="org-deputies">
+
+        <div class="org-deputy">
+          <div class="org-node">
+            <b>부지부장 (작전)</b>
+            <small>대응팀 · 단속반 · 상황실</small>
+          </div>
+        </div>
+
+        <div class="org-deputy">
+          <div class="org-node">
+            <b>부지부장 (행정)</b>
+            <small>등록과 · 감사과 · 행정·총무과</small>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 직속 조직 -->
+      <div class="org-staff">
+
+        <div class="org-node">
+          <b>상황실</b>
+          <small>균열 관제 · 비상 소집 발령</small>
+        </div>
+
+        <div class="org-node org-secret">
+          <b>특수관리팀</b>
+          <small>균열 공명계 · 판정 불가 관리 (비공개)</small>
+        </div>
+
+      </div>
+
+      <!-- 부서 -->
+      <h2 class="org-section-title">부서별 편제</h2>
+
+      <div class="org-departments">
+
+        <section class="org-dept org-red">
+          <h3>균열 대응팀 <span>적색 · 2교대</span></h3>
+          <ul>
+            <li>1팀 전방 제압 <i>서이현</i></li>
+            <li>2팀 탐지·공간 <i>강태희</i></li>
+            <li>3팀 방호·지원</li>
+            <li>4팀 여명조 <i>새벽 전담</i></li>
+          </ul>
+        </section>
+
+        <section class="org-dept org-green">
+          <h3>단속반 <span>진녹색 · 2교대</span></h3>
+          <ul>
+            <li>추적팀</li>
+            <li>검거·호송팀</li>
+            <li>정보수집팀</li>
+            <li>불법의료시설 전담팀</li>
+          </ul>
+        </section>
+
+        <section class="org-dept org-gray">
+          <h3>등록과 <span>기본 근무</span></h3>
+          <ul>
+            <li>접수팀</li>
+            <li>측정팀</li>
+            <li>재판정·사후관리팀</li>
+          </ul>
+        </section>
+
+        <section class="org-dept org-navy">
+          <h3>감사과 <span>남색 · 기본 근무</span></h3>
+          <ul>
+            <li>등급심사팀</li>
+            <li>정보보안팀</li>
+            <li>내부감찰팀</li>
+          </ul>
+        </section>
+
+        <section class="org-dept org-gray">
+          <h3>행정·총무과 <span>비각성자 중심</span></h3>
+          <ul>
+            <li>총무팀</li>
+            <li>인사·근태팀</li>
+            <li>시설·장비팀</li>
+            <li>대외협력팀</li>
+          </ul>
+        </section>
+
+        <section class="org-dept org-teal">
+          <h3>의료 지원과 <span>청록</span></h3>
+          <ul>
+            <li>응급처치팀</li>
+            <li>치유팀</li>
+            <li>약제·안정제관리팀</li>
+            <li>연구연락팀</li>
+          </ul>
+        </section>
+
+      </div>
+
+      <!-- 메디컬 센터 -->
+      <div class="org-medical">
+        <b>MEDICAL CENTER · 메디컬 센터</b>
+        <small>
+          지부 본부 옆 초대형 의료 단지 · 연결 통로<br>
+          등록자 치료 원칙 (제10조 긴급 예외)
+        </small>
+      </div>
+
+      <!-- 갈등 관계 -->
+      <h2 class="org-section-title">주요 갈등선</h2>
+
+      <div class="org-relations">
+        <span class="org-chip">작전 라인 ↔ 행정 라인</span>
+        <span class="org-chip">대응팀 ↔ 감사과</span>
+        <span class="org-chip">단속반 ↔ 의료 지원과 (불법 병원)</span>
+        <span class="org-chip">지부 ↔ 본부(IRMO)</span>
+      </div>
+
+      <p class="org-note">
+        상위 기관: 국제 균열 관리기구(가칭)<br>
+        협력 기관: 민간 용역 업체
+      </p>
+
+    </div>
+  </main>
+
+  <!-- 공통 푸터 -->
+  <footer class="site-footer" id="site-footer"></footer>
+
 </body>
 </html>
