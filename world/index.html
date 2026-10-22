@@ -2,46 +2,77 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#003a70">
+  <meta name="description" content="ORBIS 대한민국지부 세계관 및 야간 운영 체계">
   <title>세계관 | ORBIS 대한민국지부</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="icon" href="../img/emblem.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/security.css">
+  <link rel="icon" href="../img/branch.png" type="image/png">
+  <script src="../js/app.js" defer></script>
+  <script src="../js/security.js" defer></script>
 </head>
 <body>
   <div id="site-header"></div>
-  <header class="page-hero">
-    <div class="wrap">
-      <div class="crumb"><a href="../index.html">홈</a> · 세계관</div>
-      <h1>세계관</h1>
-      <p>궤도질서의 구조와 대한민국지부의 관할 원칙을 안내합니다.</p>
+<main class="os-world" id="content">
+  <div class="os-ticker" aria-label="보안등급 문서입니다">
+    <div class="os-ticker-track" aria-hidden="true">
+      <span>● 보안등급 문서입니다 <b>///</b> AUTHORIZED PERSONNEL ONLY <b>///</b></span><span>● 보안등급 문서입니다 <b>///</b> AUTHORIZED PERSONNEL ONLY <b>///</b></span><span>● 보안등급 문서입니다 <b>///</b> AUTHORIZED PERSONNEL ONLY <b>///</b></span><span>● 보안등급 문서입니다 <b>///</b> AUTHORIZED PERSONNEL ONLY <b>///</b></span>
     </div>
-  </header>
-  <main id="content" class="section">
-    <div class="wrap panel">
-      <p class="lead">ORBIS는 서로 겹쳐 존재하는 현실층, 즉 ‘궤도(Orbit)’의 경계를 관측·보정하는 초국가 관리기구입니다. 대한민국지부는 한반도 권역 및 인접 해역에서 발생하는 궤도 이상에 대한 일차 관할권을 가집니다.</p>
+  </div>
 
-      <table class="meta-table">
-        <tr><th>공식 명칭</th><td>궤도질서관리기구 대한민국지부 (ORBIS Republic of Korea Branch)</td></tr>
-        <tr><th>설치 근거</th><td>궤도질서기본협약 제9조 및 대한민국지부 설치에 관한 의정서(2004)</td></tr>
-        <tr><th>관할</th><td>한반도 권역, 연안 200해리 상당의 관측구, 지부 인가 출입궤도 12개</td></tr>
-        <tr><th>임무</th><td>경계 감시, 이상현상 봉쇄, 민간 영향 최소화, 세계관 기록의 공신력 유지</td></tr>
-      </table>
+  <section class="os-intro os-wrap" aria-labelledby="os-title">
+    <div class="os-eyebrow"><span class="os-live"></span> ORBIS / RESTRICTED ARCHIVE <span class="os-index">FILE 001 — WORLD PROTOCOL</span></div>
+    <h1 id="os-title">하나의 도시.<br><em>서로 다른 두 개의 삶.</em></h1>
+    <p>낮의 직업과 밤의 소속은 별개다.<br>해가 지면 능력이 깨어나고, 관계의 위치도 달라질 수 있다.</p>
+    <div class="os-intro-rule"><span>DAY / NIGHT SEPARATION</span><span>ACCESS LEVEL: INTERNAL</span></div>
+  </section>
 
-      <h3>1. 궤도(Orbit)</h3>
-      <p>궤도는 동일한 지리적 좌표 위에 겹쳐 있는 현실층입니다. 일상에서 인지되는 층을 ‘기준궤도(O-0)’라 하며, 인접한 층을 O-1부터 O-11까지 구분합니다. 궤도가 안정되면 층 간 물질·정보는 거의 교차하지 않습니다. 불안정 시 잔상, 결손, 중복기억, 비인가 출현이 발생합니다.</p>
+  <section class="os-contrast os-wrap" aria-label="주간과 야간의 생활 비교">
+    <article class="os-phase os-day">
+      <div class="os-phase-head"><span class="os-sun" aria-hidden="true">☼</span><span>01 / DAYTIME</span></div>
+      <div class="os-phase-body"><p class="os-phase-label">낮의 신분</p><h2>평범한 사회의<br>질서 속에서.</h2><p>직장, 학교, 일상. 누구나 자신만의 주간 생활을 이어간다.</p></div>
+      <div class="os-phase-foot"><span>사회적 직책과 관계</span><strong>DAY</strong></div>
+    </article>
+    <div class="os-between" aria-hidden="true"><span>≠</span></div>
+    <article class="os-phase os-night">
+      <div class="os-phase-head"><span class="os-moon" aria-hidden="true">◐</span><span>02 / NIGHTTIME</span></div>
+      <div class="os-phase-body"><p class="os-phase-label">밤의 신분</p><h2>균열 앞에서는<br>다른 이름으로.</h2><p>각성자에게 능력이 발현된다. ORBIS의 직책과 현장 권한은 낮과 독립적이다.</p></div>
+      <div class="os-phase-foot"><span>기관 내 직책과 권한</span><strong>NIGHT</strong></div>
+    </article>
+  </section>
 
-      <h3>2. 경계(Boundary)</h3>
-      <p>경계는 궤도 사이를 가르는 관측 가능한 막입니다. 지부는 경계를 ‘균열·왜곡·침투’ 3종으로 등급화합니다. 균열은 일시적 틈, 왜곡은 좌표 어긋남, 침투는 타 궤도 존재의 월경을 말합니다. 현장대응국은 등급에 따라 관측, 봉쇄, 복구의 순서로 개입합니다.</p>
-
-      <h3>3. 기록과 공신력</h3>
-      <p>세계관은 개인 창작의 집합이 아니라, 지부가 인증한 공식 기록의 체계입니다. 인물, 사건, 복장, 직제는 정보분석국 세계관기록과가 대조한 뒤에만 ‘공식’으로 게시됩니다. 비인가 설정은 내부 자료로만 보관하며 대외 포털에 올리지 않습니다.</p>
-
-      <h3>4. 대한민국지부의 위치</h3>
-      <p>본부는 다국적 협의체이며, 각국 지부는 현지 복무 관습과 언어로 운영됩니다. 대한민국지부는 공공기관형 직제, 제복, 문서주의를 채택하여 구성원이 동일한 절차로 움직이도록 합니다. 이는 미학이 아니라 현장 혼선을 줄이기 위한 운영 원칙입니다.</p>
+  <section class="os-reversal os-wrap" aria-labelledby="os-reversal-title">
+    <div class="os-section-head"><span>CASE STUDY / 01</span><h2 id="os-reversal-title">같은 두 사람, 달라지는 관계.</h2><p>아래는 가능한 관계의 한 예시다. 모든 각성자에게 적용되는 규칙은 아니다.</p></div>
+    <div class="os-reversal-grid">
+      <div class="os-person os-person-a"><div class="os-person-icon" aria-hidden="true">A</div><strong>인물 A</strong><span>주간: 상사</span><span class="os-shift">야간: 지원요원</span></div>
+      <div class="os-axis"><span class="os-axis-day">낮에는 지시한다 <span aria-hidden="true">→</span></span><span class="os-axis-night"><span aria-hidden="true">←</span> 밤에는 지휘받는다</span></div>
+      <div class="os-person os-person-b"><div class="os-person-icon" aria-hidden="true">B</div><strong>인물 B</strong><span>주간: 부하</span><span class="os-shift">야간: 현장 지휘관</span></div>
     </div>
-  </main>
+    <p class="os-reversal-note">“낮의 권력은 밤의 지휘권을 보장하지 않는다.”</p>
+  </section>
+
+  <section class="os-facts os-wrap" aria-labelledby="os-facts-title">
+    <div class="os-section-head"><span>CORE SYSTEM / 04</span><h2 id="os-facts-title">알아야 할 네 가지 규칙.</h2></div>
+    <div class="os-fact-grid">
+      <article class="os-fact"><span class="os-fact-icon" aria-hidden="true">◑</span><span class="os-fact-no">01 / AWAKENING</span><h3>능력은 밤에 깨어난다</h3><p>일몰 후 발현, 일출 후 비활성화. 각성 전후의 인격과 기억은 같다.</p></article>
+      <article class="os-fact"><span class="os-fact-icon" aria-hidden="true">◷</span><span class="os-fact-no">02 / RECOVERY</span><h3>수면은 하루 2시간</h3><p>각성자의 신체 회복 효율은 비정상적으로 높다. 과부하 시 추가 회복이 필요하다.</p></article>
+      <article class="os-fact"><span class="os-fact-icon" aria-hidden="true">▤</span><span class="os-fact-no">03 / DUTY</span><h3>서로 다른 근무시간</h3><p>비각성자는 주간 09–18시. A~C급 각성자는 야간 근무에 배치된다.</p></article>
+      <article class="os-fact"><span class="os-fact-icon" aria-hidden="true">⊘</span><span class="os-fact-no">04 / SECRECY</span><h3>낮에는 밤을 말하지 않는다</h3><p>타인의 ORBIS 소속·직책·능력과 야간 관계를 주간 생활에서 누설하거나 이용할 수 없다.</p></article>
+    </div>
+  </section>
+
+  <section class="os-duty os-wrap" aria-labelledby="os-duty-title">
+    <div class="os-section-head"><span>OPERATION / SCHEDULE</span><h2 id="os-duty-title">도시는 멈추지 않는다.</h2></div>
+    <div class="os-duty-grid">
+      <div><span class="os-duty-symbol">☀</span><span class="os-duty-type">NON-AWAKENED</span><strong>09:00 — 18:00</strong><small>비각성자 · 주간 업무</small></div>
+      <div><span class="os-duty-symbol">☾</span><span class="os-duty-type">AWAKENED / A–C</span><strong>18:00 — 06:00</strong><small>각성자 · 야간 교대 운영</small></div>
+    </div>
+    <p class="os-duty-disclaimer">※ 야간 근무는 교대 편성되며, 능력 등급은 개인의 직책이나 지휘권과 동일하지 않습니다. A급은 현장 출동·조사 등 실무 중심으로 배치됩니다.</p>
+  </section>
+  <div class="os-end os-wrap"><span>ORBIS / KOREA BRANCH</span><span>END OF DOCUMENT — 001</span></div>
+</main>
   <footer class="site-footer" id="site-footer"></footer>
-  <script src="../js/app.js"></script>
 </body>
 </html>
