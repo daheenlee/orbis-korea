@@ -9,38 +9,7 @@
 <link href="../css/style.css" rel="stylesheet"/>
 <link href="../img/emblem.svg" rel="icon" type="image/svg+xml"/>
 <style>
-    /* ORBIS 공통 헤더·푸터: 공통 CSS/JS가 로드되지 않는 미리보기에서도 표시 */
-    .skip{position:absolute;left:-999px;top:8px;background:#003a70;color:#fff;padding:8px 16px;z-index:10000}
-    .skip:focus{left:8px}
-    .topbar{background:#00264d;color:#d5e4f3;font-size:13px}
-    .topbar-inner,.header-inner,.gnb-inner,.footer-inner{width:min(1280px,calc(100% - 32px));margin:0 auto}
-    .topbar-inner{display:flex;justify-content:space-between;align-items:center;min-height:36px;gap:16px}
-    .top-links{display:flex;gap:16px;flex-wrap:wrap}
-    .topbar a{color:#d5e4f3;text-decoration:none}
-    .badge-fict{background:#7a1b2b;color:#fff;padding:2px 8px;border-radius:2px;font-size:11px;letter-spacing:.04em}
-    .site-header{background:#fff;border-bottom:1px solid #d7dee8;position:sticky;top:0;z-index:50;color:#1d2430}
-    .header-inner{display:flex;align-items:center;justify-content:space-between;min-height:84px;gap:20px}
-    .brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit}
-    .brand img{width:58px;height:58px;object-fit:contain}
-    .brand-text strong{display:block;font-size:20px;color:#003a70;letter-spacing:-.03em}
-    .brand-text span{display:block;font-size:12px;color:#5b6677;margin-top:2px}
-    .header-tools{display:flex;gap:8px;align-items:center}
-    .search-box{display:flex;border:2px solid #003a70;border-radius:2px;overflow:hidden;background:#fff}
-    .search-box input{border:0;padding:8px 12px;min-width:220px;outline:none;color:#1d2430;background:#fff}
-    .search-box button,.menu-toggle{background:#003a70;color:#fff;border:0;padding:8px 14px;cursor:pointer}
-    .menu-toggle{display:none}
-    .gnb{background:#003a70}
-    .gnb-inner{display:flex}
-    .gnb a{color:#fff;text-decoration:none;padding:14px 22px;font-weight:600;font-size:15px;position:relative}
-    .gnb a:hover,.gnb a[aria-current="page"]{background:#0a4f8c}
-    .gnb a[aria-current="page"]::after{content:"";position:absolute;left:18px;right:18px;bottom:0;height:3px;background:#c9a227}
-    .site-footer{background:#1b2430;color:#c9d2dc;padding:28px 0 18px;margin-top:48px;font-size:13px}
-    .footer-links{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:14px}
-    .footer-links a{color:#fff;font-weight:700;text-decoration:none}
-    .site-footer address{font-style:normal;margin:0 0 8px}
-    .site-footer .warn{color:#f4e3b2;margin-top:10px}
-    @media(max-width:980px){.search-box input{min-width:120px}}
-    @media(max-width:760px){.menu-toggle{display:inline-flex}.gnb{display:none}.gnb.open{display:block}.gnb-inner{flex-direction:column}.header-inner{min-height:72px}.brand-text strong{font-size:16px}.topbar-inner{padding:6px 0;align-items:flex-start}.header-inner{flex-wrap:wrap;padding:8px 0}.search-box input{min-width:80px}}
+
 
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 body[data-mode="night"]{--bg:#070a14;--bg2:#121a33;--card:#141a2b;--ink:#e8ecf7;--sub:#8e98b3;--line:#2a3350;--red:#ff5a66;--dark:#0a0d18;--soft:#1b2238;--glow:0 0 28px rgba(255,90,102,.18);color-scheme:dark}
@@ -48,7 +17,7 @@ body[data-mode="day"]{--bg:#eef1f6;--bg2:#fbf3e6;--card:#ffffff;--ink:#1a1d25;--
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
 body{margin:0;min-height:100vh;background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%) fixed;color:var(--ink);font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo",sans-serif;line-height:1.5}
-.wrap{max-width:900px;margin:0 auto;padding:28px 16px 56px}
+.people-wrap{max-width:900px;margin:0 auto;padding:28px 16px 56px}
 h1{font-size:22px;margin:0 0 4px;letter-spacing:-.02em}
 .lead{color:var(--sub);font-size:14px;margin:0 0 24px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;justify-items:center}
@@ -95,26 +64,19 @@ h1{font-size:22px;margin:0 0 4px;letter-spacing:-.02em}
 .mode{display:none}
 body[data-mode="night"] #night,body[data-mode="day"] #day{display:block}
 .grp{font-size:14px;color:var(--sub);margin:30px 0 14px;letter-spacing:.04em}.grp:first-child{margin-top:0}
+
+/* 구성원 페이지 보안 문서 전광판 */
+.os-ticker{width:100%;height:42px;background:#b8313c;border-block:1px solid #e36b72;display:flex;align-items:center;overflow:hidden;white-space:nowrap}
+.os-ticker-track{display:flex;width:max-content;animation:os-marquee 25s linear infinite;will-change:transform}
+.os-ticker-track>span{flex:none;padding-right:35px;font-size:12px;letter-spacing:.13em;font-weight:800;color:#fff}
+.os-ticker b{opacity:.55;margin-inline:16px}
+@keyframes os-marquee{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.os-ticker-track{animation:none}}
 </style>
 </head>
 <body data-mode="night">
-<div id="site-header">
-<a class="skip" href="#content">본문 바로가기</a>
-<div class="topbar">
-<div class="topbar-inner">
-<div class="top-links"><span class="badge-fict">가상세계관 공식기록</span><span>궤도질서관리기구 대한민국지부</span></div>
-<div class="top-links"><a href="../index.html">한국어</a><a href="../sitemap.html">사이트맵</a></div>
-</div>
-</div>
-<div class="site-header">
-<div class="header-inner">
-<a class="brand" href="../index.html"><img alt="ORBIS 대한민국지부 휘장" src="../img/emblem.svg"/><span class="brand-text"><strong>ORBIS 대한민국지부</strong><span>궤도질서관리기구 · Republic of Korea Branch</span></span></a>
-<div class="header-tools"><form class="search-box" id="search-form" role="search"><label class="sr-only" for="q">검색어</label><input id="q" name="q" placeholder="메뉴·규정 검색" type="search"/><button type="submit">검색</button></form><button aria-expanded="false" class="menu-toggle" id="menu-toggle" type="button">메뉴</button></div>
-</div>
-</div>
-<nav aria-label="주 메뉴" class="gnb" id="gnb"><div class="gnb-inner"><a href="../index.html">홈</a><a href="../world/index.html">세계관</a><a href="../history/index.html">연혁</a><a href="../org/index.html">조직도</a><a href="../rules/index.html">규칙</a><a aria-current="page" href="index.html">구성원 소개</a><a href="../uniform/index.html">복장</a></div></nav>
-</div>
-<main>
+<div id="site-header"></div>
+<main id="content">
 <!-- 보안등급 전광판 -->
 <div class="os-ticker" aria-label="보안등급 문서입니다">
   <div class="os-ticker-track" aria-hidden="true">
@@ -124,7 +86,7 @@ body[data-mode="night"] #night,body[data-mode="day"] #day{display:block}
     <span>● 보안등급 문서입니다 <b>///</b> AUTHORIZED PERSONNEL ONLY <b>///</b></span>
   </div>
 </div>
-    <div class="wrap">
+    <div class="wrap people-wrap">
 <div class="top">
 <div><h1>오르비스 지부 직원 프로필</h1><p class="lead" id="lead">밤 · 센터에서의 모습이에요. 카드를 누르면 뒷면이 보여요</p></div>
 <div aria-label="밤낮 전환" class="tog" role="group"><button aria-pressed="true" data-m="night" type="button">밤 · 센터</button><button aria-pressed="false" data-m="day" type="button">낮 · 일상</button></div>
@@ -229,7 +191,7 @@ body[data-mode="night"] #night,body[data-mode="day"] #day{display:block}
 </button>
 </div><p class="grp">NPC</p><div class="grid"><button aria-label="최현 프로필, 눌러서 뒷면 보기" class="badge" type="button"><div class="inner"><div class="face front"><div class="slot"></div><div class="head"><b>DAY</b><span>일반 프로필</span></div><div class="photo"><img alt="최현" src="../img/HYUN.png"/></div><p class="name">최현</p><p class="eng">Hyun Choi</p><ul class="info"><li><span>나이/성별</span><span>30세 / 남 / 189cm</span></li><li><span>직업</span><span>미정</span></li><li><span>MBTI</span><span>ENFP</span></li><li><span>낮 생활</span><span>미정</span></li><li><span>특징</span><span>호탕하고 밥은 늘 먼저 사요</span></li></ul><div class="hint">눌러서 뒷면 보기</div><div class="stripe">낮 · 능력은 잠들어 있어요</div></div><div class="face back"><div class="bk"><h2>낮의 모습</h2><p>신입 이름을 하루 만에 외우고 농담으로 분위기를 풀어요. 다쳐도 웃으며 숨겨요.</p><div class="tags"><span>ENFP</span></div><div class="lock">낮 직업과 일상은 아직 비어 있어요</div></div></div></div></button>
 <button aria-label="나경태 프로필, 눌러서 뒷면 보기" class="badge" type="button"><div class="inner"><div class="face front"><div class="slot"></div><div class="head"><b>DAY</b><span>일반 프로필</span></div><div class="photo"><svg viewbox="0 0 100 120"><circle cx="50" cy="38" r="22"></circle><path d="M8 120c0-30 18-46 42-46s42 16 42 46z"></path></svg></div><p class="name">나경태</p><p class="eng">Kyung-tae Na</p><ul class="info"><li><span>나이/성별</span><span>52세 / 남</span></li><li><span>직업</span><span>미정</span></li><li><span>MBTI</span><span>INFJ</span></li><li><span>낮 생활</span><span>미정</span></li><li><span>특징</span><span>행정 출신의 온화한 상사</span></li></ul><div class="hint">눌러서 뒷면 보기</div><div class="stripe">낮 · 능력은 잠들어 있어요</div></div><div class="face back"><div class="bk"><h2>낮의 모습</h2><p>낮에도 말수가 적고 속을 잘 안 보여요.</p><div class="tags"><span>INFJ</span></div><div class="lock">낮 직업과 일상은 아직 비어 있어요</div></div></div></div></button>
-<button aria-label="오하린 프로필, 눌러서 뒷면 보기" class="badge" type="button"><div class="inner"><div class="face front"><div class="slot"></div><div class="head"><b>DAY</b><span>일반 프로필</span></div><div class="photo"><img alt="오하린" src="../img/HARIN.png"/>오하린</p><p class="eng">Ha-rin Oh</p><ul class="info"><li><span>나이/성별</span><span>38세 / 여</span></li><li><span>직업</span><span>미정</span></li><li><span>MBTI</span><span>ISTJ</span></li><li><span>낮 생활</span><span>미정</span></li><li><span>특징</span><span>건조하고 실무적</span></li></ul><div class="hint">눌러서 뒷면 보기</div><div class="stripe">낮 · 능력은 잠들어 있어요</div></div><div class="face back"><div class="bk"><h2>낮의 모습</h2><p>팀원 이름과 상태를 전부 외워요.</p><div class="tags"><span>ISTJ</span></div><div class="lock">낮 직업과 일상은 아직 비어 있어요</div></div></div></div></button>
+<button aria-label="오하린 프로필, 눌러서 뒷면 보기" class="badge" type="button"><div class="inner"><div class="face front"><div class="slot"></div><div class="head"><b>DAY</b><span>일반 프로필</span></div><div class="photo"><img alt="오하린" src="../img/HARIN.png"/></div><p class="name">오하린</p><p class="eng">Ha-rin Oh</p><ul class="info"><li><span>나이/성별</span><span>38세 / 여</span></li><li><span>직업</span><span>미정</span></li><li><span>MBTI</span><span>ISTJ</span></li><li><span>낮 생활</span><span>미정</span></li><li><span>특징</span><span>건조하고 실무적</span></li></ul><div class="hint">눌러서 뒷면 보기</div><div class="stripe">낮 · 능력은 잠들어 있어요</div></div><div class="face back"><div class="bk"><h2>낮의 모습</h2><p>팀원 이름과 상태를 전부 외워요.</p><div class="tags"><span>ISTJ</span></div><div class="lock">낮 직업과 일상은 아직 비어 있어요</div></div></div></div></button>
 <button aria-label="윤세헌 프로필, 눌러서 뒷면 보기" class="badge" type="button"><div class="inner"><div class="face front"><div class="slot"></div><div class="head"><b>DAY</b><span>일반 프로필</span></div><div class="photo"><img alt="윤세현" src="../img/JH.png"/></div><p class="name">윤세헌</p><p class="eng">Se-heon Yoon</p><ul class="info"><li><span>나이/성별</span><span>31세 / 남</span></li><li><span>직업</span><span>미정</span></li><li><span>MBTI</span><span>ESTJ</span></li><li><span>낮 생활</span><span>미정</span></li><li><span>특징</span><span>독설가, 커피는 설탕 세 스푼</span></li></ul><div class="hint">눌러서 뒷면 보기</div><div class="stripe">낮 · 능력은 잠들어 있어요</div></div><div class="face back"><div class="bk"><h2>낮의 모습</h2><p>낮에도 말투는 그대로예요.</p><div class="tags"><span>ESTJ</span></div><div class="lock">낮 직업과 일상은 아직 비어 있어요</div></div></div></div></button>
 <button aria-label="한서윤 프로필, 눌러서 뒷면 보기" class="badge" type="button"><div class="inner"><div class="face front"><div class="slot"></div><div class="head"><b>DAY</b><span>일반 프로필</span></div><div class="photo"><svg viewbox="0 0 100 120"><circle cx="50" cy="38" r="22"></circle><path d="M8 120c0-30 18-46 42-46s42 16 42 46z"></path></svg></div><p class="name">한서윤</p><p class="eng">Seo-yoon Han</p><ul class="info"><li><span>나이/성별</span><span>24세 / 남</span></li><li><span>직업</span><span>미정</span></li><li><span>MBTI</span><span>ISFJ</span></li><li><span>낮 생활</span><span>미정</span></li><li><span>특징</span><span>착한 막내</span></li></ul><div class="hint">눌러서 뒷면 보기</div><div class="stripe">낮 · 능력은 잠들어 있어요</div></div><div class="face back"><div class="bk"><h2>낮의 모습</h2><p>낮에도 간식을 나눠 주는 분위기 메이커예요.</p><div class="tags"><span>ISFJ</span></div><div class="lock">낮 직업과 일상은 아직 비어 있어요</div></div></div></div></button>
 <button aria-label="차유나 프로필, 눌러서 뒷면 보기" class="badge" type="button"><div class="inner"><div class="face front"><div class="slot"></div><div class="head"><b>DAY</b><span>일반 프로필</span></div><div class="photo"><img alt="차유나" src="../img/YUNA.png"/></div><p class="name">차유나</p><p class="eng">Yu-na Cha</p><ul class="info"><li><span>나이/성별</span><span>30세 / 여</span></li><li><span>직업</span><span>미정</span></li><li><span>MBTI</span><span>ENFJ</span></li><li><span>낮 생활</span><span>미정</span></li><li><span>특징</span><span>밝고 말이 빠른 동안</span></li></ul><div class="hint">눌러서 뒷면 보기</div><div class="stripe">낮 · 능력은 잠들어 있어요</div></div><div class="face back"><div class="bk"><h2>낮의 모습</h2><p>낮에도 환자 상태를 먼저 살펴요.</p><div class="tags"><span>ENFJ</span></div><div class="lock">낮 직업과 일상은 아직 비어 있어요</div></div></div></div></button>
@@ -246,11 +208,7 @@ document.querySelectorAll('.badge.flip').forEach(function(b){b.classList.remove(
 })});
 </script>
 </main>
-<footer class="site-footer" id="site-footer">
-<div class="footer-inner"><div class="footer-links"><a href="../rules/index.html">복무규정</a><a href="../org/index.html">조직도</a><a href="../sitemap.html">사이트맵</a></div>
-<address>(가상) 서울특별시 종로구 사직로 1, 궤도질서관리청사 7층 · 대표전화 02-000-ORBS · 팩스 02-000-0000<br/>기관명: 궤도질서관리기구 대한민국지부(ORBIS ROK Branch) · 지부장 한서윤</address>
-<div>© ORBIS Republic of Korea Branch. All rights reserved.</div><p class="warn">본 사이트는 창작 세계관의 공식 기록 페이지이며, 대한민국 실존 정부·공공기관과 무관합니다.</p></div>
-</footer>
+<footer class="site-footer" id="site-footer"></footer>
 <script src="../js/app.js"></script>
 </body>
 </html>
