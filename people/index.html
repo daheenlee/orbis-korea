@@ -7,97 +7,13 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" href="../img/logo.png" type="image/png">
-  <style>
-
-
-.pf{--bg:#101c31;--card:#1c2b43;--ink:#f6f8fd;--sub:#bcc6de;--line:#3b4a78;--ac:#c8323c;box-sizing:border-box}
-.pf *{box-sizing:border-box}
-.pf body{margin:0;font-family:"Pretendard","Noto Sans KR",sans-serif;line-height:1.6}
-.pf{color:var(--ink);position:relative;overflow:hidden;background:radial-gradient(900px 500px at 15% 0,rgba(200,50,60,.10),transparent 60%),#101c31}
-.pf::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:48px 48px;opacity:.18;mask-image:linear-gradient(#000,transparent 70%);-webkit-mask-image:linear-gradient(#000,transparent 70%)}
-.pf .wrap{position:relative;max-width:1120px;margin:0 auto;padding:28px 18px 64px}
-.pf .nav{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:26px;scrollbar-width:thin}
-.pf .nav button{flex:none;border:1px solid var(--line);background:rgba(18,24,40,.7);color:var(--sub);font:inherit;font-size:13px;padding:7px 14px;border-radius:999px;cursor:pointer;transition:.25s}
-.pf .nav button:hover{color:var(--ink);border-color:var(--ac)}
-.pf .nav button[aria-current="true"]{background:var(--ac);border-color:var(--ac);color:#fff;font-weight:700}
-.pf .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:26px;align-items:start}
-.pf .col{display:flex;flex-direction:column;gap:26px;min-width:0}
-/* 일러스트 */
-.pf .bust{position:relative;aspect-ratio:4/5;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#1b2645}
-.pf .bust img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%}
-.pf .bust::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 60%,rgba(9,12,21,.85));pointer-events:none}
-.pf .bust .tag{position:absolute;left:16px;bottom:14px;z-index:2;font-size:12px;letter-spacing:.2em;color:var(--ac)}
-.pf .bust .scan{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--ac),transparent);opacity:.7;animation:scan 4.5s linear infinite;z-index:2}
-.pf .bust .sil{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center}
-.pf .bust .sil svg{width:70%;fill:var(--line);opacity:.8}
-@keyframes scan{0%{top:-2%}100%{top:102%}}
-/* 소개창 */
-.pf .intro{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:22px}
-.pf .intro dl{display:grid;grid-template-columns:64px 1fr 64px 1fr;gap:8px 12px;margin:0 0 6px;font-size:14px}
-.pf .intro .hi{font-size:22px;font-weight:700;margin:2px 0 6px;color:var(--ac)}.pf .intro dl.lk{grid-template-columns:64px 1fr;margin:14px 0 0}
-.pf .feat{margin:0;padding-left:18px;font-size:14px}.pf .feat li{margin:2px 0}
-@media (max-width:520px){.pf .intro dl{grid-template-columns:64px 1fr}}
-.pf .intro dt{color:var(--sub)}.pf .intro dd{margin:0}
-.pf .intro .nm{font-size:30px;font-weight:800;letter-spacing:.06em;margin:0}
-.pf .intro .en{color:var(--sub);font-size:13px;margin:0 0 14px}
-.pf .intro h3{font-size:12px;letter-spacing:.18em;color:var(--ac);margin:18px 0 6px}
-.pf .intro .say{min-height:5.2em;margin:0;white-space:pre-wrap}
-.pf .cur{display:inline-block;width:8px;height:1em;background:var(--ac);vertical-align:-2px;animation:bl 1s steps(2) infinite}
-@keyframes bl{50%{opacity:0}}
-.pf .kw{display:flex;flex-wrap:wrap;gap:6px}.pf .kw span{font-size:12px;border:1px solid var(--line);padding:2px 10px;border-radius:999px;color:var(--sub)}
-/* 요원증 */
-.pf .cardwrap{perspective:900px;display:flex;justify-content:center}
-.pf .lan{position:relative;width:100%;max-width:520px;transform-origin:50% 0;transform-style:preserve-3d;transition:transform .15s}
-.pf .lan::before{content:"";position:absolute;left:50%;top:-40px;width:12px;height:46px;margin-left:-6px;background:var(--ac);border-radius:4px;opacity:.9}
-.pf .id{position:relative;border-radius:16px;background:linear-gradient(160deg,#26335c,#1a2446);border:1px solid var(--line);overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.45)}
-.pf .id .top{display:flex;justify-content:space-between;align-items:center;background:#0e1530;padding:9px 18px;font-size:12px;letter-spacing:.14em}
-.pf .id .top b{color:#fff}.pf .id .top span{color:var(--ac);font-weight:700}
-.pf .id .body{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:18px}
-.pf .id .ph{position:relative;aspect-ratio:3/4;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#1b2645}
-.pf .id .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
-.pf .id .ph svg.sl{position:absolute;inset:auto 0 0;width:100%;fill:var(--line)}
-.pf .id .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.18) 50%,transparent 60%);transform:translateX(-120%);animation:shine 5s ease-in-out infinite}
-@keyframes shine{0%,60%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
-.pf .id ul{list-style:none;margin:0;padding:0;font-size:13px}
-.pf .id li{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid var(--line)}
-.pf .id li span:first-child{color:var(--sub)}
-.pf .id .blur{filter:blur(5px);transition:.3s;cursor:help}.pf .id .blur:hover{filter:none}
-.pf .id .sig{padding:0 18px 4px}
-.pf .id .sig svg{width:150px;height:56px;overflow:visible}
-.pf .id .sig path{fill:none;stroke:#d4456d;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:420;stroke-dashoffset:420}
-.pf .id.go .sig path{animation:draw 1.8s .9s ease forwards}
-@keyframes draw{to{stroke-dashoffset:0}}
-.pf .id .bar{display:flex;align-items:flex-end;gap:2px;height:34px;padding:0 18px 14px}
-.pf .id .bar i{display:block;background:var(--sub);width:2px;opacity:.7}
-.pf .id .foot{background:var(--ac);color:#fff;font-size:11px;letter-spacing:.1em;text-align:center;padding:5px}
-/* 갤러리 */
-.pf .gal h3{font-size:12px;letter-spacing:.18em;color:var(--ac);margin:0 0 10px}
-.pf .gal .gr{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
-.pf .gal figure{margin:0;position:relative;aspect-ratio:1;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#1b2645;cursor:zoom-in}
-.pf .gal img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.pf .gal figure:hover img{transform:scale(1.08)}
-.pf .gal .empty{color:var(--sub);display:flex;align-items:center;justify-content:center;color:var(--sub);font-size:12px;cursor:default;text-align:center;padding:8px}
-.pf .lb{position:fixed;inset:0;background:rgba(5,7,13,.92);display:none;align-items:center;justify-content:center;z-index:9999;padding:20px}
-.pf .lb.on{display:flex;animation:fi .25s}.pf .lb img{max-width:100%;max-height:90vh;border-radius:10px}
-@keyframes fi{from{opacity:0}}
-/* 등장 애니메이션 */
-.pf .js .rv{opacity:0;transform:translateY(22px)}
-.pf .on .rv{animation:up .8s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--d,0)*1ms)}
-@keyframes up{to{opacity:1;transform:none}}
-.pf .on .bust{animation:clip 1s cubic-bezier(.2,.7,.2,1) forwards}
-.pf .js .bust{clip-path:inset(0 100% 0 0)}
-@keyframes clip{to{clip-path:inset(0 0 0 0)}}
-.pf .on .lan{animation:drop 1.4s cubic-bezier(.3,1.4,.5,1) .25s both}
-@keyframes drop{0%{transform:translateY(-160px) rotate(-6deg);opacity:0}60%{opacity:1}100%{transform:none;opacity:1}}
-@media (max-width:860px){.pf .grid{grid-template-columns:1fr}.pf .col{display:contents}.pf .o1{order:1}.pf .o2{order:2}.pf .o3{order:3}.pf .o4{order:4}}
-@media (prefers-reduced-motion:reduce){.pf *{animation:none!important;transition:none!important}.pf .js .rv{opacity:1;transform:none}.pf .js .bust{clip-path:none}.pf .id .sig path{stroke-dashoffset:0}}
-  </style>
+  <link rel="stylesheet" href="../css/people.css">
 </head>
 <body>
   <div id="site-header"></div>
 <main id="content">
-<section class="pf" id="pf"><div class="wrap">
-<div class="nav" role="tablist" aria-label="구성원 선택"></div>
+<section class="pf" id="pf" data-profile-mode="night"><div class="wrap">
+<div class="pf-toolbar"><div class="nav" role="tablist" aria-label="구성원 선택"></div><div class="pf-mode-switch" role="group" aria-label="프로필 낮 밤 전환"><button type="button" data-mode="night" aria-pressed="true">☾ NIGHT</button><button type="button" data-mode="day" aria-pressed="false">☀ DAY</button></div></div>
 <div class="grid">
  <div class="col">
   <div class="bust o1" id="bust"></div>
@@ -110,66 +26,7 @@
 </div>
 </div></section>
 <div class="lb" id="lb" role="dialog" aria-label="일러스트 확대"><img alt=""></div>
-<script>(()=>{try{document.documentElement.classList.add("js");
-
-/* ▼ 인물 데이터. 사진은 아래 세 칸에 경로만 넣으면 돼요.
-   bust: 반신 일러스트 / ph: 요원증 증명사진 / gal: 하단 일러스트 목록 (비워 두면 기본 도형) */
-const M=[{"id": "seo-ihyeon", "n": "서이현", "e": "Lee-hyun Seo", "age": "21세", "g": "여", "nick": "서이", "h": "168cm", "body": "군더더기 없이 단단한 균형형", "mbti": "ISTJ", "day": "타투이스트 (직접 운영하는 타투샵)", "ac": "#c8323c", "team": "대응팀 1", "role": "선임 현장요원", "unit": "균열 대응팀 1팀 전방 제압", "no": "ORB-1-001", "tag": "1팀 · 전방 제압", "feat": ["턱선 길이 검은 머리, 앞머리는 뒤로 넘김", "날카로운 눈매와 짙은 피곤함", "오른쪽 쇄골 아래 흉터", "손등·손가락 마디의 오래된 흉터", "팔뚝 안쪽 꽃 타투 (소매를 올리면 보임)"], "say": "서이라고 불러요. 낮엔 타투샵에서 손님 받고, 손님 없으면 헤드셋 끼고 멍때려요. 칭찬은 3초 어버버하다가 고맙다고 하는 편이에요. 책임은 제가 져요. 혼자서도 괜찮… 아니, 괜찮다고 할게요.", "kw": ["도도함", "책임감", "혼자 짊어짐", "락", "고양이 그림"], "bust": "../img/YEHYUN_BS1.png", "ph": "../img/LEEHYUN.png", "gal": []},
-{"id": "kang-taehee", "n": "강태희", "e": "Tae-hee Kang", "age": "22세", "g": "남", "nick": "별명 생기는거싫어함", "h": "183cm", "body": "슬림하고 탄탄한 잔근육형", "mbti": "INTP", "day": "홈 프로텍터", "ac": "#3f7fbf", "team": "대응팀 2", "role": "현장요원", "unit": "균열 대응팀 2팀 탐지·공간", "no": "ORB-2-014", "tag": "2팀 · 탐지·공간", "feat": ["짧고 숱이 보통인 흑발", "왼쪽 눈 아래 작은 눈물점", "오른쪽 볼에 작은 밴드", "외출할 땐 늘 캡모자", "근무 중 소음 차단 이어피스"], "say": "안녕하세요. 근무 중엔 매뉴얼대로 움직이는 게 편합니다. 업무는 업무대로, 감정이 들어가는 순간 피곤해지는거 아시죠,", "kw": ["무표정", "과묵", "직장인 스위치", "불닭볶음면","야구"], "bust": "../img/TAHEE_BS2.png", "ph": "../img/TYAHEE.png", "gal": []},
-{"id": "choi-hyun", "n": "최현", "e": "Hyun Choi", "age": "32세", "g": "남", "nick": "-", "h": "189cm", "body": "어깨가 넓고 탄탄한 체형", "mbti": "ENFP", "day": "미정", "ac": "#c8323c", "team": "대응팀 1", "role": "1팀 팀장", "unit": "균열 대응팀 1팀", "no": "ORB-1-000", "tag": "1팀 · 팀장", "feat": ["밝은 갈색 머리, 앞머리가 이마 위로 내려옴", "따뜻한 갈색 눈, 눈꼬리가 살짝 내려감", "웃을 때 생기는 웃음 주름", "왼쪽 귀 뒤 희미한 흉터 (자세히 봐야 보임)"], "say": "최현! 1팀 팀장이에요. 밥은 제가 살게요, 먼저 먹어요. 다친 데요? 별거 아니에요, 진짜로요. 선배가 먼저 가는 거예요, 이건 양보 안 해요.", "kw": ["쾌남", "푸근함", "손해 보는 선택", "따뜻함"], "bust": "../img/HYUN.png", "ph": "../img/HYUN.png", "gal": []},
-{"id": "na-kyungtae", "n": "나경태", "e": "Kyung-tae Na", "age": "52세", "g": "남", "nick": "-", "h": "미정", "body": "미정", "mbti": "INFJ", "day": "행정 출신 (비각성자)", "ac": "#c9a227", "team": "지부장", "role": "지부장", "unit": "오르비스 지부 총괄", "no": "ORB-0-001", "tag": "지부 총괄", "feat": ["온화한 인상", "말수가 적음", "각성자가 아닌 비각성자"], "say": "오르비스 지부장입니다. 결론은 회의가 끝난 뒤에 말씀드리지요. 지켜보는 것도 일입니다.", "kw": ["온화함", "침묵", "지켜봄"], "bust": "", "ph": "", "gal": []},
-{"id": "oh-harin", "n": "오하린", "e": "Ha-rin Oh", "age": "38세", "g": "여", "nick": "-", "h": "미정", "body": "미정", "mbti": "ISTJ", "day": "미정", "ac": "#c8323c", "team": "대응팀장", "role": "대응팀장", "unit": "균열 대응팀 총괄", "no": "ORB-1-002", "tag": "대응팀 · 지휘", "feat": ["건조하고 실무적인 인상", "현역 때의 과부하 후유증", "팀원 이름과 상태를 전부 외움"], "say": "대응팀장 오하린입니다. 팀원 이름과 상태는 전부 외우고 있어요. 숨기는 건 소용없습니다.", "kw": ["건조함", "실무적", "빙결"], "bust": "../img/HARIN.png", "ph": "../img/HARIN.png", "gal": []},
-{"id": "yoon-seheon", "n": "윤세헌", "e": "Se-heon Yoon", "age": "31세", "g": "남", "nick": "-", "h": "미정", "body": "미정", "mbti": "ESTJ", "day": "미정", "ac": "#4b66b5", "team": "감사과", "role": "등급심사팀장", "unit": "감사과 등급심사팀", "no": "ORB-4-003", "tag": "감사과 · 등급심사", "feat": ["커피에 설탕 세 스푼", "독설과 비꼼이 기본", "거짓 감지 능력"], "say": "감사과 윤세헌. 호의라고 말씀하셔도 비아냥처럼 들리실 겁니다, 습관이라서요. 거짓말은 하지 마세요. 어차피 압니다.", "kw": ["독설", "원칙주의", "거짓 감지"], "bust": "../img/JH.png", "ph": "../img/JH.png", "gal": []},
-{"id": "han-seoyoon", "n": "한서윤", "e": "Seo-yoon Han", "age": "24세", "g": "남", "nick": "-", "h": "미정", "body": "미정", "mbti": "ISFJ", "day": "미정", "ac": "#d9a02b", "team": "대응팀 3", "role": "막내", "unit": "균열 대응팀 3팀 방호·지원", "no": "ORB-3-021", "tag": "3팀 · 방호·지원", "feat": ["항상 웃는 인상", "화나면 말투가 더 정중해짐", "방벽 능력"], "say": "안녕하세요, 막내 한서윤입니다! 간식 필요하시면 말씀해 주세요. 그리고… 다친 사람이 생기면, 그땐 제가 많이 정중해질 거예요.", "kw": ["착함", "분위기 메이커", "방벽"], "bust": "", "ph": "", "gal": []},
-{"id": "cha-yuna", "n": "차유나", "e": "Yu-na Cha", "age": "30세", "g": "여", "nick": "-", "h": "미정", "body": "미정", "mbti": "ENFJ", "day": "미정", "ac": "#1d9a96", "team": "의료 지원과", "role": "의료 지원과 실장", "unit": "의료 지원과", "no": "ORB-5-002", "tag": "의료 · 치유", "feat": ["양갈래 머리", "나이보다 어려 보이는 동안", "환자가 숨기면 싸늘해짐"], "say": "의료 지원과 차유나예요! 신입 아니고 실장이에요, 다들 처음엔 놀라요. 아픈 건 아프다고 말해 줘야 고칠 수 있어요. 숨기면… 약 안 드립니다.", "kw": ["양갈래", "밝음", "치유"], "bust": "../img/YUNA.png", "ph": "../img/YUNA.png", "gal": []}
-];
-/* ▼ 자기소개칸 추가 항목: hi=인사말, like=좋아하는 것, dis=싫어하는 것, hab=말버릇·습관 (자유롭게 수정) */
-const X={
-"seo-ihyeon":{hi:"…안녕.",like:"락 음악, 고양이, 낮잠, 멍때리기, 닭가슴살",dis:"책임감 없는 것, 대충하는 것, 기분파",hab:"안 괜찮은데 괜찮다고 말함"},
-"kang-taehee":{hi:"안녕하세요.",like:"불닭볶음면, 혼자있는시간, 야구",dis:"시선, 회식, 사람 많은 곳",hab:"아이스 아메리카노"},
-"choi-hyun":{hi:"안녕! 밥은 먹었어?",like:"밥 사 주기, 후배 챙기기, 웃음",dis:"누가 다치는 것",hab:"다쳐도 웃으며 넘김"},
-"na-kyungtae":{hi:"안녕하십니까.",like:"조용한 회의, 따뜻한 차",dis:"서두르는 결론",hab:"먼저 결론을 내지 않음"},
-"oh-harin":{hi:"안녕하세요, 오하린입니다.",like:"정리된 보고서",dis:"상태를 숨기는 것",hab:"팀원 이름을 전부 외움"},
-"yoon-seheon":{hi:"…안녕하십니까.",like:"설탕 세 스푼 커피",dis:"거짓말, 등급 조작",hab:"호의도 비아냥처럼 말함"},
-"han-seoyoon":{hi:"안녕하세요! 막내예요!",like:"간식 나눠 주기",dis:"누가 다치는 것",hab:"화나면 말투가 더 정중해짐"},
-"cha-yuna":{hi:"안녕하세요~ 실장이에요!",like:"환자가 낫는 것, 수다",dis:"상태를 숨기는 사람",hab:"숨기면 약을 안 줌"}};
-M.forEach(m=>Object.assign(m,X[m.id]));
-const SIG=["M4 40 C 14 6, 26 6, 30 28 S 44 48, 52 22 C 56 10, 62 40, 74 34 S 96 20, 104 36 C 112 46, 128 30, 146 26",
-"M4 34 L 22 8 L 28 44 L 44 12 C 52 26, 60 46, 76 28 S 100 14, 110 34 L 146 30",
-"M6 30 C 20 4, 34 52, 48 22 S 70 8, 84 36 C 94 52, 110 12, 124 30 S 140 40, 148 20"];
-const $=s=>document.querySelector(s);
-let cur=0,tw=null;
-function bars(s){let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))>>>0;let o="";for(let i=0;i<46;i++){h=(h*1103515245+12345)>>>0;o+=`<i style="height:${40+(h%60)}%;width:${1+(h>>8)%3}px"></i>`}return o}
-const SIL='<svg viewBox="0 0 100 120"><circle cx="50" cy="38" r="22"/><path d="M6 120c0-32 20-48 44-48s44 16 44 48z"/></svg>';
-function render(i,anim=true){
- cur=i;const m=M[i];const r=$("#pf");
- r.classList.remove("on");void r.offsetWidth;
- r.style.setProperty("--ac",m.ac);
- $(".nav").innerHTML=M.map((x,k)=>`<button data-i="${k}" aria-current="${k==i}">${x.n}</button>`).join("");
- $("#bust").innerHTML=(m.bust?`<img src="${m.bust}" alt="${m.n} 반신 일러스트">`:`<div class="sil">${SIL}</div>`)+`<div class="scan"></div><span class="tag">${m.tag}</span>`;
- $("#intro").innerHTML=`<h2 class="nm">${m.n}</h2><p class="en">${m.e}</p><dl>${[["이름",m.n],["영문명",m.e],["나이",m.age],["성별",m.g],["별명",m.nick],["신장",m.h],["체형",m.body],["MBTI",m.mbti],["낮 생활",m.day]].map(([a,b])=>`<dt>${a}</dt><dd>${b}</dd>`).join("")}</dl><h3>FEATURES · 특징</h3><ul class="feat">${m.feat.map(f=>`<li>${f}</li>`).join("")}</ul><h3>SELF INTRODUCTION · 자기소개</h3><p class="hi">${m.hi}</p><p class="say"><span id="tx"></span><span class="cur"></span></p><dl class="lk"><dt>좋아해요</dt><dd>${m.like}</dd><dt>싫어해요</dt><dd>${m.dis}</dd><dt>말버릇</dt><dd>${m.hab}</dd></dl><h3>KEYWORDS</h3><div class="kw">${m.kw.map(k=>`<span>${k}</span>`).join("")}</div>`;
- $("#id").innerHTML=`<div class="top"><b>ORBIS</b><span>${m.team}</span></div><div class="body"><div class="ph">${m.ph?`<img src="${m.ph}" alt="${m.n} 증명사진">`:SIL.replace("<svg",'<svg class="sl"')}</div><ul><li><span>성명</span><span>${m.n}</span></li><li><span>소속</span><span>${m.unit}</span></li><li><span>직책</span><span>${m.role}</span></li><li><span>사번</span><span>${m.no}</span></li><li><span>등급</span><span class="blur" title="제2조 · 본인과 센터만 열람">비공개</span></li></ul></div><div class="sig"><svg viewBox="0 0 150 56"><path d="${SIG[i%3]}"/></svg></div><div class="bar">${bars(m.no)}</div><div class="foot">한국지부 오르비스 지부 · 야간 근무</div>`;
- const SH=['<circle cx="50" cy="50" r="26"/>','<path d="M50 22 78 76H22z"/>','<rect x="24" y="24" width="52" height="52" rx="6"/>','<path d="M50 20 80 50 50 80 20 50z"/>'];
- $("#gal").innerHTML=`<h3>ILLUSTRATIONS</h3><div class="gr">${m.gal.length?m.gal.map(s=>`<figure><img src="${s}" alt="${m.n} 일러스트" loading="lazy"></figure>`).join(""):SH.map(p=>`<figure class="empty"><svg viewBox="0 0 100 100" width="46%" fill="currentColor" opacity=".35">${p}</svg></figure>`).join("")}</div>`;
- document.title=m.n+" · 오르비스 지부 직원 프로필";
- history.replaceState(null,"","?id="+m.id);
- r.classList.add("on");$("#id").classList.remove("go");void $("#id").offsetWidth;$("#id").classList.add("go");
- type(m.say);
-}
-function type(t){clearInterval(tw);const el=$("#tx");if(!el)return;if(matchMedia("(prefers-reduced-motion:reduce)").matches){el.textContent=t;return}
- let k=0;setTimeout(()=>{tw=setInterval(()=>{el.textContent=t.slice(0,++k);if(k>=t.length)clearInterval(tw)},28)},900)}
-document.addEventListener("click",e=>{
- const b=e.target.closest(".pf .nav button");if(b)return render(+b.dataset.i);
- const f=e.target.closest(".gal figure:not(.empty) img");if(f){$("#lb img").src=f.src;$("#lb").classList.add("on")}
- if(e.target.closest("#lb"))$("#lb").classList.remove("on")});
-document.addEventListener("keydown",e=>{if(e.key==="Escape")$("#lb").classList.remove("on")});
-const L=$(".lan");
-$(".cardwrap").addEventListener("pointermove",e=>{const r=L.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;L.style.transform=`rotateY(${x*12}deg) rotateX(${-y*10}deg)`});
-$(".cardwrap").addEventListener("pointerleave",()=>L.style.transform="");
-const q=new URLSearchParams(location.search).get("id");render(Math.max(0,M.findIndex(x=>x.id===q)));
-
-}catch(err){document.documentElement.classList.remove("js");console.error("profile.js",err)}})();
-</script>
+<script src="../js/people.js"></script>
 </main>
   <footer class="site-footer" id="site-footer"></footer>
   <script src="../js/app.js"></script>
