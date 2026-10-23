@@ -31,7 +31,7 @@ let cur=0,tw=null,profileMode="night";
    아직 낮 사진이 없는 인물은 기존 사진을 그대로 사용합니다. */
 const DAY={
  "seo-ihyeon":{
-   birthday:"미정", address:"미정", hobby:"미정", gal:[], // ☀️ 낮 전용 일러스트: ["../img/파일명.png"]
+   birthday:"05월05일", address:"미정", hobby:"미정", gal:[], // ☀️ 낮 전용 일러스트: ["../img/파일명.png"]
 
   bust:"../img/IMG_0205.jpeg",ph:"../img/YEHEYON_NOON.png",
   hi:"…안녕.",say:"낮에는 타투샵에서 일해요. 예약 없을 땐 헤드셋 끼고 음악 듣거나 멍하니 쉬는 편이에요. 게임하다가 잠드는 날도 많고요. 타투 도안은 천천히, 마음에 들 때까지 그려요.",
@@ -39,7 +39,7 @@ const DAY={
   like:"락 음악, 닌텐도, 고양이, 낮잠, 타투 도안 그리기",dis:"무책임한 약속, 시끄러운 간섭",hab:"창가에서 멍때리기",kw:["타투이스트","집순이","닌텐도","고양이","무심한 다정함"]
  },
  "kang-taehee":{
-   birthday:"미정", address:"미정", hobby:"미정", gal:[], // ☀️ 낮 전용 일러스트: ["../img/파일명.png"]
+   birthday:"8월27일", address:"부산 동래구", hobby:"야구보기 ", gal:[], // ☀️ 낮 전용 일러스트: ["../img/파일명.png"]
 
   bust:"../img/IMG_0271.png",ph:"../img/TAHEE_NOON.png",
   hi:"안녕(feat.러블리즈) 우리만날래 내가지금 할말이 있어~",say:"롯데는 승리한다..",
