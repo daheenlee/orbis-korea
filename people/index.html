@@ -7,7 +7,7 @@
 <title>오르비스 지부 직원 프로필</title>
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet"/>
 <link href="../css/style.css" rel="stylesheet"/>
-<link href="../img/emblem.svg" rel="icon" type="image/svg+xml"/>
+<link href="../img/logo.png" rel="icon" type="image/png"/>
 <style>
 
 
@@ -72,6 +72,35 @@ body[data-mode="night"] #night,body[data-mode="day"] #day{display:block}
 .os-ticker b{opacity:.55;margin-inline:16px}
 @keyframes os-marquee{to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.os-ticker-track{animation:none}}
+
+/* 추가: 기존 사원증을 유지한 상세 인사기록 열람 UI */
+.people-wrap .badge{position:relative}
+.people-wrap .profile-detail-link{display:block;margin:9px auto 0;width:min(100%,340px);padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:var(--card);color:var(--ink);font:inherit;font-size:13px;cursor:pointer;text-align:center}
+.people-wrap .profile-detail-link:hover{border-color:var(--red);color:var(--red)}
+.people-wrap .profile-item{width:100%;max-width:340px;min-width:0}
+.people-wrap .profile-item .badge{max-width:none}
+.people-detail{position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,.83);display:none;align-items:center;justify-content:center;padding:18px}
+.people-detail.open{display:flex}
+.people-detail-panel{width:min(900px,100%);max-height:94vh;overflow:auto;background:#111a2c;color:#f0f3fa;border:1px solid #46536a;border-radius:16px;position:relative;padding:clamp(18px,3vw,30px)}
+.people-detail-close{position:sticky;top:0;float:right;z-index:2;background:#c8323c;color:white;border:0;border-radius:8px;padding:8px 13px;font:inherit;cursor:pointer}
+.people-detail-title{font-size:clamp(23px,3vw,34px);margin:0 0 4px;color:white}
+.people-detail-sub{color:#aab8d1;font-size:13px;margin:0 0 20px}
+.people-detail-grid{display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);gap:20px}
+.people-detail-photo{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 20%;border-radius:10px;border:1px solid #46536a;background:#263149}
+.people-detail-photo-placeholder{display:grid;place-items:center;aspect-ratio:3/4;border-radius:10px;background:#263149;color:#aab8d1}
+.people-detail-id{border:1px solid #46536a;border-radius:12px;overflow:hidden;background:#1b2740;margin-top:14px}
+.people-detail-id-header{display:flex;justify-content:space-between;background:#0c1426;padding:11px 15px;font-weight:800;font-size:12px;letter-spacing:.12em}
+.people-detail-id-header img{width:35px;height:25px;object-fit:contain}
+.people-detail-id-body{display:grid;grid-template-columns:100px 1fr;gap:12px;padding:13px}
+.people-detail-id-body img{width:100px;height:130px;object-fit:cover;object-position:50% 20%;border-radius:5px;background:#29334b}
+.people-detail-id-body dl{display:grid;grid-template-columns:52px 1fr;gap:7px;font-size:12px;margin:0;align-content:start}
+.people-detail-id-body dt{color:#aab8d1}.people-detail-id-body dd{margin:0;overflow-wrap:anywhere}
+.people-detail-section{margin-bottom:17px}.people-detail-section h3{font-size:12px;color:#ff727c;letter-spacing:.13em;margin:0 0 7px}
+.people-detail-section p{font-size:14px;margin:0;white-space:pre-wrap;line-height:1.8}
+.people-detail-tags{display:flex;flex-wrap:wrap;gap:7px}.people-detail-tags span{font-size:12px;border:1px solid #4b5870;padding:4px 10px;border-radius:20px}
+.people-detail-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+.people-detail-gallery img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:8px}
+@media(max-width:680px){.people-detail-grid{grid-template-columns:1fr}.people-detail-photo{max-height:400px;object-fit:contain;background:#263149}.people-detail-panel{padding:15px}.people-detail-id-body{grid-template-columns:90px 1fr}.people-detail-id-body img{width:90px;height:120px}}
 </style>
 </head>
 <body data-mode="night">
@@ -206,6 +235,58 @@ var m=t.dataset.m;document.body.dataset.mode=m;document.getElementById('lead').t
 document.querySelectorAll('.tog button').forEach(function(x){x.setAttribute('aria-pressed',x===t?'true':'false')});
 document.querySelectorAll('.badge.flip').forEach(function(b){b.classList.remove('flip')});
 })});
+</script>
+<div class="people-detail" id="people-detail" role="dialog" aria-modal="true" aria-label="구성원 상세 인사기록" aria-hidden="true"><div class="people-detail-panel"><button class="people-detail-close" type="button" aria-label="상세 기록 닫기">닫기 ✕</button><div id="people-detail-content"></div></div></div>
+<script>
+/* 기존 사원증·밤낮 전환 유지. 카드 아래 '상세 프로필'에서 원본 이미지 주소를 재사용. */
+(function(){
+  const profiles={
+    '서이현':{en:'Lee-hyun Seo',unit:'균열 대응팀 1팀 전방 제압',role:'선임 현장요원',no:'ORB-1-001',intro:'낮에는 타투샵을 운영하는 타투이스트. 말수가 적고 관찰력이 뛰어나며 현장에서는 책임을 혼자 짊어지려는 편.',traits:['책임감','관찰력','전방 제압','타투이스트']},
+    '강태희':{en:'Tae-hee Kang',unit:'균열 대응팀 2팀 탐지·공간',role:'현장요원',no:'ORB-2-014',intro:'낮에는 카페에서 아르바이트를 한다. 혼자 보내는 시간을 좋아하며 근무 중에는 매뉴얼에 충실하다.',traits:['감정 감지','과묵함','카페 아르바이트','혼자 있는 시간']},
+    '최현':{en:'Hyun Choi',unit:'균열 대응팀 1팀',role:'1팀 팀장',no:'ORB-1-000',intro:'호탕하고 후배들을 챙기는 팀장. 구조 현장에서 자신이 손해 보는 선택도 마다하지 않는다.',traits:['팀장','중력 조작','따뜻함']},
+    '나경태':{en:'Kyung-tae Na',unit:'ORBIS 대한민국지부',role:'지부장',no:'ORB-0-001',intro:'행정 출신의 비각성자 지부장. 말수가 적고 신중하게 상황을 지켜본다.',traits:['지부장','비각성자','행정']},
+    '오하린':{en:'Ha-rin Oh',unit:'균열 대응팀',role:'대응팀장',no:'ORB-1-002',intro:'현장 경험이 풍부한 실무형 지휘관. 팀원들의 이름과 상태를 모두 파악한다.',traits:['대응팀장','빙결','지휘']},
+    '윤세헌':{en:'Se-heon Yoon',unit:'감사과 등급심사팀',role:'등급심사팀장',no:'ORB-4-003',intro:'거짓 감지 능력을 지닌 원칙주의자. 정확한 업무 처리와 날카로운 말투로 유명하다.',traits:['감사과','거짓 감지','원칙주의']},
+    '한서윤':{en:'Seo-yoon Han',unit:'균열 대응팀 3팀 방호·지원',role:'현장요원',no:'ORB-3-021',intro:'팀원들을 살뜰히 챙기는 막내 요원. 방벽 능력으로 현장을 지원한다.',traits:['방벽','지원','분위기 메이커']},
+    '차유나':{en:'Yu-na Cha',unit:'의료 지원과',role:'실장',no:'ORB-5-002',intro:'외상 치유 능력을 사용하는 의료 지원과 실장. 환자가 상태를 숨기는 것을 싫어한다.',traits:['치유','의료 지원','실장']}
+  };
+  const detail=document.getElementById('people-detail');
+  const content=document.getElementById('people-detail-content');
+  let lastTrigger=null;
+  function escapeHTML(x){return String(x||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+  function setup(){
+    document.querySelectorAll('.people-wrap .grid').forEach(grid=>{
+      Array.from(grid.children).filter(el=>el.matches('button.badge')).forEach(card=>{
+        const item=document.createElement('div');item.className='profile-item';
+        card.parentNode.insertBefore(item,card);item.appendChild(card);
+        const btn=document.createElement('button');btn.type='button';btn.className='profile-detail-link';btn.textContent='상세 프로필 · 인사기록 열람 ↗';
+        item.appendChild(btn);
+        btn.addEventListener('click',()=>open(card,btn));
+      });
+    });
+  }
+  function open(card,trigger){
+    const name=card.querySelector('.name')?.textContent?.trim()||'';
+    const p=profiles[name]||{};
+    const image=card.querySelector('.photo img')?.getAttribute('src')||'';
+    const oppositeMode=card.closest('#night')?'day':'night';
+    const other=Array.from(document.querySelectorAll('#'+oppositeMode+' .badge')).find(el=>el.querySelector('.name')?.textContent?.trim()===name);
+    const otherImage=other?.querySelector('.photo img')?.getAttribute('src')||'';
+    const lines=Array.from(card.querySelectorAll('.front .info li')).map(li=>[li.querySelector('span:first-child')?.textContent||'',li.querySelector('span:last-child')?.textContent||'']);
+    const description=Array.from(card.querySelectorAll('.back .bk')).map(el=>el.innerText.trim()).join('
+
+');
+    const imageBlock=image?`<img class="people-detail-photo" src="${escapeHTML(image)}" alt="${escapeHTML(name)} 프로필 사진">`:'<div class="people-detail-photo-placeholder">등록된 사진 없음</div>';
+    const idPhoto=image?`<img src="${escapeHTML(image)}" alt="${escapeHTML(name)} 사원증 사진">`:'<div class="people-detail-photo-placeholder">사진 미등록</div>';
+    content.innerHTML=`<h2 class="people-detail-title">${escapeHTML(name)}</h2><p class="people-detail-sub">${escapeHTML(p.en||'')} · ORBIS PERSONNEL RECORD</p><div class="people-detail-grid"><div>${imageBlock}<div class="people-detail-id"><div class="people-detail-id-header"><span>ORBIS · STAFF ID</span><img src="../img/logo.png" alt="ORBIS 로고"></div><div class="people-detail-id-body">${idPhoto}<dl><dt>성명</dt><dd>${escapeHTML(name)}</dd><dt>소속</dt><dd>${escapeHTML(p.unit||'미등록')}</dd><dt>직책</dt><dd>${escapeHTML(p.role||'미등록')}</dd><dt>사번</dt><dd>${escapeHTML(p.no||'미등록')}</dd><dt>등급</dt><dd>보안등급 문서 · 열람 제한</dd></dl></div></div></div><div><div class="people-detail-section"><h3>PERSONAL INFORMATION</h3>${lines.map(([a,b])=>`<p><strong>${escapeHTML(a)}</strong> · ${escapeHTML(b)}</p>`).join('')}</div><div class="people-detail-section"><h3>PROFILE</h3><p>${escapeHTML(p.intro||'')}</p></div><div class="people-detail-section"><h3>KEYWORDS</h3><div class="people-detail-tags">${(p.traits||[]).map(x=>`<span>${escapeHTML(x)}</span>`).join('')}</div></div><div class="people-detail-section"><h3>ADDITIONAL RECORD</h3><p>${escapeHTML(description)}</p></div>${otherImage&&otherImage!==image?`<div class="people-detail-section"><h3>DAY / NIGHT ARCHIVE</h3><div class="people-detail-gallery"><img src="${escapeHTML(image)}" alt="현재 모습"><img src="${escapeHTML(otherImage)}" alt="다른 시간대 모습"></div></div>`:''}</div></div>`;
+    lastTrigger=trigger;detail.classList.add('open');detail.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';detail.querySelector('.people-detail-close').focus();
+  }
+  function close(){detail.classList.remove('open');detail.setAttribute('aria-hidden','true');document.body.style.overflow='';lastTrigger?.focus();}
+  detail.querySelector('.people-detail-close').addEventListener('click',close);
+  detail.addEventListener('click',e=>{if(e.target===detail)close()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&detail.classList.contains('open'))close()});
+  setup();
+})();
 </script>
 </main>
 <footer class="site-footer" id="site-footer"></footer>
