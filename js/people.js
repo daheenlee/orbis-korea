@@ -31,7 +31,7 @@ let cur=0,tw=null,profileMode="night";
    아직 낮 사진이 없는 인물은 기존 사진을 그대로 사용합니다. */
 const DAY={
  "seo-ihyeon":{
-   birthday:"05월05일", address:"미정", hobby:"미정", gal:[], // ☀️ 낮 전용 일러스트: ["../img/파일명.png"]
+   birthday:"05월05일", address:"부산 해운대구", hobby:"미정", gal:[], // ☀️ 낮 전용 일러스트: ["../img/파일명.png"]
 
   bust:"../img/IMG_0205.jpeg",ph:"../img/YEHEYON_NOON.png",
   hi:"…안녕.",say:"낮에는 타투샵에서 일해요. 예약 없을 땐 헤드셋 끼고 음악 듣거나 멍하니 쉬는 편이에요. 게임하다가 잠드는 날도 많고요. 타투 도안은 천천히, 마음에 들 때까지 그려요.",
