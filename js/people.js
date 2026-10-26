@@ -26,7 +26,7 @@ M.forEach(m=>Object.assign(m,X[m.id]));
 /* 공개용 인사기록 확장 데이터. 실제 AI 채팅 설정이나 비공개 설정은 입력하지 마세요. */
 const RECORDS={
  "seo-ihyeon":{status:"재직",access:"내부 열람",ability:"████",career:[],relations:[],incidents:[]},
- "kang-taehee":{status:"재직",access:"일반 공개",ability:"탐지·공간",career:[],relations:[],incidents:[]},
+ "kang-taehee":{status:"재직",access:"일반 공개",ability:"생존자 탐지, 사건 조사, 감정 잔향 추적",career:[],relations:[],incidents:[]},
  "choi-hyun":{status:"재직",access:"내부 열람",ability:"████",career:[],relations:[],incidents:[]},
  "na-kyungtae":{status:"재직",access:"기밀",ability:"████",career:[],relations:[],incidents:[]},
  "oh-harin":{status:"재직",access:"내부 열람",ability:"████",career:[],relations:[],incidents:[]},
