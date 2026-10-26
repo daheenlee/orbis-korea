@@ -1,34 +1,8 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>구성원 프로필 · 오르비스 지부</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="icon" href="../img/logo.png" type="image/png">
-  <link rel="stylesheet" href="../css/people.css">
-</head>
-<body>
-  <div id="site-header"></div>
-<main id="content">
-<section class="pf" id="pf" data-profile-mode="night"><div class="wrap">
-<div class="pf-toolbar"><div class="nav" role="tablist" aria-label="구성원 선택"></div><div class="pf-mode-switch" role="group" aria-label="프로필 낮 밤 전환"><button type="button" data-mode="night" aria-pressed="true">☾ NIGHT</button><button type="button" data-mode="day" aria-pressed="false">☀ DAY</button></div></div>
-<div class="grid">
- <div class="col">
-  <div class="bust o1" id="bust"></div>
-  <div class="intro rv o3" id="intro" style="--d:500"></div>
- </div>
- <div class="col">
-  <div class="cardwrap o2"><div class="lan"><div class="id" id="id"></div></div></div>
-  <div class="gal rv o4" id="gal" style="--d:900"></div>
- </div>
-</div>
-</div></section>
-<div class="lb" id="lb" role="dialog" aria-label="일러스트 확대"><img alt=""></div>
-<script src="../js/people.js"></script>
-</main>
-  <footer class="site-footer" id="site-footer"></footer>
-  <script src="../js/app.js"></script>
-</body>
-</html>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>구성원 프로필 · 오르비스 지부</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"><link rel="stylesheet" href="../css/style.css"><link rel="icon" href="../img/logo.png" type="image/png"><link rel="stylesheet" href="../css/people.css"></head>
+<body><div id="site-header"></div><main id="content"><section class="pf" id="pf" data-profile-mode="night"><div class="wrap">
+<div class="pf-directory"><div class="pf-directory-heading"><div><small>ORBIS · PERSONNEL ARCHIVE</small><h1>직원 인사기록</h1><p>열람할 직원을 선택하면 상세 기록이 열립니다.</p></div><span class="pf-directory-count" id="directory-count"></span></div><div class="pf-directory-controls"><label>직원 검색<input id="people-search" type="search" placeholder="이름 검색" autocomplete="off"></label><label>소속 부서<select id="people-dept"><option value="">전체 부서</option></select></label><label>기록 구분<select id="people-mode-filter"><option value="all">전체</option><option value="day">주간 기록</option><option value="night">야간 기록</option></select></label></div><div class="pf-directory-grid" id="people-directory"></div><p class="pf-directory-empty" id="people-empty" hidden>조건에 맞는 직원이 없습니다.</p></div>
+<div class="pf-toolbar"><div class="nav" role="tablist" aria-label="구성원 선택"></div><div class="pf-mode-switch" role="group" aria-label="프로필 낮 밤 전환"><button type="button" data-mode="night" aria-pressed="true">☾ NIGHT RECORD</button><button type="button" data-mode="day" aria-pressed="false">☀ DAY RECORD</button></div></div>
+<div class="pf-record-transition" id="record-transition" aria-hidden="true"><span>RECORD SWITCHING</span></div>
+<div class="grid"><div class="col"><div class="bust o1" id="bust"></div><div class="intro rv o3" id="intro" style="--d:500"></div><div class="pf-detail-panel" id="people-details"><div class="pf-detail-tabs" role="tablist" aria-label="인사기록 상세 탭"><button type="button" data-detail="basic" aria-selected="true">기본정보</button><button type="button" data-detail="personality" aria-selected="false">성격·말투</button><button type="button" data-detail="career" aria-selected="false">근무이력</button><button type="button" data-detail="relations" aria-selected="false">관계기록</button></div><div class="pf-detail-content" id="detail-content"></div></div></div><div class="col"><div class="cardwrap o2"><div class="lan"><div class="id" id="id"></div></div></div><div class="gal rv o4" id="gal" style="--d:900"></div></div></div>
+</div></section><div class="lb" id="lb" role="dialog" aria-label="일러스트 확대"><img alt=""></div></main><footer class="site-footer" id="site-footer"></footer><script src="../js/people.js"></script><script src="../js/app.js"></script></body></html>
