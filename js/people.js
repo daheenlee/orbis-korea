@@ -2,6 +2,7 @@
 
 /* ▼ 인물 데이터. 사진은 아래 세 칸에 경로만 넣으면 돼요.
    bust: 반신 일러스트 / ph: 요원증 증명사진 / gal: 🌙 밤 전용 일러스트 목록 (비워 두면 기본 도형) */
+/* 🌙 밤 특징은 각 캐릭터의 feat */
 const M=[{"id": "seo-ihyeon", "n": "서이현", "e": "Lee-hyun Seo", "age": "21세", "g": "여", "nick": "서이", "h": "168cm", "body": "군더더기 없이 단단한 균형형", "mbti": "INTP", "day": "타투이스트 (직접 운영하는 타투샵)", "ac": "#c8323c", "team": "대응팀 1", "role": "선임 현장요원", "unit": "균열 대응팀 1팀 전방 제압", "no": "ORB-1-001", "tag": "1팀 · 전방 제압", "feat": ["턱선 길이 검은 머리, 앞머리는 뒤로 넘김", "날카로운 눈매와 짙은 피곤함", "오른쪽 쇄골 아래 흉터", "손등·손가락 마디의 오래된 흉터", "팔뚝 안쪽 꽃 타투 (소매를 올리면 보임)"], "say": "서이라고 불러요. 낮엔 타투샵에서 손님 받고, 손님 없으면 헤드셋 끼고 멍때려요. 칭찬은 3초 어버버하다가 고맙다고 하는 편이에요. 책임은 제가 져요. 혼자서도 괜찮… 아니, 괜찮다고 할게요.", "kw": ["도도함", "책임감", "혼자 짊어짐", "락", "고양이 그림"], "bust": "../img/YEHYUN_BSmain.png", "ph": "../img/LEEHYUN.png", "gal": []},
 {"id": "kang-taehee", "n": "강태희", "e": "Tae-hee Kang", "age": "22세", "g": "남", "nick": "별명 생기는거싫어함", "h": "183cm", "body": "슬림하고 탄탄한 잔근육형", "mbti": "INTP", "day": "홈 프로텍터", "ac": "#3f7fbf", "team": "대응팀 2", "role": "현장요원", "unit": "균열 대응팀 2팀 탐지·공간", "no": "ORB-2-014", "tag": "2팀 · 탐지·공간", "feat": ["짧고 숱이 보통인 흑발", "왼쪽 눈 아래 작은 눈물점", "오른쪽 볼에 작은 밴드", "외출할 땐 늘 캡모자", "근무 중 소음 차단 이어피스"], "say": "안녕하세요. 근무 중엔 매뉴얼대로 움직이는 게 편합니다. 업무는 업무대로, 감정이 들어가는 순간 피곤해지는거 아시죠,", "kw": ["무표정", "과묵", "직장인 스위치", "불닭볶음면","야구"], "bust": "../img/TAHEE_BSmain.png", "ph": "../img/TYAHEE.png", "gal": []},
 {"id": "choi-hyun", "n": "최현", "e": "Hyun Choi", "age": "32세", "g": "남", "nick": "-", "h": "189cm", "body": "어깨가 넓고 탄탄한 체형", "mbti": "ENFP", "day": "미정", "ac": "#c8323c", "team": "대응팀 1", "role": "1팀 팀장", "unit": "균열 대응팀 1팀", "no": "ORB-1-000", "tag": "1팀 · 팀장", "feat": ["밝은 갈색 머리, 앞머리가 이마 위로 내려옴", "따뜻한 갈색 눈, 눈꼬리가 살짝 내려감", "웃을 때 생기는 웃음 주름", "왼쪽 귀 뒤 희미한 흉터 (자세히 봐야 보임)"], "say": "최현! 1팀 팀장이에요. 밥은 제가 살게요, 먼저 먹어요. 다친 데요? 별거 아니에요, 진짜로요. 선배가 먼저 가는 거예요, 이건 양보 안 해요.", "kw": ["쾌남", "푸근함", "손해 보는 선택", "따뜻함"], "bust": "../img/HYUN.png", "ph": "../img/HYUN.png", "gal": []},
@@ -22,6 +23,51 @@ const X={
 "han-seoyoon":{hi:"안녕하세요! 막내예요!",like:"간식 나눠 주기",dis:"누가 다치는 것",hab:"화나면 말투가 더 정중해짐"},
 "cha-yuna":{hi:"안녕하세요~ 실장이에요!",like:"환자가 낫는 것, 수다",dis:"상태를 숨기는 사람",hab:"숨기면 약을 안 줌"}};
 M.forEach(m=>Object.assign(m,X[m.id]));
+/* 공개용 인사기록 확장 데이터. 실제 AI 채팅 설정이나 비공개 설정은 입력하지 마세요. */
+const RECORDS={
+ "seo-ihyeon":{status:"재직",access:"내부 열람",ability:"████",career:[],relations:[],incidents:[]},
+ "kang-taehee":{status:"재직",access:"일반 공개",ability:"탐지·공간",career:[],relations:[],incidents:[]},
+ "choi-hyun":{status:"재직",access:"내부 열람",ability:"████",career:[],relations:[],incidents:[]},
+ "na-kyungtae":{status:"재직",access:"기밀",ability:"████",career:[],relations:[],incidents:[]},
+ "oh-harin":{status:"재직",access:"내부 열람",ability:"████",career:[],relations:[],incidents:[]},
+ "yoon-seheon":{status:"재직",access:"내부 열람",ability:"거짓 감지",career:[],relations:[],incidents:[]},
+ "han-seoyoon":{status:"재직",access:"일반 공개",ability:"방벽",career:[],relations:[],incidents:[]},
+ "cha-yuna":{status:"재직",access:"일반 공개",ability:"치유",career:[],relations:[],incidents:[]}
+};
+/* 근무이력 예시: career:[{date:"2026",text:"정식 발령"}]
+   관계 예시: relations:[{name:"직원명",note:"공개 가능한 관계"}]
+   사건 예시: incidents:[{no:"ORB-INC-001",role:"현장 지원",url:"../incidents/?id=ORB-INC-001"}]
+   사건 기록실이 개설되기 전에는 url을 생략하면 연결되지 않습니다. */
+let detailTab="basic", searchText="", deptFilter="", modeFilter="all";
+const esc=v=>String(v??"미정").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function rowHTML(a,b){return `<div class="pf-detail-row"><span>${esc(a)}</span><strong>${esc(b)}</strong></div>`}
+function recordFor(m){return RECORDS[m.id]||{status:"미정",access:"일반 공개",ability:"미정",career:[],relations:[],incidents:[]}}
+function renderDirectory(){
+ const host=$("#people-directory");if(!host)return;
+ const selected=M.filter(m=>(!searchText||m.n.includes(searchText)||m.e.toLowerCase().includes(searchText.toLowerCase()))&&(!deptFilter||m.team===deptFilter));
+ $("#directory-count").textContent=`${selected.length} / ${M.length} RECORDS`;
+ $("#people-empty").hidden=selected.length>0;
+ host.innerHTML=selected.map(m=>{const d=DAY[m.id]||{},r=recordFor(m),isDay=modeFilter==="day"||(modeFilter==="all"&&profileMode==="day"),pic=(isDay?d.ph||d.bust:m.ph||m.bust)||"";
+ return `<button class="pf-person-card ${M[cur].id===m.id?'active':''}" type="button" data-person="${esc(m.id)}" aria-label="${esc(m.n)} 상세 프로필 보기"><span class="pf-person-photo">${pic?`<img src="${esc(pic)}" alt="" loading="lazy">`:SIL}</span><span class="pf-person-data"><b>${esc(m.n)}</b><small>${esc(m.age)} · ${esc(isDay?m.day:m.team)}</small><span>${esc(isDay?'DAY RECORD':m.role)}</span><em>${esc(r.status)} · ${esc(r.access)}</em></span></button>`}).join("");
+}
+function renderDetails(m){
+ const r=recordFor(m),day=profileMode==="day",panel=$("#detail-content");if(!panel)return;
+ $("#people-details").querySelectorAll('[data-detail]').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.detail===detailTab)));
+ let html='';
+ if(detailTab==='basic')html=[rowHTML('이름',m.n),rowHTML('나이',m.age),rowHTML('재직 상태',r.status),rowHTML('정보 공개 등급',r.access),...(day?[rowHTML('주간 직업',m.day),rowHTML('취미',m.hobby||'미정')]:[rowHTML('소속',m.unit),rowHTML('직책',m.role),rowHTML('담당 업무',m.tag),rowHTML('능력',r.access==='기밀'?'████':r.ability)])].join('');
+ if(detailTab==='personality')html=`<p class="pf-detail-copy">${esc(m.hi||'')}</p>`+[rowHTML('말투·습관',m.hab),rowHTML('좋아하는 것',m.like),rowHTML('싫어하는 것',m.dis),rowHTML('키워드',(m.kw||[]).join(', '))].join('');
+ if(detailTab==='career'){
+ const career=r.career||[],incidents=r.incidents||[];
+ html=`<h4>근무이력</h4>${career.length?career.map(x=>rowHTML(x.date,x.text)).join(''):'<p class="pf-detail-muted">공개된 근무이력이 없습니다.</p>'}<h4>사건 참여 이력</h4>${incidents.length?incidents.map(x=>`<div class="pf-incident">${x.url?`<a href="${esc(x.url)}">${esc(x.no)}</a>`:`<strong>${esc(x.no)}</strong>`}<span>${esc(x.role)}</span></div>`).join(''):'<p class="pf-detail-muted">공개된 사건 참여 기록이 없습니다.</p>'}`;
+ }
+ if(detailTab==='relations')html=(r.relations||[]).length?r.relations.map(x=>rowHTML(x.name,x.note)).join(''):'<p class="pf-detail-muted">공개된 관계기록이 없습니다. 비공개 설정은 표시하지 않습니다.</p>';
+ panel.innerHTML=`<div class="pf-clearance">ACCESS LEVEL · ${esc(r.access)} ${r.access==='기밀'?'· ████':''}</div>`+html;
+}
+function initDirectory(){const sel=$("#people-dept");if(!sel)return;[...new Set(M.map(m=>m.team))].forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;sel.appendChild(o)});
+ $("#people-search").addEventListener('input',e=>{searchText=e.target.value.trim();renderDirectory()});
+ sel.addEventListener('change',e=>{deptFilter=e.target.value;renderDirectory()});
+ $("#people-mode-filter").addEventListener('change',e=>{modeFilter=e.target.value;renderDirectory()});
+}
 const SIG=["M4 40 C 14 6, 26 6, 30 28 S 44 48, 52 22 C 56 10, 62 40, 74 34 S 96 20, 104 36 C 112 46, 128 30, 146 26",
 "M4 34 L 22 8 L 28 44 L 44 12 C 52 26, 60 46, 76 28 S 100 14, 110 34 L 146 30",
 "M6 30 C 20 4, 34 52, 48 22 S 70 8, 84 36 C 94 52, 110 12, 124 30 S 140 40, 148 20"];
@@ -29,6 +75,7 @@ const $=s=>document.querySelector(s);
 let cur=0,tw=null,profileMode="night";
 /* ▼ 낮 프로필 전용 데이터: 사진·인사·자기소개·취향을 여기서 수정하세요.
    아직 낮 사진이 없는 인물은 기존 사진을 그대로 사용합니다. */
+/* ☀️ 낮 특징은 각 캐릭터의 feat: 밤과 독립적으로 표시 */
 const DAY={
  "seo-ihyeon":{
    birthday:"05월05일", address:"부산 해운대구", hobby:"미정", gal:[], // ☀️ 낮 전용 일러스트: ["../img/파일명.png"]
@@ -104,7 +151,9 @@ function render(i,anim=true){
  r.style.setProperty("--ac",m.ac);
  $(".nav").innerHTML=M.map((x,k)=>`<button data-i="${k}" aria-current="${k==i}">${x.n}</button>`).join("");
  $("#bust").innerHTML=(m.bust?`<img src="${m.bust}" alt="${m.n} 반신 일러스트">`:`<div class="sil">${SIL}</div>`)+`<div class="scan"></div><span class="tag">${profileMode==="day"?"DAY · 일상":m.tag}</span>`;
- $("#intro").innerHTML=`<h2 class="nm">${m.n}</h2><p class="en">${m.e}</p><dl>${[["이름",m.n],["영문명",m.e],["나이",m.age],["성별",m.g],["별명",m.nick],["신장",m.h],["체형",m.body],["MBTI",m.mbti],[profileMode==="day"?"낮 생활":"낮 생활",m.day]].map(([a,b])=>`<dt>${a}</dt><dd>${b}</dd>`).join("")}</dl><h3>FEATURES · 특징</h3><ul class="feat">${m.feat.map(f=>`<li>${f}</li>`).join("")}</ul><h3>SELF INTRODUCTION · 자기소개</h3><p class="hi">${m.hi}</p><p class="say"><span id="tx"></span><span class="cur"></span></p><dl class="lk"><dt>좋아해요</dt><dd>${m.like}</dd><dt>싫어해요</dt><dd>${m.dis}</dd><dt>말버릇</dt><dd>${m.hab}</dd></dl><h3>KEYWORDS</h3><div class="kw">${m.kw.map(k=>`<span>${k}</span>`).join("")}</div>`;
+ const infoRows = [["이름",m.n],["영문명",m.e],["나이",m.age],["성별",m.g],["별명",m.nick],["신장",m.h],["MBTI",m.mbti]];
+ if(profileMode === "night") infoRows.push(["낮 생활",m.day]);
+ $("#intro").innerHTML=`<h2 class="nm">${m.n}</h2><p class="en">${m.e}</p><dl>${infoRows.map(([a,b])=>`<dt>${a}</dt><dd>${b}</dd>`).join("")}</dl><h3>FEATURES · 특징</h3><ul class="feat">${m.feat.map(f=>`<li>${f}</li>`).join("")}</ul><h3>SELF INTRODUCTION · 자기소개</h3><p class="hi">${m.hi}</p><p class="say"><span id="tx"></span><span class="cur"></span></p><dl class="lk"><dt>좋아해요</dt><dd>${m.like}</dd><dt>싫어해요</dt><dd>${m.dis}</dd><dt>말버릇</dt><dd>${m.hab}</dd></dl><h3>KEYWORDS</h3><div class="kw">${m.kw.map(k=>`<span>${k}</span>`).join("")}</div>`;
   // 🌙 밤: ORBIS 요원증 / ☀️ 낮: 주민등록증에서 영감을 받은 가상 일상 신분 카드
   const card=$("#id");
   if(profileMode==="day"){
@@ -121,11 +170,14 @@ function render(i,anim=true){
  document.title=m.n+(profileMode==="day"?" · 낮 프로필":" · 밤 프로필")+" · 오르비스 지부";
  history.replaceState(null,"","?id="+m.id);
  r.classList.add("on");$("#id").classList.remove("go");void $("#id").offsetWidth;$("#id").classList.add("go");
+ renderDetails(m);renderDirectory();
  type(m.say);
 }
 function type(t){clearInterval(tw);const el=$("#tx");if(!el)return;if(matchMedia("(prefers-reduced-motion:reduce)").matches){el.textContent=t;return}
  let k=0;setTimeout(()=>{tw=setInterval(()=>{el.textContent=t.slice(0,++k);if(k>=t.length)clearInterval(tw)},28)},900)}
 document.addEventListener("click",e=>{
+ const detail=e.target.closest("[data-detail]");if(detail){detailTab=detail.dataset.detail;renderDetails(profileMode==="day"?{...M[cur],...(DAY[M[cur].id]||{})}:M[cur]);return;}
+ const person=e.target.closest("[data-person]");if(person){const idx=M.findIndex(x=>x.id===person.dataset.person);if(idx>=0){render(idx);$(".pf-toolbar").scrollIntoView({behavior:"smooth",block:"start"})}return;}
  const toggle=e.target.closest(".pf-mode-switch button");if(toggle){setProfileMode(toggle.dataset.mode);return;}
   const b=e.target.closest(".pf .nav button");if(b)return render(+b.dataset.i);
  const f=e.target.closest(".gal figure:not(.empty) img");if(f){$("#lb img").src=f.src;$("#lb").classList.add("on")}
@@ -134,6 +186,6 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")$("#lb").classList.r
 const L=$(".lan");
 $(".cardwrap").addEventListener("pointermove",e=>{const r=L.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;L.style.transform=`rotateY(${x*12}deg) rotateX(${-y*10}deg)`});
 $(".cardwrap").addEventListener("pointerleave",()=>L.style.transform="");
-const q=new URLSearchParams(location.search).get("id");render(Math.max(0,M.findIndex(x=>x.id===q)));
+initDirectory();const q=new URLSearchParams(location.search).get("id");render(Math.max(0,M.findIndex(x=>x.id===q)));
 
 }catch(err){document.documentElement.classList.remove("js");console.error("profile.js",err)}})();
