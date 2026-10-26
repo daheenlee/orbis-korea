@@ -71,6 +71,116 @@
     </div>
     <p class="os-duty-disclaimer">※ 야간 근무는 교대 편성되며, 능력 등급은 개인의 직책이나 지휘권과 동일하지 않습니다. A급은 현장 출동·조사 등 실무 중심으로 배치됩니다.</p>
   </section>
+
+
+  
+<section class="os-creature-entry os-wrap" aria-labelledby="creature-entry-title">
+  <div class="os-creature-box">
+    <div class="os-creature-top">
+      <span>ORBIS / RESTRICTED ARCHIVE</span>
+      <span class="os-creature-status">● FILE 002</span>
+    </div>
+
+    <div class="os-creature-content">
+      <div>
+        <p class="os-creature-label">ANOMALOUS ENTITY DATABASE</p>
+        <h2 id="creature-entry-title">크리쳐 관측 기록실</h2>
+        <p class="os-creature-desc">
+          균열 너머에서 발견된 미확인 개체들.
+          관측 기록과 위험 분류, 대응 지침을 열람할 수 있습니다.
+        </p>
+      </div>
+      <a class="os-creature-link" href="./creature.html">
+        기록 열람하기 <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+    <div class="os-creature-bottom">
+      <span>ENTITY CLASSIFICATION / OBSERVATION LOG</span>
+      <span>AUTHORIZED ACCESS ONLY</span>
+    </div>
+  </div>
+</section>
+
+<style>
+.os-creature-entry {
+  margin-top: 65px;
+  margin-bottom: 70px;
+}
+.os-creature-box {
+  border: 1px solid #34363c;
+  background: linear-gradient(120deg,#151619,#0b0c0f);
+  padding: 30px;
+  color: #e9e9ed;
+}
+.os-creature-top,
+.os-creature-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: #858892;
+  font-size: 11px;
+  letter-spacing: .12em;
+}
+.os-creature-top {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #292b31;
+}
+.os-creature-status,
+.os-creature-label {
+  color: #c8323c;
+}
+.os-creature-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 42px 0;
+}
+.os-creature-label {
+  font-size: 11px;
+  letter-spacing: .16em;
+  margin-bottom: 15px;
+}
+.os-creature-content h2 {
+  font-size: clamp(25px,3vw,38px);
+  margin: 0 0 16px;
+}
+.os-creature-desc {
+  color: #a5a7af;
+  line-height: 1.8;
+  max-width: 480px;
+}
+.os-creature-link {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  padding: 15px 20px;
+  border: 1px solid #c8323c;
+  color: #f1f1f3;
+  text-decoration: none;
+  transition: background .2s;
+}
+.os-creature-link:hover {
+  background: #c8323c;
+}
+.os-creature-bottom {
+  border-top: 1px solid #292b31;
+  padding-top: 18px;
+}
+@media(max-width:700px) {
+  .os-creature-box { padding: 22px; }
+  .os-creature-content {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px 0;
+  }
+  .os-creature-link { width: 100%; justify-content: space-between; }
+  .os-creature-bottom { flex-wrap: wrap; }
+}
+</style>
+
   <div class="os-end os-wrap"><span>ORBIS / KOREA BRANCH</span><span>END OF DOCUMENT — 001</span></div>
 </main>
   <footer class="site-footer" id="site-footer"></footer>
