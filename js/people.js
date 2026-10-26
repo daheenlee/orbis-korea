@@ -38,7 +38,7 @@ const RECORDS={
    관계 예시: relations:[{name:"직원명",note:"공개 가능한 관계"}]
    사건 예시: incidents:[{no:"ORB-INC-001",role:"현장 지원",url:"../incidents/?id=ORB-INC-001"}]
    사건 기록실이 개설되기 전에는 url을 생략하면 연결되지 않습니다. */
-let detailTab="basic", searchText="", deptFilter="", modeFilter="all";
+let detailTab="personality", searchText="", deptFilter="", modeFilter="all";
 const esc=v=>String(v??"미정").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 function rowHTML(a,b){return `<div class="pf-detail-row"><span>${esc(a)}</span><strong>${esc(b)}</strong></div>`}
 function recordFor(m){return RECORDS[m.id]||{status:"미정",access:"일반 공개",ability:"미정",career:[],relations:[],incidents:[]}}
@@ -54,7 +54,6 @@ function renderDetails(m){
  const r=recordFor(m),day=profileMode==="day",panel=$("#detail-content");if(!panel)return;
  $("#people-details").querySelectorAll('[data-detail]').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.detail===detailTab)));
  let html='';
- if(detailTab==='basic')html=[rowHTML('이름',m.n),rowHTML('나이',m.age),rowHTML('재직 상태',r.status),rowHTML('정보 공개 등급',r.access),...(day?[rowHTML('주간 직업',m.day),rowHTML('취미',m.hobby||'미정')]:[rowHTML('소속',m.unit),rowHTML('직책',m.role),rowHTML('담당 업무',m.tag),rowHTML('능력',r.access==='기밀'?'████':r.ability)])].join('');
  if(detailTab==='personality')html=`<p class="pf-detail-copy">${esc(m.hi||'')}</p>`+[rowHTML('말투·습관',m.hab),rowHTML('좋아하는 것',m.like),rowHTML('싫어하는 것',m.dis),rowHTML('키워드',(m.kw||[]).join(', '))].join('');
  if(detailTab==='career'){
  const career=r.career||[],incidents=r.incidents||[];
@@ -62,6 +61,11 @@ function renderDetails(m){
  }
  if(detailTab==='relations')html=(r.relations||[]).length?r.relations.map(x=>rowHTML(x.name,x.note)).join(''):'<p class="pf-detail-muted">공개된 관계기록이 없습니다. 비공개 설정은 표시하지 않습니다.</p>';
  panel.innerHTML=`<div class="pf-clearance">ACCESS LEVEL · ${esc(r.access)} ${r.access==='기밀'?'· ████':''}</div>`+html;
+}
+function removeBasicTab(){
+ const area=$("#people-details");if(!area)return;
+ area.querySelectorAll('[data-detail="basic"]').forEach(button=>button.remove());
+ detailTab="personality";
 }
 function initDirectory(){const sel=$("#people-dept");if(!sel)return;[...new Set(M.map(m=>m.team))].forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;sel.appendChild(o)});
  $("#people-search").addEventListener('input',e=>{searchText=e.target.value.trim();renderDirectory()});
@@ -80,7 +84,7 @@ const DAY={
  "seo-ihyeon":{
    birthday:"05월05일", address:"부산 해운대구", hobby:"미정", gal:[], // ☀️ 낮 전용 일러스트: ["../img/파일명.png"]
 
-  bust:"../img/IMG_0205.jpeg",ph:"../img/YEHEYON_NOON.png",
+  bust:"../img/YEHYUN_N1.png",ph:"../img/YEHEYON_NOON.png",
   hi:"…안녕.",say:"낮에는 타투샵에서 일해요. 예약 없을 땐 헤드셋 끼고 음악 듣거나 멍하니 쉬는 편이에요. 게임하다가 잠드는 날도 많고요. 타투 도안은 천천히, 마음에 들 때까지 그려요.",
   feat:["턱선 길이의 자연스러운 검은 머리","편한 검은 티셔츠와 넉넉한 셔츠","팔 안쪽의 꽃 타투","손등과 손가락 마디에 남은 오래된 흉터"],
   like:"락 음악, 닌텐도, 고양이, 낮잠, 타투 도안 그리기",dis:"무책임한 약속, 시끄러운 간섭",hab:"창가에서 멍때리기",kw:["타투이스트","집순이","닌텐도","고양이","무심한 다정함"]
@@ -88,7 +92,7 @@ const DAY={
  "kang-taehee":{
    birthday:"8월27일", address:"부산 동래구", hobby:"야구보기 ", gal:[], // ☀️ 낮 전용 일러스트: ["../img/파일명.png"]
 
-  bust:"../img/IMG_0271.png",ph:"../img/TAHEE_NOON.png",
+  bust:"../img/TAHEE_N1.png",ph:"../img/TAHEE_NOON.png",
   hi:"안녕(feat.러블리즈) 우리만날래 내가지금 할말이 있어~",say:"롯데는 승리한다..",
   feat:["가볍게 내려오는 검은 앞머리","로고 없는 검은 캡모자","검은 져지와 흰 티셔츠","웃으면 도드라지는 애교살","왼쪽 눈 아래 눈물점과 오른쪽 볼의 작은 밴드"],
   like:"불닭볶음면, 야구, 락앤롤(MCL,sum41,Guns n roses), 싸돌아다니는거",dis:"사람많은곳,",hab:"야구보러가기, 집에서 뒹굴거리기",kw:["집돌이","캡모자","카페 알바","야구","배시시 웃음"]
@@ -186,6 +190,6 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")$("#lb").classList.r
 const L=$(".lan");
 $(".cardwrap").addEventListener("pointermove",e=>{const r=L.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;L.style.transform=`rotateY(${x*12}deg) rotateX(${-y*10}deg)`});
 $(".cardwrap").addEventListener("pointerleave",()=>L.style.transform="");
-initDirectory();const q=new URLSearchParams(location.search).get("id");render(Math.max(0,M.findIndex(x=>x.id===q)));
+removeBasicTab();initDirectory();const q=new URLSearchParams(location.search).get("id");render(Math.max(0,M.findIndex(x=>x.id===q)));
 
 }catch(err){document.documentElement.classList.remove("js");console.error("profile.js",err)}})();
