@@ -190,6 +190,9 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")$("#lb").classList.r
 const L=$(".lan");
 $(".cardwrap").addEventListener("pointermove",e=>{const r=L.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;L.style.transform=`rotateY(${x*12}deg) rotateX(${-y*10}deg)`});
 $(".cardwrap").addEventListener("pointerleave",()=>L.style.transform="");
-removeBasicTab();initDirectory();const q=new URLSearchParams(location.search).get("id");render(Math.max(0,M.findIndex(x=>x.id===q)));
+
+document.querySelector("#people-details")?.remove();
+initDirectory();
+const q=new URLSearchParams(location.search).get("id");render(Math.max(0,M.findIndex(x=>x.id===q)));
 
 }catch(err){document.documentElement.classList.remove("js");console.error("profile.js",err)}})();
