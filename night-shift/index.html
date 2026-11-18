@@ -27,6 +27,7 @@
 .record-fields{min-width:0}.name-row{display:flex;align-items:baseline;gap:5px;padding:5px 7px 4px;min-height:35px;flex-wrap:wrap}.field-mark{font-size:9px;color:#777169;font-weight:800;margin-right:2px}.name-row strong{font-size:16px;color:#17191d;letter-spacing:-.04em}.name-en{font-size:8px;color:#a19b95;letter-spacing:.03em;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis;max-width:100%}.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid #d6d3cb;border-bottom:1px solid #d6d3cb}.facts>div{display:flex;align-items:center;min-width:0;border-right:1px solid #d6d3cb;border-bottom:1px solid #d6d3cb;min-height:25px}.facts>div:nth-child(2n){border-right:0}.facts>div:nth-child(n+3){border-bottom:0}.facts b{background:#f0eee7;padding:5px;min-width:30px;text-align:center;font-size:9px;color:#6d6963;align-self:stretch;display:flex;align-items:center;justify-content:center;white-space:nowrap}.facts span{font-weight:750;font-size:10px;padding:4px 6px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.feature-row{display:flex;align-items:center;gap:6px;min-height:34px}.feature-row b{font-size:9px;min-width:34px;color:#6f6b66;text-align:center;padding:4px}.feature-row span{font-size:10px;line-height:1.5;color:#28292d;padding-right:5px}
 .record-foot{display:flex;gap:6px;align-items:center;justify-content:space-between;border-top:1px solid #bbb7ad;min-height:39px;background:#f5f1e9;padding:6px 8px}.record-foot>div{min-width:0;flex:1;display:flex;align-items:start;gap:6px}.active-label{flex:none;font-size:9px;color:#a74751;font-weight:950;white-space:nowrap;margin-top:2px}.active-copy{font-size:10px;font-weight:700;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.more{font-size:9px;white-space:nowrap;color:#776e69;font-weight:850;flex:none}
 .record-more{padding:12px;background:#f5f1e9;border-top:1px solid #cfc9bf}.record-more>div{display:flex;justify-content:space-between;align-items:center;gap:8px}.record-more small{font-size:10px;color:#8d8982}.record-more strong{font-size:11px}.record-more p{font-size:11px;line-height:1.7;color:#48443e;margin:8px 0 0}.record-more .record-quote{color:#a3434e;font-weight:800}
+.scene-preview{width:min(100%,280px);margin:11px auto 2px;background:#e9e7e0;border:1px solid #d4cdc2;border-radius:7px;overflow:hidden}.scene-preview img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top}.scene-preview figcaption{text-align:center;font-size:9px;letter-spacing:.07em;font-weight:750;color:#78726c;padding:6px 4px}html[data-view="day"] .scene-preview{display:none}
 html[data-view="day"] .active-label{color:#a96038}html[data-view="day"] .record-bar{background:#f0e8dd}
 .smallprint{font-size:10px;color:#88847d;line-height:1.65;margin:9px 1px 0}
 .secondary{padding:24px 19px 26px}.section-label{color:#e4838c;font-size:10px;font-weight:850;letter-spacing:.15em}.secondary h2{font-size:20px;letter-spacing:-.045em;margin:6px 0 11px}.factslist{display:grid;grid-template-columns:1fr 1fr;gap:8px}.factslist div{border:1px solid #40363b;border-radius:8px;background:#211e24;padding:12px}.factslist b{font-size:11px;display:block}.factslist span{font-size:10px;color:#b7afb3;display:block;margin-top:5px;line-height:1.6}
@@ -71,28 +72,28 @@ footer{text-align:center;padding:12px 19px 74px;color:#8e838a;font-size:9px;lett
 <details class="person-card" id="person-choi">
  <summary aria-label="최현 인사기록 펼치기">
   <div class="record-bar"><span>ORBIS · 인사기록카드</span><span>PERSONNEL No. 001　<span class="record-arrow">⌄</span></span></div>
-  <div class="record-body"><div class="record-photo "><span class="photo-fallback"><svg viewBox="0 0 56 64" aria-hidden="true"><circle cx="28" cy="20" r="14" fill="currentColor"/><path d="M3 62c0-18 10-25 25-25s25 7 25 25" fill="currentColor"/></svg><small>PHOTO</small></span><img class="portrait-img" src="../img/HYUN.png" data-night-src="../img/HYUN.png" data-day-src="../img/HYUN.png" alt="최현 인물 사진" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('missing')"></div>
+  <div class="record-body"><div class="record-photo "><span class="photo-fallback"><svg viewBox="0 0 56 64" aria-hidden="true"><circle cx="28" cy="20" r="14" fill="currentColor"/><path d="M3 62c0-18 10-25 25-25s25 7 25 25" fill="currentColor"/></svg><small>PHOTO</small></span><img class="portrait-img" src="../img/night-shift/choi-hyun.webp" data-night-src="../img/night-shift/choi-hyun.webp" data-day-src="../img/HYUN.png" alt="최현 야간 근무 일러스트" loading="lazy" decoding="async" onerror="this.hidden=true;this.parentElement.classList.add('missing')"></div>
   <div class="record-fields">
     <div class="name-row"><span class="field-mark">성명</span><strong>최현</strong><span class="name-en">CHOI HYUN</span></div>
     <div class="facts"><div><b>성별</b><span>남</span></div><div><b>나이</b><span>32</span></div><div><b>신장</b><span>189cm</span></div><div><b>MBTI</b><span>ENFP</span></div></div>
-    <div class="feature-row"><b>외형</b><span>넓은 어깨 · 온화한 웃상</span></div>
+    <div class="feature-row"><b>외형</b><span>차콜 헤어 · 서글서글한 눈매 · 우람한 실전 근육</span></div>
   </div></div>
   <div class="record-foot"><div><span class="active-label">야간 기록</span><b class="active-copy" data-night="서글서글한 미소 뒤, 현장 판단은 누구보다 빠른 사람." data-day="근무 밖에서도 후배 밥부터 챙기는 듬직한 선배.">서글서글한 미소 뒤, 현장 판단은 누구보다 빠른 사람.</b></div><span class="more">상세 보기 ＋</span></div>
  </summary>
- <div class="record-more"><div><small>소속 / 보직</small><strong>1팀 · 총괄 지휘</strong></div><p>1·2팀의 협력과 대응을 이끄는 지휘관. 늘 웃지만 책임질 순간엔 망설이지 않는다.</p><p class="record-quote">“허허, 일단 밥부터 먹고 얘기하죠.”</p></div>
+ <div class="record-more"><div><small>소속 / 보직</small><strong>1팀 · 총괄 지휘</strong></div><figure class="scene-preview"><img src="../img/night-shift/choi-hyun.webp" alt="최현의 ORBIS 근무 일상 장면" loading="lazy" decoding="async"><figcaption>ORBIS · NIGHT SHIFT / 현장 스냅샷</figcaption></figure><p>1·2팀의 협력과 대응을 이끄는 지휘관. 늘 웃지만 책임질 순간엔 망설이지 않는다.</p><p class="record-quote">“허허, 일단 밥부터 먹고 얘기하죠.”</p></div>
 </details>
 <details class="person-card" id="person-jp">
  <summary aria-label="일본인 막내 인사기록 펼치기">
   <div class="record-bar"><span>ORBIS · 인사기록카드</span><span>PERSONNEL No. 002　<span class="record-arrow">⌄</span></span></div>
-  <div class="record-body"><div class="record-photo missing"><span class="photo-fallback"><svg viewBox="0 0 56 64" aria-hidden="true"><circle cx="28" cy="20" r="14" fill="currentColor"/><path d="M3 62c0-18 10-25 25-25s25 7 25 25" fill="currentColor"/></svg><small>PHOTO</small></span></div>
+  <div class="record-body"><div class="record-photo"><span class="photo-fallback"><svg viewBox="0 0 56 64" aria-hidden="true"><circle cx="28" cy="20" r="14" fill="currentColor"/><path d="M3 62c0-18 10-25 25-25s25 7 25 25" fill="currentColor"/></svg><small>PHOTO</small></span><img class="portrait-img" src="../img/night-shift/jp-rookie.webp" data-night-src="../img/night-shift/jp-rookie.webp" data-day-src="" alt="1팀 일본인 막내 야간 근무 일러스트" loading="lazy" decoding="async" onerror="this.hidden=true;this.parentElement.classList.add('missing')"></div>
   <div class="record-fields">
     <div class="name-row"><span class="field-mark">성명</span><strong>일본인 막내</strong><span class="name-en">FILE PENDING</span></div>
     <div class="facts"><div><b>성별</b><span>남</span></div><div><b>나이</b><span>미등록</span></div><div><b>신장</b><span>미등록</span></div><div><b>MBTI</b><span>미등록</span></div></div>
-    <div class="feature-row"><b>외형</b><span>외형 기록 등록 대기</span></div>
+    <div class="feature-row"><b>외형</b><span>은빛 백금발 · 루비색 눈 · 고양이상</span></div>
   </div></div>
   <div class="record-foot"><div><span class="active-label">야간 기록</span><b class="active-copy" data-night="기세 좋은 현장 막내. 아직 인사기록의 빈칸이 많다." data-day="주간 생활 기록은 아직 비공개.">기세 좋은 현장 막내. 아직 인사기록의 빈칸이 많다.</b></div><span class="more">상세 보기 ＋</span></div>
  </summary>
- <div class="record-more"><div><small>소속 / 보직</small><strong>1팀 · 막내</strong></div><p>성명·상세 외형·일상 정보가 확정되면 갱신되는 인사기록.</p><p class="record-quote">— 상세 인사정보 등록 예정 —</p></div>
+ <div class="record-more"><div><small>소속 / 보직</small><strong>1팀 · 막내</strong></div><figure class="scene-preview"><img src="../img/night-shift/jp-rookie.webp" alt="1팀 일본인 막내의 ORBIS 근무 일상 장면" loading="lazy" decoding="async"><figcaption>ORBIS · NIGHT SHIFT / 현장 스냅샷</figcaption></figure><p>성명과 주간 생활은 등록 대기. 은빛 백금발과 붉은 눈의 새침한 고양이상 막내.</p><p class="record-quote">— 상세 인사정보 등록 예정 —</p></div>
 </details>
 <details class="person-card" id="person-sun">
  <summary aria-label="햇살 선배 인사기록 펼치기">
@@ -100,12 +101,12 @@ footer{text-align:center;padding:12px 19px 74px;color:#8e838a;font-size:9px;lett
   <div class="record-body"><div class="record-photo missing"><span class="photo-fallback"><svg viewBox="0 0 56 64" aria-hidden="true"><circle cx="28" cy="20" r="14" fill="currentColor"/><path d="M3 62c0-18 10-25 25-25s25 7 25 25" fill="currentColor"/></svg><small>PHOTO</small></span></div>
   <div class="record-fields">
     <div class="name-row"><span class="field-mark">성명</span><strong>햇살 선배</strong><span class="name-en">NAME CLASSIFIED</span></div>
-    <div class="facts"><div><b>성별</b><span>남</span></div><div><b>나이</b><span>29</span></div><div><b>신장</b><span>미등록</span></div><div><b>MBTI</b><span>미등록</span></div></div>
-    <div class="feature-row"><b>외형</b><span>다정한 눈웃음 · 따뜻한 인상</span></div>
+    <div class="facts"><div><b>성별</b><span>남</span></div><div><b>나이</b><span>29</span></div><div><b>신장</b><span>186cm</span></div><div><b>MBTI</b><span>미등록</span></div></div>
+    <div class="feature-row"><b>외형</b><span>어두운 갈발 · 서글서글한 눈매 · 왼볼 파스</span></div>
   </div></div>
   <div class="record-foot"><div><span class="active-label">야간 기록</span><b class="active-copy" data-night="남부터 구하다 또 다치는, 메디컬센터의 단골." data-day="신입에게 먼저 다가와 챙겨 주는 다정한 선배.">남부터 구하다 또 다치는, 메디컬센터의 단골.</b></div><span class="more">상세 보기 ＋</span></div>
  </summary>
- <div class="record-more"><div><small>소속 / 보직</small><strong>1팀 · 선임 요원</strong></div><p>위험한 순간엔 자신보다 동료를 먼저 챙긴다. 본명·외형 상세는 미확정.</p><p class="record-quote">“괜찮아요, 저 이 정도는 익숙해요!”</p></div>
+ <div class="record-more"><div><small>소속 / 보직</small><strong>1팀 · 선임 요원</strong></div><p>위험한 순간엔 자신보다 동료를 먼저 챙긴다. 왼쪽 볼에 늘 작은 파스가 붙어 있는, 시원하게 웃는 쾌남 선배.</p><p class="record-quote">“괜찮아요, 저 이 정도는 익숙해요!”</p></div>
 </details>
 </section>
 <section class="team-section" id="team2" data-team="team2" style="--team:#426FA6">
@@ -113,7 +114,7 @@ footer{text-align:center;padding:12px 19px 74px;color:#8e838a;font-size:9px;lett
 <details class="person-card" id="person-taehee">
  <summary aria-label="강태희 인사기록 펼치기">
   <div class="record-bar"><span>ORBIS · 인사기록카드</span><span>PERSONNEL No. 004　<span class="record-arrow">⌄</span></span></div>
-  <div class="record-body"><div class="record-photo "><span class="photo-fallback"><svg viewBox="0 0 56 64" aria-hidden="true"><circle cx="28" cy="20" r="14" fill="currentColor"/><path d="M3 62c0-18 10-25 25-25s25 7 25 25" fill="currentColor"/></svg><small>PHOTO</small></span><img class="portrait-img" src="../img/TAHEE_NIGHT.png" data-night-src="../img/TAHEE_NIGHT.png" data-day-src="../img/TAHEE_NOON.png" alt="강태희 인물 사진" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('missing')"></div>
+  <div class="record-body"><div class="record-photo "><span class="photo-fallback"><svg viewBox="0 0 56 64" aria-hidden="true"><circle cx="28" cy="20" r="14" fill="currentColor"/><path d="M3 62c0-18 10-25 25-25s25 7 25 25" fill="currentColor"/></svg><small>PHOTO</small></span><img class="portrait-img" src="../img/night-shift/taehee.webp" data-night-src="../img/night-shift/taehee.webp" data-day-src="../img/TAHEE_NOON.png" alt="강태희 야간 근무 일러스트" loading="lazy" decoding="async" onerror="this.hidden=true;this.parentElement.classList.add('missing')"></div>
   <div class="record-fields">
     <div class="name-row"><span class="field-mark">성명</span><strong>강태희</strong><span class="name-en">CODENAME · SUE</span></div>
     <div class="facts"><div><b>성별</b><span>남</span></div><div><b>나이</b><span>22</span></div><div><b>신장</b><span>185cm</span></div><div><b>MBTI</b><span>INTP</span></div></div>
@@ -121,25 +122,25 @@ footer{text-align:center;padding:12px 19px 74px;color:#8e838a;font-size:9px;lett
   </div></div>
   <div class="record-foot"><div><span class="active-label">야간 기록</span><b class="active-copy" data-night="차분하고 단정한 업무 모드. 가끔 무심한 농담도." data-day="홍대 카페의 환하게 웃는 알바생. 친절함은 기본.">차분하고 단정한 업무 모드. 가끔 무심한 농담도.</b></div><span class="more">상세 보기 ＋</span></div>
  </summary>
- <div class="record-more"><div><small>소속 / 보직</small><strong>2팀 · 조사 요원</strong></div><p>낮과 밤의 태도 차이가 유난히 크다. 상대에게 마음을 여는 속도는 느리지만 무뚝뚝한 철벽은 아니다.</p><p class="record-quote">“요원님. ……그건 좀 재미있네요.”</p></div>
+ <div class="record-more"><div><small>소속 / 보직</small><strong>2팀 · 조사 요원</strong></div><figure class="scene-preview"><img src="../img/night-shift/taehee.webp" alt="강태희의 ORBIS 근무 일상 장면" loading="lazy" decoding="async"><figcaption>ORBIS · NIGHT SHIFT / 현장 스냅샷</figcaption></figure><p>낮과 밤의 태도 차이가 유난히 크다. 상대에게 마음을 여는 속도는 느리지만 무뚝뚝한 철벽은 아니다.</p><p class="record-quote">“요원님. ……그건 좀 재미있네요.”</p></div>
 </details>
 <details class="person-card" id="person-doyoon">
  <summary aria-label="한도윤 인사기록 펼치기">
   <div class="record-bar"><span>ORBIS · 인사기록카드</span><span>PERSONNEL No. 005　<span class="record-arrow">⌄</span></span></div>
-  <div class="record-body"><div class="record-photo missing"><span class="photo-fallback"><svg viewBox="0 0 56 64" aria-hidden="true"><circle cx="28" cy="20" r="14" fill="currentColor"/><path d="M3 62c0-18 10-25 25-25s25 7 25 25" fill="currentColor"/></svg><small>PHOTO</small></span></div>
+  <div class="record-body"><div class="record-photo"><span class="photo-fallback"><svg viewBox="0 0 56 64" aria-hidden="true"><circle cx="28" cy="20" r="14" fill="currentColor"/><path d="M3 62c0-18 10-25 25-25s25 7 25 25" fill="currentColor"/></svg><small>PHOTO</small></span><img class="portrait-img" src="../img/night-shift/doyoon.webp" data-night-src="../img/night-shift/doyoon.webp" data-day-src="" alt="한도윤 야간 근무 일러스트" loading="lazy" decoding="async" onerror="this.hidden=true;this.parentElement.classList.add('missing')"></div>
   <div class="record-fields">
     <div class="name-row"><span class="field-mark">성명</span><strong>한도윤</strong><span class="name-en">HAN DO-YOON</span></div>
     <div class="facts"><div><b>성별</b><span>남</span></div><div><b>나이</b><span>21</span></div><div><b>신장</b><span>미등록</span></div><div><b>MBTI</b><span>미등록</span></div></div>
-    <div class="feature-row"><b>외형</b><span>허니브라운 머리 · 강아지상</span></div>
+    <div class="feature-row"><b>외형</b><span>검정 덮머 · 파란 눈 · 진한 눈썹</span></div>
   </div></div>
   <div class="record-foot"><div><span class="active-label">야간 기록</span><b class="active-copy" data-night="“제가요?!”를 외치면서도 맡은 일은 끝내는 막내." data-day="리액션 크고 정 많은, 친근한 후배.">“제가요?!”를 외치면서도 맡은 일은 끝내는 막내.</b></div><span class="more">상세 보기 ＋</span></div>
  </summary>
- <div class="record-more"><div><small>소속 / 보직</small><strong>2팀 · 막내</strong></div><p>시끄러운 리액션 뒤에 탄탄한 조사 역량. 선배들의 놀림에 잘 휘말린다.</p><p class="record-quote">“제가요?! 아니 진짜로 제가요?!”</p></div>
+ <div class="record-more"><div><small>소속 / 보직</small><strong>2팀 · 막내</strong></div><figure class="scene-preview"><img src="../img/night-shift/doyoon.webp" alt="한도윤의 ORBIS 근무 일상 장면" loading="lazy" decoding="async"><figcaption>ORBIS · NIGHT SHIFT / 현장 스냅샷</figcaption></figure><p>시끄러운 리액션 뒤에 탄탄한 조사 역량. 선배들의 놀림에 잘 휘말린다.</p><p class="record-quote">“제가요?! 아니 진짜로 제가요?!”</p></div>
 </details>
 <details class="person-card" id="person-sehyun">
  <summary aria-label="윤세현 인사기록 펼치기">
   <div class="record-bar"><span>ORBIS · 인사기록카드</span><span>PERSONNEL No. 006　<span class="record-arrow">⌄</span></span></div>
-  <div class="record-body"><div class="record-photo"><span class="photo-fallback"><svg viewBox="0 0 56 64" aria-hidden="true"><circle cx="28" cy="20" r="14" fill="currentColor"/><path d="M3 62c0-18 10-25 25-25s25 7 25 25" fill="currentColor"/></svg><small>PHOTO</small></span><img class="portrait-img" src="../img/JH.png" data-night-src="../img/JH.png" data-day-src="" alt="윤세현 야간 인사기록 사진" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('missing')"></div>
+  <div class="record-body"><div class="record-photo"><span class="photo-fallback"><svg viewBox="0 0 56 64" aria-hidden="true"><circle cx="28" cy="20" r="14" fill="currentColor"/><path d="M3 62c0-18 10-25 25-25s25 7 25 25" fill="currentColor"/></svg><small>PHOTO</small></span><img class="portrait-img" src="../img/night-shift/sehyun.webp" data-night-src="../img/night-shift/sehyun.webp" data-day-src="" alt="윤세현 야간 근무 일러스트" loading="lazy" decoding="async" onerror="this.hidden=true;this.parentElement.classList.add('missing')"></div>
   <div class="record-fields">
     <div class="name-row"><span class="field-mark">성명</span><strong>윤세현</strong><span class="name-en">YOON SE-HYUN</span></div>
     <div class="facts"><div><b>성별</b><span>남</span></div><div><b>나이</b><span>31</span></div><div><b>신장</b><span>186cm</span></div><div><b>MBTI</b><span>미등록</span></div></div>
@@ -147,7 +148,7 @@ footer{text-align:center;padding:12px 19px 74px;color:#8e838a;font-size:9px;lett
   </div></div>
   <div class="record-foot"><div><span class="active-label">야간 기록</span><b class="active-copy" data-night="웃으면서 팩트로 몰아붙이는, 구렁이 같은 선배." data-day="여유롭고 장난 많은 남자. 자기 사람은 잘 챙김.">웃으면서 팩트로 몰아붙이는, 구렁이 같은 선배.</b></div><span class="more">상세 보기 ＋</span></div>
  </summary>
- <div class="record-more"><div><small>소속 / 보직</small><strong>2팀 · 선임 요원</strong></div><p>기록과 증거에 강하다. 자기 팀을 부당하게 몰아가면 웃음부터 사라진다.</p><p class="record-quote">“요원님, 그 말은 근거가 좀 부족한데?”</p></div>
+ <div class="record-more"><div><small>소속 / 보직</small><strong>2팀 · 선임 요원</strong></div><figure class="scene-preview"><img src="../img/night-shift/sehyun.webp" alt="윤세현의 ORBIS 근무 일상 장면" loading="lazy" decoding="async"><figcaption>ORBIS · NIGHT SHIFT / 현장 스냅샷</figcaption></figure><p>기록과 증거에 강하다. 자기 팀을 부당하게 몰아가면 웃음부터 사라진다.</p><p class="record-quote">“요원님, 그 말은 근거가 좀 부족한데?”</p></div>
 </details>
 </section>
 <section class="team-section" id="medical" data-team="medical" style="--team:#80669B">
@@ -155,15 +156,15 @@ footer{text-align:center;padding:12px 19px 74px;color:#8e838a;font-size:9px;lett
 <details class="person-card" id="person-lucien">
  <summary aria-label="루시앙 모로 인사기록 펼치기">
   <div class="record-bar"><span>ORBIS · 인사기록카드</span><span>PERSONNEL No. 007　<span class="record-arrow">⌄</span></span></div>
-  <div class="record-body"><div class="record-photo missing"><span class="photo-fallback"><svg viewBox="0 0 56 64" aria-hidden="true"><circle cx="28" cy="20" r="14" fill="currentColor"/><path d="M3 62c0-18 10-25 25-25s25 7 25 25" fill="currentColor"/></svg><small>PHOTO</small></span></div>
+  <div class="record-body"><div class="record-photo"><span class="photo-fallback"><svg viewBox="0 0 56 64" aria-hidden="true"><circle cx="28" cy="20" r="14" fill="currentColor"/><path d="M3 62c0-18 10-25 25-25s25 7 25 25" fill="currentColor"/></svg><small>PHOTO</small></span><img class="portrait-img" src="../img/night-shift/lucien.webp" data-night-src="../img/night-shift/lucien.webp" data-day-src="" alt="루시앙 모로 야간 근무 일러스트" loading="lazy" decoding="async" onerror="this.hidden=true;this.parentElement.classList.add('missing')"></div>
   <div class="record-fields">
     <div class="name-row"><span class="field-mark">성명</span><strong>루시앙 모로</strong><span class="name-en">LUCIEN MOREAU</span></div>
     <div class="facts"><div><b>성별</b><span>남</span></div><div><b>나이</b><span>30</span></div><div><b>신장</b><span>미등록</span></div><div><b>MBTI</b><span>미등록</span></div></div>
-    <div class="feature-row"><b>외형</b><span>은빛 레이어드 헤어 · 파란 눈</span></div>
+    <div class="feature-row"><b>외형</b><span>샴페인 금발 · 사파이어 블루 눈</span></div>
   </div></div>
   <div class="record-foot"><div><span class="active-label">야간 기록</span><b class="active-copy" data-night="말은 서늘해도 다친 사람을 그냥 보내지 않는다." data-day="프랑스 디저트에 진심인 의외의 취향.">말은 서늘해도 다친 사람을 그냥 보내지 않는다.</b></div><span class="more">상세 보기 ＋</span></div>
  </summary>
- <div class="record-more"><div><small>소속 / 보직</small><strong>MEDICAL · 의료</strong></div><p>프랑스 출신 의료 요원. 지시를 무시하는 환자에겐 특히 엄격하다.</p><p class="record-quote">“치료가 끝났다고 누가 그랬습니까?”</p></div>
+ <div class="record-more"><div><small>소속 / 보직</small><strong>MEDICAL · 의료</strong></div><figure class="scene-preview"><img src="../img/night-shift/lucien.webp" alt="루시앙 모로의 ORBIS 근무 일상 장면" loading="lazy" decoding="async"><figcaption>ORBIS · NIGHT SHIFT / 현장 스냅샷</figcaption></figure><p>프랑스 출신 의료 요원. 불어는 모국어이며 한국어도 유창하다. 지시를 무시하는 환자에겐 특히 엄격하다.</p><p class="record-quote">“치료가 끝났다고 누가 그랬습니까?”</p></div>
 </details>
 </section>
 </section>
