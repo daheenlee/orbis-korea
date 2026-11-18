@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ORBIS 대한민국지부</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .nightshift-entry{padding:26px 0 9px}
+    .nightshift-card{position:relative;display:flex;align-items:center;justify-content:space-between;gap:24px;overflow:hidden;padding:24px 27px;border-radius:12px;border:1px solid #7c3a45;border-left:5px solid #c8323c;background:linear-gradient(115deg,#19181e,#292029 63%,#401e29);color:#f8f5f5;box-shadow:0 12px 32px rgba(30,10,15,.12)}
+    .nightshift-card::after{content:"◐";position:absolute;right:132px;top:-46px;font-size:174px;color:rgba(235,100,110,.09);pointer-events:none}
+    .nightshift-copy{z-index:1}
+    .nightshift-kicker{display:block;color:#edacb4;font-size:11px;font-weight:800;letter-spacing:.12em;margin-bottom:7px}
+    .nightshift-card h2{margin:0 0 7px;color:#fff;font-size:clamp(21px,3.5vw,29px);letter-spacing:-.04em}
+    .nightshift-card p{margin:0;color:#cbbfc3;font-size:13px;line-height:1.6}
+    .nightshift-link{z-index:1;display:inline-flex;align-items:center;justify-content:center;flex:none;padding:13px 18px;border-radius:7px;background:#c8323c;color:#fff!important;text-decoration:none;font-weight:800;font-size:13px;white-space:nowrap}
+    .nightshift-link:hover,.nightshift-link:focus-visible{background:#a92733}
+    @media(max-width:670px){.nightshift-entry{padding:16px 0 8px}.nightshift-card{align-items:stretch;flex-direction:column;padding:19px 18px;gap:16px}.nightshift-link{width:100%}.nightshift-card::after{right:-10px;top:-18px}}
+  </style>
 </head>
 <body>
   <div id="site-header"></div>
@@ -22,8 +34,22 @@
       </div>
     </section>
 
+    <section class="nightshift-entry" aria-labelledby="nightshift-home-title">
+      <div class="wrap">
+        <div class="nightshift-card">
+          <div class="nightshift-copy">
+            <span class="nightshift-kicker">NEW STORY CATEGORY · ORBIS</span>
+            <h2 id="nightshift-home-title">ORBIS : NIGHT SHIFT</h2>
+            <p>우당탕탕 이능력자들의 수상한 이중생활!<br>1팀 · 2팀 · 메디컬, 취향대로 인사명부를 열람하세요.</p>
+          </div>
+          <a class="nightshift-link" href="night-shift/index.html" aria-label="ORBIS NIGHT SHIFT 스토리 시작페이지 열기">인사명부 열람하기　↗</a>
+        </div>
+      </div>
+    </section>
+
     <div class="wrap">
       <nav class="quick" aria-label="주요 메뉴">
+        <a href="night-shift/index.html"><strong>✦ NIGHT SHIFT · 스토리</strong><span>캐릭터 인사명부 · 낮과 밤 · 플레이 안내</span></a>
         <a href="world/index.html"><strong>세계관</strong><span>궤도질서 개요</span></a>
         <a href="history/index.html"><strong>연혁</strong><span>지부 주요 기록</span></a>
         <a href="org/index.html"><strong>조직도</strong><span>국·과 편제</span></a>
