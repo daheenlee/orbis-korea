@@ -30,7 +30,14 @@
 html[data-view="day"] .active-label{color:#a96038}html[data-view="day"] .record-bar{background:#f0e8dd}
 .smallprint{font-size:10px;color:#88847d;line-height:1.65;margin:9px 1px 0}
 .secondary{padding:24px 19px 26px}.section-label{color:#e4838c;font-size:10px;font-weight:850;letter-spacing:.15em}.secondary h2{font-size:20px;letter-spacing:-.045em;margin:6px 0 11px}.factslist{display:grid;grid-template-columns:1fr 1fr;gap:8px}.factslist div{border:1px solid #40363b;border-radius:8px;background:#211e24;padding:12px}.factslist b{font-size:11px;display:block}.factslist span{font-size:10px;color:#b7afb3;display:block;margin-top:5px;line-height:1.6}
-.schedule{padding:1px 19px 25px}.schedule-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:12px}.schedule-head h2{font-size:18px;margin:4px 0 0}.schedule-head small{font-size:9px;color:#aaa1a7}.calendar{background:#1e1f25;border:1px solid #443b42;border-radius:11px;padding:12px}.calendar-title{display:flex;justify-content:space-between;align-items:center;font-size:10px;color:#c6bec2;margin-bottom:10px}.calendar-title strong{color:#fff;font-size:13px}.calendar-row{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}.calendar-day{border:0;border-radius:6px;min-width:0;padding:8px 0 7px;background:#2b2b33;color:#b6b4ba;font-size:9px;min-height:51px;display:grid;place-items:center;gap:2px}.calendar-day b{font-size:14px}.calendar-day[aria-selected="true"]{background:#a93341;color:white}.calendar-day i{width:4px;height:4px;border-radius:50%;background:transparent}.calendar-day i.has{background:#f199a2}.calendar-result{background:#25262e;border-radius:7px;padding:11px;margin-top:9px;display:flex;gap:8px;min-height:57px}.calendar-result .calendar-bullet{width:25px;height:25px;border-radius:7px;background:#5e2833;color:#fff;display:grid;place-items:center;flex:none}.calendar-result strong{font-size:11px}.calendar-result p{font-size:10px;color:#bdb6bc;margin:3px 0 0}.calendar-note{font-size:9px;color:#aaa2a8;margin:8px 0 0}
+.facility,.welfare{padding:1px 19px 24px}.facility-heading h2,.welfare h2{font-size:19px;letter-spacing:-.045em;margin:6px 0 5px}.facility-heading p,.welfare-sub{font-size:11px;color:#bfb4ba;margin:0 0 14px;line-height:1.6}
+.floor-list{position:relative;background:#1e1f25;border:1px solid #42383e;border-radius:11px;overflow:hidden}
+.floor-line{display:grid;grid-template-columns:67px 29px minmax(0,1fr);align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid #35323a;min-height:59px}.floor-line:last-child{border-bottom:0}
+.floor-no{color:#f3a6ae;font-weight:900;font-size:11px;font-variant-numeric:tabular-nums}.floor-ico{width:27px;height:27px;display:grid;place-items:center;border-radius:7px;background:#482731;color:#f7b6bd;font-size:14px}
+.floor-line strong{font-size:12px;display:block}.floor-line small{font-size:10px;color:#a9a0a6;display:block;margin-top:2px}
+.floor-more{border:1px solid #43333b;border-radius:8px;margin-top:8px;overflow:hidden;background:#211e24}.floor-more summary{list-style:none;cursor:pointer;padding:12px;display:flex;justify-content:space-between;align-items:center;color:#e9c6ca;font-size:11px;font-weight:850}.floor-more summary::-webkit-details-marker{display:none}.floor-more[open] summary span{transform:rotate(45deg)}.floor-extra{display:flex;gap:14px;padding:8px 12px;border-top:1px solid #343039;color:#bbb2b7;font-size:11px}.floor-extra b{color:#e9a8b1;min-width:62px}
+.site-reference{display:block;margin:10px 0 0;color:#dc9ea6;text-align:right;font-size:10px;text-decoration:underline;text-underline-offset:3px}
+.welfare{padding-top:6px;padding-bottom:29px}.benefits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.benefit{border:1px solid #4a363e;background:linear-gradient(155deg,#27232b,#201f26);border-radius:9px;padding:12px 9px 11px;min-width:0;display:flex;flex-direction:column;gap:5px}.benefit-icon{font-size:21px;line-height:1.3;color:#e98c98}.benefit strong{font-size:12px;display:block;color:#f3edf0}.benefit small{font-size:10px;line-height:1.5;color:#b6aab1;display:block;margin-top:3px}.welfare-note{margin:9px 0 0;font-size:9px;line-height:1.6;color:#8c848c}
 .howto{padding:0 19px 83px}.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.step{padding:10px 7px;background:#232229;border:1px solid #42363c;border-radius:8px;text-align:center}.step .icon{font-size:19px;display:block;color:#f19ea7}.step strong{font-size:11px;display:block;margin-top:4px}.step small{font-size:9px;color:#b8aeb3}.commands{text-align:center;margin-top:12px;font-size:11px;color:#cbb7bd;border:1px dashed #5a4249;border-radius:8px;padding:12px}
 .bottom{height:57px;display:grid;grid-template-columns:repeat(3,1fr);position:sticky;bottom:0;z-index:5;background:#17171deF;backdrop-filter:blur(12px);border-top:1px solid #413036}.bottom a{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:1px;font-size:10px;color:#cbc3c7;font-weight:800}.bottom a span{font-size:16px;color:#ed848e}
 footer{text-align:center;padding:12px 19px 74px;color:#8e838a;font-size:9px;letter-spacing:.05em}
@@ -166,17 +173,44 @@ footer{text-align:center;padding:12px 19px 74px;color:#8e838a;font-size:9px;lett
 <div><b>⊘ 보안은 절대</b><span>낮에는 ORBIS와 동료의 비밀을 함부로 말하지 않는다.</span></div>
 <div><b>♡ 일상도 콘텐츠</b><span>출동·회식·휴식·관계까지 자유롭게 즐기기.</span></div>
 </div></section>
-<section class="schedule" id="schedule"><div class="schedule-head"><div><span class="section-label">02 / ORBIS LINK</span><h2>다가오는 사내 일정</h2></div><small>7-DAY VIEW</small></div><div class="calendar">
-<div class="calendar-title"><strong id="calendar-month"></strong><span>● INTERNAL CALENDAR</span></div>
-<div class="calendar-row" id="calendar-days" aria-label="7일 캘린더"></div>
-<div class="calendar-result" id="calendar-result" aria-live="polite"></div><p class="calendar-note">※ 일정은 UI 체험을 위한 예시이며, 실제 플레이 내용과는 별개입니다.</p></div></section>
-<section class="howto" id="play"><span class="section-label">03 / HOW TO PLAY</span><h2>어렵지 않아요. 그냥 출근!</h2><div class="steps">
+<section class="facility" id="facility" aria-labelledby="facility-title">
+  <div class="facility-heading">
+    <span class="section-label">02 / BUILDING DIRECTORY</span>
+    <h2 id="facility-title">퇴근은 못 해도 길은 알아야지.</h2>
+    <p>49층 규모의 ORBIS 대한민국지부. 자주 가는 곳만 쏙쏙!</p>
+  </div>
+  <div class="floor-list" aria-label="주요 시설 안내">
+    <div class="floor-line"><span class="floor-no">49–47F</span><span class="floor-ico" aria-hidden="true">◈</span><div><strong>중앙 상황실</strong><small>균열 관측 · 상황 관제 · 긴급 지휘</small></div></div>
+    <div class="floor-line"><span class="floor-no">46–35F</span><span class="floor-ico" aria-hidden="true">⌖</span><div><strong>출동 작전센터</strong><small>현장 출동 · 작전 · 균열 대응</small></div></div>
+    <div class="floor-line"><span class="floor-no">31–29F</span><span class="floor-ico" aria-hidden="true">✚</span><div><strong>메디컬센터</strong><small>응급 진료 · 임무 후 회복</small></div></div>
+    <div class="floor-line"><span class="floor-no">09–03F</span><span class="floor-ico" aria-hidden="true">☕</span><div><strong>직원 복지시설</strong><small>직원식당 · 수면실 · 사우나 · 운동</small></div></div>
+  </div>
+  <details class="floor-more"><summary>그 외 층별 시설 보기 <span aria-hidden="true">＋</span></summary>
+    <div class="floor-extra"><b>34–32F</b> 단속·조사센터</div><div class="floor-extra"><b>28–20F</b> 행정·보안센터</div><div class="floor-extra"><b>18–16F</b> 대회의실·교육센터</div>
+  </details>
+  <a class="site-reference" href="../floor/index.html">지부 시설 공식 안내 자세히 보기 ↗</a>
+</section>
+<section class="welfare" id="welfare" aria-labelledby="welfare-title">
+  <span class="section-label">03 / EMPLOYEE BENEFITS</span>
+  <h2 id="welfare-title">야근 많아도, 복지는 챙겨 드림.</h2>
+  <p class="welfare-sub">ORBIS 요원들, 쉬는 건 제대로 쉬어야 하니까.</p>
+  <div class="benefits">
+    <article class="benefit"><span class="benefit-icon" aria-hidden="true">⌂</span><div><strong>개인 생활관</strong><small>야간·현장 근무자 우선 배정</small></div></article>
+    <article class="benefit"><span class="benefit-icon" aria-hidden="true">♨</span><div><strong>수면실 · 사우나</strong><small>휴식 공간 · 찜질방</small></div></article>
+    <article class="benefit"><span class="benefit-icon" aria-hidden="true">☕</span><div><strong>식당 · 야식</strong><small>직원식당 · 간식 · 특식</small></div></article>
+    <article class="benefit"><span class="benefit-icon" aria-hidden="true">✚</span><div><strong>건강 관리</strong><small>의료지원 · 체력단련실</small></div></article>
+    <article class="benefit"><span class="benefit-icon" aria-hidden="true">♫</span><div><strong>문화 · 여가</strong><small>공연 · 스포츠 · 휴양시설</small></div></article>
+    <article class="benefit"><span class="benefit-icon" aria-hidden="true">★</span><div><strong>포상 · 휴가</strong><small>우수 직원 · 근속 포상</small></div></article>
+  </div>
+  <p class="welfare-note">※ 이용은 기관의 보안·안전·예산 규정에 따라 운영됩니다.</p>
+</section>
+<section class="howto" id="play"><span class="section-label">04 / HOW TO PLAY</span><h2>어렵지 않아요. 그냥 출근!</h2><div class="steps">
 <div class="step"><span class="icon">⌖</span><strong>나만의 요원</strong><small>팀·능력 선택</small></div><div class="step"><span class="icon">✦</span><strong>하고 싶은 대로</strong><small>임무부터 일상까지</small></div><div class="step"><span class="icon">♡</span><strong>취향껏 친해져요</strong><small>누구든 메인</small></div>
 </div><div class="commands">빠른 메뉴　<strong>/임무</strong>　·　<strong>/커뮤니티</strong>　·　<strong>/폰</strong></div>
 </section>
 </main>
 <footer>ORBIS · KOREA BRANCH<br>궤도의 경계를 지키고 현실의 질서를 유지합니다.<br>이 페이지는 창작 세계관의 가상 인사기록입니다.</footer>
-<nav class="bottom" aria-label="빠른 이동"><a href="#directory"><span>▤</span>인사명부</a><a href="#world"><span>◐</span>세계관</a><a href="#schedule"><span>▦</span>일정</a></nav>
+<nav class="bottom" aria-label="빠른 이동"><a href="#directory"><span>▤</span>인사명부</a><a href="#world"><span>◐</span>세계관</a><a href="#facility"><span>▦</span>시설·복지</a></nav>
 </div>
 <script>
 (function(){
@@ -192,15 +226,7 @@ document.querySelectorAll('[data-filter]').forEach(function(btn){btn.addEventLis
 var v=btn.getAttribute('data-filter');document.querySelectorAll('[data-filter]').forEach(function(b){b.setAttribute('aria-pressed',String(b===btn));});
 document.querySelectorAll('.team-section').forEach(function(s){s.hidden=v!=='all'&&s.dataset.team!==v;});
 });});
-var today=new Date();var dates=[];var names=['일','월','화','수','목','금','토'];
-var announcements={1:['신입 브리핑','신규 요원 배속 및 교육 안내'],3:['팀 합동 훈련','1·2팀 공동 대응 훈련'],5:['메디컬 정기검진','임무 후 컨디션 체크']};
-var host=document.getElementById('calendar-days');
-var view=document.getElementById('calendar-result');
-document.getElementById('calendar-month').textContent=(today.getFullYear())+'. '+String(today.getMonth()+1).padStart(2,'0')+' · DEMO';
-for(var i=0;i<7;i++){var d=new Date(today);d.setDate(today.getDate()+i);dates.push(d);var b=document.createElement('button');b.type='button';b.className='calendar-day';b.dataset.index=i;b.setAttribute('aria-selected',String(i===0));b.innerHTML='<span>'+names[d.getDay()]+'</span><b>'+d.getDate()+'</b><i class="'+(announcements[i]?'has':'')+'"></i>';b.addEventListener('click',function(){choose(+this.dataset.index);});host.appendChild(b);}
-function choose(i){host.querySelectorAll('.calendar-day').forEach(function(b){b.setAttribute('aria-selected',String(+b.dataset.index===i));});
-var d=dates[i];var e=announcements[i];view.innerHTML='<div class="calendar-bullet">✦</div><div><strong>'+(d.getMonth()+1)+'월 '+d.getDate()+'일 · '+(e?e[0]:'등록된 일정 없음')+'</strong><p>'+(e?e[1]:'다음 알림을 기다려 주세요.')+'</p></div>';}
-choose(0);
+
 })();
 </script>
 </body></html>
