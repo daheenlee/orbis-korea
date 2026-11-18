@@ -139,7 +139,7 @@ footer{text-align:center;padding:12px 19px 74px;color:#8e838a;font-size:9px;lett
 <details class="person-card" id="person-sehyun">
  <summary aria-label="윤세현 인사기록 펼치기">
   <div class="record-bar"><span>ORBIS · 인사기록카드</span><span>PERSONNEL No. 006　<span class="record-arrow">⌄</span></span></div>
-  <div class="record-body"><div class="record-photo missing"><span class="photo-fallback"><svg viewBox="0 0 56 64" aria-hidden="true"><circle cx="28" cy="20" r="14" fill="currentColor"/><path d="M3 62c0-18 10-25 25-25s25 7 25 25" fill="currentColor"/></svg><small>PHOTO</small></span></div>
+  <div class="record-body"><div class="record-photo"><span class="photo-fallback"><svg viewBox="0 0 56 64" aria-hidden="true"><circle cx="28" cy="20" r="14" fill="currentColor"/><path d="M3 62c0-18 10-25 25-25s25 7 25 25" fill="currentColor"/></svg><small>PHOTO</small></span><img class="portrait-img" src="../img/JH.png" data-night-src="../img/JH.png" data-day-src="" alt="윤세현 야간 인사기록 사진" loading="lazy" onerror="this.hidden=true;this.parentElement.classList.add('missing')"></div>
   <div class="record-fields">
     <div class="name-row"><span class="field-mark">성명</span><strong>윤세현</strong><span class="name-en">YOON SE-HYUN</span></div>
     <div class="facts"><div><b>성별</b><span>남</span></div><div><b>나이</b><span>31</span></div><div><b>신장</b><span>186cm</span></div><div><b>MBTI</b><span>미등록</span></div></div>
@@ -220,7 +220,7 @@ var mode=btn.dataset.viewButton; root.setAttribute('data-view',mode);
 document.querySelectorAll('[data-view-button]').forEach(function(b){b.setAttribute('aria-pressed',String(b===btn));});
 document.querySelectorAll('.record-foot .active-copy').forEach(function(el){el.textContent=el.getAttribute('data-'+mode);});
 document.querySelectorAll('.active-label').forEach(function(el){el.textContent=mode==='day'?'주간 기록':'야간 기록';});
-document.querySelectorAll('.portrait-img').forEach(function(img){var src=img.getAttribute('data-'+mode+'-src');if(src){img.hidden=false;img.parentElement.classList.remove('missing');img.src=src;}});
+document.querySelectorAll('.portrait-img').forEach(function(img){var src=img.getAttribute('data-'+mode+'-src');if(src){img.hidden=false;img.parentElement.classList.remove('missing');img.src=src;}else{img.hidden=true;img.parentElement.classList.add('missing');}});
 });});
 document.querySelectorAll('[data-filter]').forEach(function(btn){btn.addEventListener('click',function(){
 var v=btn.getAttribute('data-filter');document.querySelectorAll('[data-filter]').forEach(function(b){b.setAttribute('aria-pressed',String(b===btn));});
