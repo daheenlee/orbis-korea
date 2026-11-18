@@ -4,11 +4,12 @@
   const path = window.location.pathname.replace(/\\/g, "/");
 
   // 메인 페이지와 하위 폴더의 경로 구분
-  const inSub = /\/(org|world|history|rules|people|uniform|floor)(\/|$)/.test(path);
+  const inSub = /\/(org|world|history|rules|people|uniform|floor|night-shift)(\/|$)/.test(path);
   const base = inSub ? "../" : "";
 
   const pages = [
     ["index.html", "홈"],
+    ["night-shift/index.html", "NIGHT SHIFT · 스토리"],
     ["world/index.html", "세계관"],
     ["history/index.html", "연혁"],
     ["org/index.html", "조직도"],
