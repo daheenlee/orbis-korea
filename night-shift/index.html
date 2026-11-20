@@ -106,6 +106,23 @@ footer{text-align:center;padding:12px 19px 74px;color:#8e838a;font-size:9px;lett
 @media(max-width:350px){.intro-title{font-size:21px}.awaken-art{height:100px}.awaken-art svg{height:100px}}
 .awaken-art img{display:block;width:100%;max-height:115px;object-fit:contain;object-position:center}
 @media(max-width:350px){.awaken-art img{max-height:100px}}
+
+/* 인사기록부 타이틀: 살짝 틀어진 문서 표지처럼, 실제 카드·필터는 수평 유지 */
+.directory-head{padding:30px 8px 22px;overflow:visible}
+.directory-head h2{position:relative;z-index:1;display:table;width:fit-content;margin:19px auto 15px;padding:11px 23px 13px;font-size:clamp(23px,6vw,29px);letter-spacing:.21em;line-height:1.35;transform:rotate(-3deg);background:#fffdf7;border:1px solid #a89a8e;box-shadow:5px 6px 0 #d9d0c3;color:#29272d}
+.directory-head h2:before{content:"";position:absolute;inset:5px;border:1px solid #d5c8b9;pointer-events:none}
+.directory-head h2:after{content:"PERSONNEL RECORD";position:absolute;top:-15px;right:-13px;background:#bb3542;color:#fff;padding:4px 7px;font-size:8px;letter-spacing:.07em;transform:rotate(6deg);white-space:nowrap}
+.directory-head>p:not(.switch-note){margin:18px 0 12px;line-height:1.7}
+.directory-head .switch{margin-top:19px}
+.tabs{margin-top:18px;margin-bottom:17px}
+.team-section{padding-top:19px}
+.directory{padding-bottom:32px}
+.facility{padding-top:39px;padding-bottom:32px}
+.facility-heading{padding-bottom:10px}
+.facility-heading h2{font-size:23px;line-height:1.4;margin:12px 0 10px;letter-spacing:-.06em;color:#f6eff1}
+.facility-heading p{line-height:1.75;margin-bottom:12px}
+.welfare{padding-top:20px}
+@media(max-width:360px){.directory-head h2{font-size:22px;padding:11px 15px;letter-spacing:.14em}.directory-head h2:after{right:-6px;font-size:7px}}
 </style>
 </head>
 <body>
@@ -260,9 +277,9 @@ footer{text-align:center;padding:12px 19px 74px;color:#8e838a;font-size:9px;lett
 </section>
 <section class="facility" id="facility" aria-labelledby="facility-title">
   <div class="facility-heading">
-    <span class="section-label">02 / BUILDING DIRECTORY</span>
-    <h2 id="facility-title">퇴근은 못 해도 길은 알아야지.</h2>
-    <p>49층 규모의 ORBIS 대한민국지부. 자주 가는 곳만 쏙쏙!</p>
+    <span class="section-label">06 / BUILDING DIRECTORY</span>
+    <h2 id="facility-title">밤을 책임지는 요원에게,<br>최상의 복지를.</h2>
+    <p>야간 임무부터 회복과 휴식까지. ORBIS 대한민국지부의 주요 시설을 안내합니다.</p>
   </div>
   <div class="floor-list" aria-label="주요 시설 안내">
     <div class="floor-line"><span class="floor-no">49–47F</span><span class="floor-ico" aria-hidden="true">◈</span><div><strong>중앙 상황실</strong><small>균열 관측 · 상황 관제 · 긴급 지휘</small></div></div>
@@ -276,7 +293,7 @@ footer{text-align:center;padding:12px 19px 74px;color:#8e838a;font-size:9px;lett
   <a class="site-reference" href="../floor/index.html">지부 시설 공식 안내 자세히 보기 ↗</a>
 </section>
 <section class="welfare" id="welfare" aria-labelledby="welfare-title">
-  <span class="section-label">03 / EMPLOYEE BENEFITS</span>
+  <span class="section-label">07 / EMPLOYEE BENEFITS</span>
   <h2 id="welfare-title">야근 많아도, 복지는 챙겨 드림.</h2>
   <p class="welfare-sub">ORBIS 요원들, 쉬는 건 제대로 쉬어야 하니까.</p>
   <div class="benefits">
@@ -289,7 +306,7 @@ footer{text-align:center;padding:12px 19px 74px;color:#8e838a;font-size:9px;lett
   </div>
   <p class="welfare-note">※ 이용은 기관의 보안·안전·예산 규정에 따라 운영됩니다.</p>
 </section>
-<section class="howto" id="play"><span class="section-label">04 / HOW TO PLAY</span><h2>어렵지 않아요. 그냥 출근!</h2><div class="steps">
+<section class="howto" id="play"><span class="section-label">08 / HOW TO PLAY</span><h2>어렵지 않아요. 그냥 출근!</h2><div class="steps">
 <div class="step"><span class="icon">⌖</span><strong>나만의 요원</strong><small>팀·능력 선택</small></div><div class="step"><span class="icon">✦</span><strong>하고 싶은 대로</strong><small>임무부터 일상까지</small></div><div class="step"><span class="icon">♡</span><strong>취향껏 친해져요</strong><small>누구든 메인</small></div>
 </div><div class="commands">빠른 메뉴　<strong>/임무</strong>　·　<strong>/커뮤니티</strong>　·　<strong>/폰</strong></div>
 </section>
