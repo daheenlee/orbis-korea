@@ -45,6 +45,35 @@ footer{text-align:center;padding:12px 19px 74px;color:#8e838a;font-size:9px;lett
 @media(min-width:680px){.shell{border-left:1px solid #423c41;border-right:1px solid #423c41}.hero{padding-top:38px}.person-card summary{min-height:207px}.record-body{grid-template-columns:112px minmax(0,1fr)}.name-row strong{font-size:18px}.facts span,.feature-row span{font-size:11px}}
 @media(max-width:360px){.directory{padding-inline:9px}.tabs{margin-inline:-9px;padding-inline:9px}.record-body{grid-template-columns:86px minmax(0,1fr)}.name-en{display:none}.active-copy{font-size:9.5px}.team-head h3{font-size:13px}.record-foot{gap:4px}.feature-row span{font-size:9px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* ORBIS 대한민국지부 — 현대 한국 공공기관의 인사기록 스타일. 기존 구성·동작 유지 */
+:root{--paper:#F4F0E7;--paper2:#E9E2D6;--line:#B8ADA0}
+.shell{background:linear-gradient(180deg,#23232a 0,#17191e 450px,#17191e 100%)}
+.header{border-bottom:3px solid #b8323e;background:#24242a}
+.header small{color:#e6c7ca;letter-spacing:.04em}
+.hero{background:radial-gradient(ellipse at 93% 8%,#a7434724,transparent 55%);border-bottom:1px solid #553d42}
+.hero h1{letter-spacing:-.045em}.hero h2{font-weight:850}
+.eyebrow,.section-label{letter-spacing:.09em}
+.hero-tags span{border-radius:3px;border-color:#67474e;background:#2c242a}
+.context>div{border-radius:3px;border-left:3px solid #a77f75;background:#2a2627}
+.context>div:not(.daycard){border-left-color:#c8323c;background:#292029}
+.security-top{position:relative;background:#e6ded0;border-bottom:3px solid #b8313e}
+.security-top span{border:2px double #b4313e;border-radius:2px;padding:5px 7px;transform:rotate(-7deg);letter-spacing:.08em}
+.directory{background:var(--paper)}
+.directory-head{position:relative}
+.directory-head:before{content:"대한민국지부 / 인사기록 제007호";display:block;margin-bottom:8px;color:#86756c;font-size:10px;letter-spacing:.08em;border-bottom:1px solid #c9bfb1;padding-bottom:9px}
+.directory-head h2{font-weight:900;letter-spacing:.23em}
+.switch,.switch button,.tab,.person-card,.scene-preview{border-radius:3px}
+.switch{background:#e3d9ca}.tab[aria-pressed="true"]{background:#333035}
+.person-card{background:#fffdf7;border-color:#b5a99c;box-shadow:3px 3px 0 #d7d0c4}
+.record-bar{background:#eae4d9;color:#73675e;letter-spacing:.035em}
+.record-more,.record-foot{background:#f3ede2}
+.person-card[open] .record-bar{border-top:2px solid var(--team)}
+.record-quote{border-left:2px solid #b8323e;padding-left:9px}
+.factslist div,.benefit,.floor-list,.floor-more,.step{border-radius:3px}
+.floor-line,.benefit{border-left:2px solid #9a5b62}
+.bottom{border-top:2px solid #ad3642}
+@media(max-width:360px){.directory-head:before{font-size:9px}.hero h1{font-size:36px}}
 </style>
 </head>
 <body>
