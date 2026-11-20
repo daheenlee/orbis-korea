@@ -5,53 +5,58 @@
 <meta name="theme-color" content="#12151c">
 <title>ORBIS | 신입 요원 자동 추천</title>
 <style>
-:root{font-family:-apple-system,BlinkMacSystemFont,"Pretendard","Noto Sans KR",sans-serif;color:#f6f2f3;background:#0c0e14}
+:root{font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo",sans-serif;color:#24252b;background:#25242a}
 *{box-sizing:border-box}body{margin:0}button,input{font:inherit}button{cursor:pointer}
-.wrap{max-width:520px;margin:auto;min-height:100vh;background:linear-gradient(155deg,#20202b,#10131a 45%);padding:24px 18px 80px}
-.top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #45434c;padding-bottom:15px}
-.brand{font-weight:900;letter-spacing:.13em}.brand b{color:#fa929c}a{color:#a9c9f6;text-decoration:none}
-.top a{font-size:12px}.eyebrow{font-size:11px;letter-spacing:.13em;color:#e28791;margin:32px 0 10px}
-h1{font-size:30px;letter-spacing:-.06em;margin:0 0 12px;line-height:1.3}
-.sub{font-size:13px;color:#bfc0cc;line-height:1.8;margin-bottom:15px}
-.pill{display:inline-block;border:1px solid #74404d;padding:7px 12px;border-radius:22px;color:#f0abb5;font-size:11px}
-.card{border:1px solid #414650;background:#202530;border-radius:13px;padding:20px;margin-top:19px}
-.num{font-size:11px;color:#eaaab3;letter-spacing:.1em}h2{font-size:18px;letter-spacing:-.035em;line-height:1.45;margin:12px 0 20px}
-.progress{height:5px;background:#3c4353;border-radius:9px;margin-top:14px;overflow:hidden}.bar{height:100%;background:#d85b68;transition:width .2s}
-.options{display:grid;gap:9px}.opt{width:100%;text-align:left;border:1px solid #505463;border-radius:9px;padding:14px;background:#292e3b;color:#f2f2f5;font-size:13px;line-height:1.6}
-.opt[aria-pressed=true]{background:#4c2d3a;border-color:#f38b98;box-shadow:inset 0 0 0 1px #eb8b97}
-.nav{display:flex;gap:9px;margin-top:20px}button.action{border:0;border-radius:9px;padding:14px;background:#c8323c;color:white;font-weight:800;flex:1}
-button.secondary{background:#343c49}button:disabled{opacity:.4}.hidden{display:none}
-.result-kicker{font-size:11px;color:#f2a9b0;letter-spacing:.12em}
-.team{font-size:28px;font-weight:900;margin:10px 0 3px}.red{color:#f0939f}.blue{color:#8fc1fc}
-.people{font-size:12px;color:#bfc3cf}.label{font-size:11px;color:#e2a9b3;font-weight:800;margin-top:22px}
-.value{font-size:17px;font-weight:850;margin-top:6px}.desc{font-size:13px;color:#cdd0db;line-height:1.75;margin:8px 0}
-.profile{margin-top:18px;background:#141923;border:1px solid #4d5260;border-radius:9px;padding:15px}
-.profile h3{font-size:15px;margin:0 0 11px}.profile p{font-size:13px;color:#d3d7e1;line-height:1.75;margin:7px 0}
-.actions{display:grid;gap:9px;margin-top:22px}.actions button{width:100%}.note{font-size:11px;color:#a9b1c3;line-height:1.7;margin-top:18px}.status{font-size:12px;color:#c1ebc9;min-height:18px}
-footer{text-align:center;margin-top:38px;font-size:10px;color:#8991a0;line-height:1.8}
+.wrap{max-width:520px;margin:auto;min-height:100vh;background:#f4f0e7;padding:0 18px 65px;position:relative;box-shadow:0 0 35px #0004;overflow:hidden}
+.wrap:before{content:"";position:absolute;pointer-events:none;inset:0;background:repeating-linear-gradient(0deg,transparent 0px,transparent 44px,#54463207 45px);opacity:.5}
+.wrap>*{position:relative}
+.top{display:flex;justify-content:space-between;align-items:center;margin:0 -18px;padding:17px 19px;background:#212329;border-bottom:4px solid #c8323c;color:#f7f1e7}
+.brand{font-weight:900;letter-spacing:.13em}.brand b{color:#e7727c}a{color:#8b3039;text-decoration:none}.top a{font-size:12px;color:#e8d9d7}
+.eyebrow{font-size:10px;letter-spacing:.16em;color:#a23d49;margin:30px 0 10px;font-weight:900}
+h1{font-size:31px;letter-spacing:-.07em;margin:0 0 12px;line-height:1.3;color:#20232a;word-break:keep-all}
+.sub{font-size:13px;color:#585660;line-height:1.85;margin-bottom:15px;word-break:keep-all}
+.pill{display:inline-block;border:1px solid #b8aaa1;padding:7px 12px;color:#87414b;font-weight:750;font-size:11px;background:#ebe5db}
+.card{border:1px solid #b2a99c;background:#fffdf7;border-radius:3px;padding:20px;margin-top:21px;box-shadow:5px 5px 0 #d9d1c5;position:relative}
+.card:before{content:"대한민국지부 · 인사관리 기록";display:block;color:#8f8176;font-size:9px;letter-spacing:.1em;padding-bottom:12px;margin-bottom:12px;border-bottom:1px solid #ded7ca}
+.num{font-size:11px;color:#a43c47;letter-spacing:.1em;font-weight:900}h2{font-size:19px;letter-spacing:-.05em;line-height:1.55;margin:14px 0 18px;color:#20232a;word-break:keep-all}
+.progress{height:5px;background:#e5ded2;margin-top:12px;overflow:hidden}.bar{height:100%;background:#b4313d;transition:width .2s}
+.options{display:grid;gap:9px}.opt{width:100%;text-align:left;border:1px solid #c9c1b6;border-radius:2px;padding:15px 12px;background:#faf7f0;color:#303039;font-size:13px;line-height:1.6;word-break:keep-all}
+.opt:before{content:"□";margin-right:9px;color:#9a8581}.opt[aria-pressed=true]{background:#f7ecec;border-color:#b63542;box-shadow:inset 3px 0 0 #bc3341;font-weight:750}.opt[aria-pressed=true]:before{content:"■";color:#b63542}
+.nav{display:flex;gap:9px;margin-top:20px}button.action{border:0;border-radius:3px;padding:15px;background:#b93441;color:#fffefa;font-weight:900;flex:1}
+button.secondary{background:#48484d}button:disabled{opacity:.4}.hidden{display:none}
+.result-kicker{font-size:11px;color:#a33e47;letter-spacing:.1em;font-weight:900}
+.team{font-size:28px;font-weight:950;margin:13px 0 5px;border-bottom:2px solid #dcd5ca;padding-bottom:12px}.red{color:#b63542}.blue{color:#34679b}
+.people{font-size:12px;color:#595660}.label{font-size:10px;color:#a23e49;font-weight:900;margin-top:22px;letter-spacing:.09em}
+.value{font-size:17px;font-weight:850;margin-top:7px;color:#25242c}.desc{font-size:13px;color:#55525a;line-height:1.8;margin:8px 0}
+.profile{margin-top:19px;background:#f5f0e6;border:1px solid #b5a99b;border-left:4px solid #b63542;border-radius:1px;padding:16px}.profile h3{font-size:15px;margin:0 0 11px;color:#25242c}.profile p{font-size:13px;color:#45444b;line-height:1.8;margin:7px 0}
+.actions{display:grid;gap:9px;margin-top:22px}.actions button{width:100%}.note{font-size:11px;color:#777077;line-height:1.75;margin-top:18px}.status{font-size:12px;color:#32734c;min-height:18px}
+.seal{position:absolute;right:20px;top:13px;width:60px;height:60px;border:3px double #bd4050;border-radius:50%;display:grid;place-items:center;color:#b33a47;transform:rotate(-15deg);font-size:13px;font-weight:950;letter-spacing:.06em;opacity:.83;line-height:1.15;text-align:center}
+.official{border-left:4px solid #b73542;background:#e9e2d7;padding:12px 14px;font-size:12px;color:#4c4346;line-height:1.7;margin-top:17px}
+footer{text-align:center;margin-top:42px;font-size:10px;color:#777079;line-height:1.9}
+@media(max-width:360px){.wrap{padding-left:12px;padding-right:12px}.card{padding:16px}h1{font-size:28px}}
 </style>
 </head>
 <body>
 <main class="wrap">
 <header class="top"><div class="brand">◉ <b>ORBIS</b> / ROK</div><a href="../night-shift/">← 인사명부</a></header>
-<p class="eyebrow">PERSONNEL / APTITUDE ASSESSMENT 001</p>
+<p class="eyebrow">대한민국지부 / 신입 인사 적성평가 · 제001호</p>
 <h1>백만 년 만의 신입,<br>어느 팀으로 갈까?</h1>
 <p class="sub">선배들의 뜨거운 관심 속 시작된 첫 출근.<br>6가지 질문에 답하면 추천 팀부터 이능력, 약점, 성격, 과거 직업까지 자동으로 정리해 드립니다.</p>
-<span class="pill">⚡ 신입 적성검사 · 자유로운 캐릭터 설정</span>
+<span class="pill">◈ 신규 각성자 적성 평가 · 6문항</span><div class="official"><strong>인사 발령 안내</strong><br>오랜만에 발령된 신규 요원의 추천 배치 자료입니다. 선택에 정답은 없으며 최종 소속과 능력은 직접 결정할 수 있습니다.</div>
 <section class="card" id="test">
 <div class="num" id="step"></div><div class="progress"><div class="bar" id="bar"></div></div>
 <h2 id="question"></h2><div class="options" id="options"></div>
 <div class="nav"><button type="button" class="action secondary" id="prev">이전</button><button type="button" class="action" id="next">다음</button></div>
 </section>
 <section class="card hidden" id="result" aria-live="polite">
-<div class="result-kicker">ACCESS APPROVED / PERSONNEL RESULT</div>
+<div class="result-kicker">ORBIS / PERSONNEL DECISION · 참고용</div><div class="seal" aria-hidden="true">인사<br>검토필</div>
 <div class="team" id="team"></div><div class="people" id="people"></div>
 <div class="label">AWAKENING CLASS</div><div class="value" id="rank"></div>
 <div class="label">CORE ABILITY</div><div class="value" id="ability"></div><p class="desc" id="abilityDesc"></p>
 <div class="label">WEAKNESS / OVERLOAD</div><p class="desc" id="weakness"></p>
 <div class="profile"><h3>🪪 신입 요원 추천 설정</h3><p id="personality"></p><p id="background"></p><p id="intro"></p></div>
 <p class="note">결과는 창작용 추천일 뿐 확정 설정이 아닙니다. 이름, 나이, 성별, 팀, 등급, 능력은 자유롭게 수정하세요. 기존 ORBIS 요원들과의 연애 관계는 자동 확정되지 않습니다.</p>
-<div class="actions"><button type="button" class="action" id="copy">📋 크랙용 추천 설정 전체 복사</button><button type="button" class="action secondary" id="retry">다시 검사하기</button><a href="../night-shift/" style="display:block;text-align:center;padding:12px">인사명부로 돌아가기 ↗</a><div class="status" id="status"></div></div>
+<div class="actions"><button type="button" class="action" id="copy">▣ 크랙용 추천 설정 전체 복사</button><button type="button" class="action secondary" id="retry">다시 검사하기</button><a href="../night-shift/" style="display:block;text-align:center;padding:12px">인사명부로 돌아가기 ↗</a><div class="status" id="status"></div></div>
 </section>
 <footer>ORBIS KOREA BRANCH / RESTRICTED FILE<br>궤도의 경계를 지키고 현실의 질서를 유지합니다.</footer>
 </main>
