@@ -74,6 +74,36 @@ footer{text-align:center;padding:12px 19px 74px;color:#8e838a;font-size:9px;lett
 .floor-line,.benefit{border-left:2px solid #9a5b62}
 .bottom{border-top:2px solid #ad3642}
 @media(max-width:360px){.directory-head:before{font-size:9px}.hero h1{font-size:36px}}
+
+/* 신입 안내 온보딩: 기존 인사기록·DAY/NIGHT 동작은 수정하지 않음 */
+.intro-panel{padding:25px 19px 8px}
+.intro-kicker{font-size:10px;font-weight:900;letter-spacing:.15em;color:#e9939d;margin-bottom:8px}
+.intro-title{font-size:24px;line-height:1.3;letter-spacing:-.06em;margin:0 0 11px;color:#f8f1ee}
+.intro-copy{font-size:12px;line-height:1.85;color:#c7c0c5;margin:0 0 13px}
+.intro-copy strong{color:#f3d6d7}
+.rift-box{background:linear-gradient(110deg,#28222bcb,#1c2330d9),url("../img/branch.png") center/cover;border:1px solid #70535e;min-height:142px;display:flex;flex-direction:column;justify-content:end;padding:16px;position:relative;overflow:hidden}
+.rift-box:before{content:"";position:absolute;right:27%;top:-45px;width:3px;height:230px;background:#c8323c;transform:rotate(28deg);filter:drop-shadow(0 0 9px #ed6570);opacity:.85}
+.rift-box>*{position:relative}.rift-box strong{font-size:17px}.rift-box span{font-size:11px;color:#e1cbd0;margin-top:6px;line-height:1.6}
+.awaken{padding-top:22px}.awaken-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:15px 0 10px}
+.awaken-card{background:#f3eee5;color:#27252c;border:1px solid #ada197;padding:10px 10px 12px;min-width:0}
+.awaken-card.after{border-color:#b33e4a;background:#f7eae6}
+.awaken-label{font-size:10px;font-weight:900;letter-spacing:.12em;color:#787176}.after .awaken-label{color:#b32d3d}
+.awaken-art{height:115px;display:grid;place-items:center;margin:6px 0}.awaken-art svg{max-width:100%;height:115px}
+.awaken-card b{font-size:13px;display:block}.awaken-card small{font-size:10px;line-height:1.5;display:block;color:#6d6669;margin-top:3px}
+.rule-mini{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:12px}.rule-mini div{border:1px solid #5b4750;background:#282329;padding:11px;font-size:11px;color:#e6d9db}.rule-mini b{color:#ffbbc1;display:block;margin-bottom:5px;font-size:12px}
+.about-card{border:1px solid #6d4952;background:linear-gradient(135deg,#36252d,#1d2028 75%);padding:17px 15px}
+.about-card strong{font-size:16px;display:block;margin-bottom:6px}.about-card p{font-size:12px;color:#c9bfc4;line-height:1.75;margin:0}
+.about-benefits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:11px}
+.about-benefits div{border:1px solid #59444d;background:#28242d;padding:12px 10px;min-height:72px}.about-benefits div:first-child{grid-column:1/-1;background:#f0e8df;color:#22232a;border-color:#cbbbad}
+.about-benefits b{display:block;font-size:13px}.about-benefits div:first-child b{font-size:20px;color:#b72f3c}.about-benefits small{font-size:10px;color:#b9b0b6;line-height:1.55;display:block;margin-top:4px}.about-benefits div:first-child small{color:#61575c}
+.guide-link{display:block;text-align:center;border:1px solid #aa6e79;color:#f3d0d4;padding:12px;margin-top:12px;font-size:12px;font-weight:850}
+.team-guide{display:grid;gap:8px}.guide-team{display:block;background:#221f25;border:1px solid #6c5058;padding:14px 13px;color:#eee4e7}
+.guide-team strong{font-size:15px;display:block}.guide-team small{font-size:11px;color:#c5b8bf;display:block;margin-top:5px;line-height:1.65}
+.guide-team.redteam{border-left:4px solid #c8323c}.guide-team.blueteam{border-left:4px solid #426fa6}.guide-team.medteam{border-left:4px solid #80669b}
+.rookie-banner{text-align:center;margin:24px 0 25px;background:#eae1d7;color:#2b272b;padding:21px 15px;border-top:3px solid #c8323c}
+.rookie-banner .overline{font-size:10px;color:#9b444e;letter-spacing:.12em;font-weight:900}.rookie-banner h2{font-size:22px;line-height:1.45;margin:9px 0;color:#25242a;letter-spacing:-.04em}.rookie-banner p{font-size:12px;line-height:1.7;color:#62565b}.rookie-banner a{display:block;background:#b93642;color:white;padding:13px;margin-top:15px;font-size:12px;font-weight:900}
+.intro-panel + .security-top{margin-top:18px}
+@media(max-width:350px){.intro-title{font-size:21px}.awaken-art{height:100px}.awaken-art svg{height:100px}}
 </style>
 </head>
 <body>
@@ -87,14 +117,42 @@ footer{text-align:center;padding:12px 19px 74px;color:#8e838a;font-size:9px;lett
 <p class="desc">낮에는 각자의 일상, 밤에는 비밀 기관의 동료.<br>임무도, 회식도, 썸도. 누구랑 엮일지는 당신 마음!</p>
 <div class="hero-tags"><span>이능력 × 직장 로코</span><span>낮과 밤</span><span>전원 동등한 메인 캐릭터</span></div>
 </section>
-<div style="margin:0 19px 18px;padding:17px;border:1px solid #9b5665;background:linear-gradient(115deg,#35222c,#202431);border-radius:11px"><p style="color:#f1aab5;font-size:10px;font-weight:900;letter-spacing:.1em;margin:0 0 6px">NEW / ROOKIE PROFILE GENERATOR</p><strong style="display:block;font-size:16px">신입 요원, 어느 팀으로 갈까?</strong><p style="font-size:11px;color:#d2c1cd;margin:8px 0 15px;line-height:1.7">이름·성별·원하는 능력만 입력하면 팀·등급·약점·추천 설정을 랜덤 생성합니다.</p><a href="../rookie-test/" style="display:block;text-align:center;background:#c8323c;color:#fff;font-size:12px;font-weight:900;padding:12px;border-radius:7px">⚡ 신입 요원 랜덤 생성기 열기 →</a></div>
-<section class="context" aria-label="낮과 밤의 세계">
-<div class="daycard"><span class="symbol">☀</span><small>DAY / 주간</small><strong>평범한 일상</strong><p>직업, 학교, 취미. 각자 다른 얼굴로 살아간다.</p></div>
-<div><span class="symbol">☾</span><small>NIGHT / 야간</small><strong>ORBIS 근무</strong><p>해가 지면 능력이 깨어나고 균열을 막는다.</p></div>
+<section class="intro-panel" id="world" aria-labelledby="world-intro-title">
+<div class="intro-kicker">01 / WORLD ARCHIVE · 기밀기록</div>
+<h2 class="intro-title" id="world-intro-title">2045년,<br>세상에 균열이 생겼다.</h2>
+<p class="intro-copy">대한민국 서울, 어느 날 밤 처음으로 <strong>차원 균열</strong>이 열렸다. 그날 이후 설명할 수 없는 능력이 발현되는 사람들이 나타나기 시작했다.</p>
+<div class="rift-box"><strong>현실의 법칙이 흔들리기 시작했다.</strong><span>점점 늘어나는 균열과 각성자.<br>정부는 이들을 보호하고 통제할 전담 기관을 설립한다.</span></div>
+<div class="intro-kicker" style="margin-top:23px">02 / AWAKENED · 각성자 기록</div>
+<h2 class="intro-title">이능력이 생긴 사람들은<br>어떻게 달라졌을까?</h2>
+<p class="intro-copy">낮에는 평범한 시민, 밤에는 능력을 사용하는 각성자. 특히 신체의 <strong>회복 효율</strong>이 크게 달라졌다.</p>
+<div class="awaken-grid" aria-label="각성 전과 각성 후 회복력 비교">
+<div class="awaken-card"><span class="awaken-label">BEFORE / 일반인</span><div class="awaken-art"><svg viewBox="0 0 140 115" role="img" aria-label="피곤한 사람이 책상에 엎드려 자는 모습"><rect width="140" height="115" rx="4" fill="#e5ded6"/><rect x="16" y="78" width="108" height="7" rx="2" fill="#746a72"/><rect x="26" y="85" width="5" height="24" fill="#746a72"/><rect x="108" y="85" width="5" height="24" fill="#746a72"/><path d="M40 77Q39 49 66 46Q90 44 96 76" fill="#9a9da9"/><ellipse cx="67" cy="51" rx="21" ry="21" fill="#f4c7ad"/><path d="M46 52Q43 29 62 29Q84 26 89 48Q80 41 69 43L57 49Z" fill="#36313a"/><path d="M57 53l7 2m9-2l7 2" stroke="#614d4b" stroke-width="2" stroke-linecap="round"/><path d="M44 75q27-13 56 0" fill="none" stroke="#626979" stroke-width="14" stroke-linecap="round"/><text x="102" y="34" fill="#9c7f88" font-size="20" font-weight="bold">Zz</text></svg></div><b>긴 수면에도 피곤한 일상</b><small>일반적인 수면과 회복 주기</small></div>
+<div class="awaken-card after"><span class="awaken-label">AFTER / 각성자</span><div class="awaken-art"><svg viewBox="0 0 140 115" role="img" aria-label="두 시간 수면 후 활력 있게 깨어난 각성자"><rect width="140" height="115" rx="4" fill="#ddd9de"/><circle cx="70" cy="51" r="41" fill="#c6bbc4"/><path d="M32 111Q34 74 70 74Q108 74 108 111" fill="#242b39"/><path d="M70 80v29" stroke="#c8323c" stroke-width="3"/><ellipse cx="70" cy="52" rx="23" ry="29" fill="#f2c9b3"/><path d="M47 47Q41 21 67 20Q92 16 96 41Q84 34 75 38Q64 35 54 45Z" fill="#302c37"/><path d="M58 51h8m13 0h8" stroke="#373443" stroke-width="2.5" stroke-linecap="round"/><path d="M68 65q7 5 14-1" fill="none" stroke="#a46e68" stroke-width="2"/><path d="M18 24l8-9m-8 24h10m91-19l-7 9m11 12h-11" stroke="#c8323c" stroke-width="3" stroke-linecap="round"/></svg></div><b>단 2시간 수면으로 회복</b><small>야간 임무를 수행할 체력 확보</small></div>
+</div>
+<div class="rule-mini"><div><b>☾ NIGHT</b>이능력은 일몰 후 발현</div><div><b>⚡ OVERLOAD</b>과부하 시 추가 휴식 필요</div><div><b>☀ DAY</b>주간에는 평범한 일상</div><div><b>⌑ SECURITY</b>기관의 존재와 업무는 비밀</div></div>
 </section>
-<div class="security-top"><strong>◈ PERSONNEL ARCHIVE · 내부 열람용</strong><span>보안 절대 유의!</span></div>
+<section class="intro-panel" id="about" aria-labelledby="about-title">
+<div class="intro-kicker">03 / ABOUT ORBIS</div>
+<h2 class="intro-title" id="about-title">그렇게 모인 이들이<br>바로 ORBIS.</h2>
+<div class="about-card"><strong>ORBIS 대한민국지부</strong><p>차원 균열 대응, 각성자 관리, 야간 작전을 맡는 정부 산하 비공개 특수기관.<br>“궤도의 경계를 지키고 현실의 질서를 유지합니다.”</p></div>
+<div class="intro-kicker" style="margin-top:23px">EMPLOYEE BENEFITS · 입사 안내</div>
+<h2 class="intro-title">위험한 임무에는<br>그만한 보상이 따른다.</h2>
+<div class="about-benefits"><div><b>연봉 3억 원</b><small>A급 신입 요원 기준 · 설정상 급여</small></div><div><b>☾ 야간 교대</b><small>현장 근무 교대 편성</small></div><div><b>♨ 휴식·건강</b><small>수면실 · 사우나 · 헬스장</small></div><div><b>⌂ 1인 생활관</b><small>본부에서 도보 약 10분</small></div><div><b>☕ 구내식당</b><small>식사 · 야식 · 특식</small></div><div><b>▣ 계절 휴가</b><small>하계·동계 휴가 및 사내 행사</small></div></div>
+<a class="guide-link" href="#welfare">세부 행사 및 복지 확인하기 ↓</a>
+</section>
+<section class="intro-panel" id="team-guide" aria-labelledby="team-guide-title">
+<div class="intro-kicker">04 / TEAM ORGANIZATION</div>
+<h2 class="intro-title" id="team-guide-title">어느 팀에서<br>첫 근무를 시작할까요?</h2>
+<div class="team-guide">
+<a class="guide-team redteam" href="#team1"><strong>01 / RED · 균열 대응 1팀 ↗</strong><small>현장 진입 · 위험 통제 · 고위험 대응<br>최현 · 남궁도준 · 나까무라</small></a>
+<a class="guide-team blueteam" href="#team2"><strong>02 / BLUE · 균열 대응 2팀 ↗</strong><small>현장 조사 · 능력 연계 · 합동 작전<br>강태희 · 윤세현 · 한도윤</small></a>
+<a class="guide-team medteam" href="#medical"><strong>MEDICAL · 의료지원과 ↗</strong><small>부상 치료 · 과부하 관리 · 회복 지원<br>루시앙 모로</small></a>
+</div>
+<div class="rookie-banner"><span class="overline">ROOKIE FILE / NEW ARRIVAL</span><h2>당신은 백만 년 만에<br>입사한 신입입니다.</h2><p>오랜만에 등장한 신입 요원에게 모두의 관심이 쏠립니다.<br>시끌벅적한 동료들 속에서 첫 야간 근무를 시작해 보세요.</p><a href="../rookie-test/">◈ 신입 요원 랜덤 설정 생성하기 ↗</a></div>
+</section>
+<div class="security-top"><strong>◈ 05 / PERSONNEL ARCHIVE · 팀 구성 소개</strong><span>보안 절대 유의!</span></div>
 <section class="directory" id="directory">
-<div class="directory-head"><div class="file-id">ORBIS KOREA / PERSONNEL DIVISION · FILE 007</div><h2>인 사 기 록 부</h2><p>총 7명 · 전원 메인 · 인물 카드를 눌러 상세 기록 열람</p>
+<div class="directory-head"><div class="file-id">ORBIS KOREA / PERSONNEL DIVISION · FILE 007</div><h2>인 사 기 록 부</h2><p>각 팀의 요원 7명 · 카드를 눌러 DAY/NIGHT 인사기록 열람</p>
 <div class="switch" role="group" aria-label="낮과 밤 프로필 전환"><button type="button" id="switch-night" data-view-button="night" aria-pressed="true">☾ 야간 기록</button><button type="button" id="switch-day" data-view-button="day" aria-pressed="false">☀ 주간 기록</button></div><p class="switch-note">같은 사람, 서로 다른 두 얼굴. 버튼을 눌러 비교해 보세요.</p></div>
 <div class="tabs" role="group" aria-label="팀 필터"><button type="button" class="tab" data-filter="all" aria-pressed="true">전체 7</button><button type="button" class="tab" data-filter="team1" aria-pressed="false">1팀 · 3</button><button type="button" class="tab" data-filter="team2" aria-pressed="false">2팀 · 3</button><button type="button" class="tab" data-filter="medical" aria-pressed="false">메디컬 · 1</button></div>
 <section class="team-section" id="team1" data-team="team1" style="--team:#C8323C">
@@ -198,12 +256,6 @@ footer{text-align:center;padding:12px 19px 74px;color:#8e838a;font-size:9px;lett
 </details>
 </section>
 </section>
-<section class="secondary" id="world"><div class="section-label">01 / WORLD RULES</div><h2>우리 회사, 몇 가지만 알면 돼요.</h2><div class="factslist">
-<div><b>☾ 능력은 밤에만</b><span>일몰~일출 발동. 주간에는 평범한 일상!</span></div>
-<div><b>◷ 야간 근무</b><span>18:00~06:00. 근무시간과 능력시간은 별개.</span></div>
-<div><b>⊘ 보안은 절대</b><span>낮에는 ORBIS와 동료의 비밀을 함부로 말하지 않는다.</span></div>
-<div><b>♡ 일상도 콘텐츠</b><span>출동·회식·휴식·관계까지 자유롭게 즐기기.</span></div>
-</div></section>
 <section class="facility" id="facility" aria-labelledby="facility-title">
   <div class="facility-heading">
     <span class="section-label">02 / BUILDING DIRECTORY</span>
