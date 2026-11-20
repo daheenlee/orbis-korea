@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#12151c">
+<title>ORBIS | 신입 요원 자동 추천</title>
+<style>
+:root{font-family:-apple-system,BlinkMacSystemFont,"Pretendard","Noto Sans KR",sans-serif;color:#f6f2f3;background:#0c0e14}
+*{box-sizing:border-box}body{margin:0}button,input{font:inherit}button{cursor:pointer}
+.wrap{max-width:520px;margin:auto;min-height:100vh;background:linear-gradient(155deg,#20202b,#10131a 45%);padding:24px 18px 80px}
+.top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #45434c;padding-bottom:15px}
+.brand{font-weight:900;letter-spacing:.13em}.brand b{color:#fa929c}a{color:#a9c9f6;text-decoration:none}
+.top a{font-size:12px}.eyebrow{font-size:11px;letter-spacing:.13em;color:#e28791;margin:32px 0 10px}
+h1{font-size:30px;letter-spacing:-.06em;margin:0 0 12px;line-height:1.3}
+.sub{font-size:13px;color:#bfc0cc;line-height:1.8;margin-bottom:15px}
+.pill{display:inline-block;border:1px solid #74404d;padding:7px 12px;border-radius:22px;color:#f0abb5;font-size:11px}
+.card{border:1px solid #414650;background:#202530;border-radius:13px;padding:20px;margin-top:19px}
+.num{font-size:11px;color:#eaaab3;letter-spacing:.1em}h2{font-size:18px;letter-spacing:-.035em;line-height:1.45;margin:12px 0 20px}
+.progress{height:5px;background:#3c4353;border-radius:9px;margin-top:14px;overflow:hidden}.bar{height:100%;background:#d85b68;transition:width .2s}
+.options{display:grid;gap:9px}.opt{width:100%;text-align:left;border:1px solid #505463;border-radius:9px;padding:14px;background:#292e3b;color:#f2f2f5;font-size:13px;line-height:1.6}
+.opt[aria-pressed=true]{background:#4c2d3a;border-color:#f38b98;box-shadow:inset 0 0 0 1px #eb8b97}
+.nav{display:flex;gap:9px;margin-top:20px}button.action{border:0;border-radius:9px;padding:14px;background:#c8323c;color:white;font-weight:800;flex:1}
+button.secondary{background:#343c49}button:disabled{opacity:.4}.hidden{display:none}
+.result-kicker{font-size:11px;color:#f2a9b0;letter-spacing:.12em}
+.team{font-size:28px;font-weight:900;margin:10px 0 3px}.red{color:#f0939f}.blue{color:#8fc1fc}
+.people{font-size:12px;color:#bfc3cf}.label{font-size:11px;color:#e2a9b3;font-weight:800;margin-top:22px}
+.value{font-size:17px;font-weight:850;margin-top:6px}.desc{font-size:13px;color:#cdd0db;line-height:1.75;margin:8px 0}
+.profile{margin-top:18px;background:#141923;border:1px solid #4d5260;border-radius:9px;padding:15px}
+.profile h3{font-size:15px;margin:0 0 11px}.profile p{font-size:13px;color:#d3d7e1;line-height:1.75;margin:7px 0}
+.actions{display:grid;gap:9px;margin-top:22px}.actions button{width:100%}.note{font-size:11px;color:#a9b1c3;line-height:1.7;margin-top:18px}.status{font-size:12px;color:#c1ebc9;min-height:18px}
+footer{text-align:center;margin-top:38px;font-size:10px;color:#8991a0;line-height:1.8}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="top"><div class="brand">◉ <b>ORBIS</b> / ROK</div><a href="../night-shift/">← 인사명부</a></header>
+<p class="eyebrow">PERSONNEL / APTITUDE ASSESSMENT 001</p>
+<h1>백만 년 만의 신입,<br>어느 팀으로 갈까?</h1>
+<p class="sub">선배들의 뜨거운 관심 속 시작된 첫 출근.<br>6가지 질문에 답하면 추천 팀부터 이능력, 약점, 성격, 과거 직업까지 자동으로 정리해 드립니다.</p>
+<span class="pill">⚡ 신입 적성검사 · 자유로운 캐릭터 설정</span>
+<section class="card" id="test">
+<div class="num" id="step"></div><div class="progress"><div class="bar" id="bar"></div></div>
+<h2 id="question"></h2><div class="options" id="options"></div>
+<div class="nav"><button type="button" class="action secondary" id="prev">이전</button><button type="button" class="action" id="next">다음</button></div>
+</section>
+<section class="card hidden" id="result" aria-live="polite">
+<div class="result-kicker">ACCESS APPROVED / PERSONNEL RESULT</div>
+<div class="team" id="team"></div><div class="people" id="people"></div>
+<div class="label">AWAKENING CLASS</div><div class="value" id="rank"></div>
+<div class="label">CORE ABILITY</div><div class="value" id="ability"></div><p class="desc" id="abilityDesc"></p>
+<div class="label">WEAKNESS / OVERLOAD</div><p class="desc" id="weakness"></p>
+<div class="profile"><h3>🪪 신입 요원 추천 설정</h3><p id="personality"></p><p id="background"></p><p id="intro"></p></div>
+<p class="note">결과는 창작용 추천일 뿐 확정 설정이 아닙니다. 이름, 나이, 성별, 팀, 등급, 능력은 자유롭게 수정하세요. 기존 ORBIS 요원들과의 연애 관계는 자동 확정되지 않습니다.</p>
+<div class="actions"><button type="button" class="action" id="copy">📋 크랙용 추천 설정 전체 복사</button><button type="button" class="action secondary" id="retry">다시 검사하기</button><a href="../night-shift/" style="display:block;text-align:center;padding:12px">인사명부로 돌아가기 ↗</a><div class="status" id="status"></div></div>
+</section>
+<footer>ORBIS KOREA BRANCH / RESTRICTED FILE<br>궤도의 경계를 지키고 현실의 질서를 유지합니다.</footer>
+</main>
+<script>
+const qs=[
+{q:"서울 도심에 균열 경보가 울렸다. 당신은?",a:[["출입을 통제하고 현장 안전을 확보한다",2,0],["기록을 살피며 발생 원인부터 찾는다",0,2],["동료들과 역할을 나눠 대응한다",1,1]]},
+{q:"위험한 상황에서 자신의 장점은?",a:[["빠른 판단과 행동력",2,0],["섬세한 관찰과 추론",0,2],["상황에 맞춰 유연하게 협력",1,1]]},
+{q:"가장 끌리는 이능력은?",a:[["방어막과 위협 제압",2,0],["흔적 감지와 패턴 분석",0,2],["이동과 협력 지원",1,1]]},
+{q:"누군가 내 실수를 지적한다면?",a:[["바로 고치고 실전에서 만회한다",2,0],["원인을 확인한 뒤 재발을 막는다",0,2],["동료와 해결책을 함께 찾는다",1,1]]},
+{q:"어떤 근무가 더 재미있을까?",a:[["긴박한 현장 출동",2,0],["수상한 사건 추적",0,2],["합동 작전과 팀 플레이",1,1]]},
+{q:"첫 출근, 선배들이 몰려든다면?",a:[["당당하게 먼저 자기소개한다",2,0],["차분하게 질문에 답한다",0,2],["웃으며 분위기에 적응한다",1,1]]}
+];
+const abilities=[
+{n:"경계막 형성",d:"일정 범위를 보호하는 방호 경계를 전개한다.",w:"넓은 범위를 장시간 유지하면 급격히 소모되며 경계 외부는 방어하지 못한다."},
+{n:"잔류 파동 감지",d:"균열에 남은 미세한 흔적을 감지하고 이동 경로를 파악한다.",w:"흔적이 겹치면 정보가 혼선되어 감각 과부하와 두통이 생긴다."},
+{n:"단거리 위치 전이",d:"시야 안의 짧은 거리를 순간적으로 이동한다.",w:"연속 사용하면 거리 감각이 흐려지고 이동 범위가 제한된다."},
+{n:"동조 신호",d:"팀원의 행동과 능력 발동 타이밍을 감지해 협동 효율을 높인다.",w:"연결 대상이 많아질수록 집중력이 떨어지고 피로가 증가한다."},
+{n:"중력 고정",d:"짧은 시간 대상의 움직임을 제한한다.",w:"무거운 대상이나 다수에게 사용할 때 신체 부담이 크게 증가한다."},
+{n:"이상 패턴 투시",d:"균열 주변에 반복되는 이상 패턴을 시각적으로 읽는다.",w:"복잡한 현장에서는 시야 혼탁과 눈의 통증이 발생한다."}
+];
+const styles=[
+{p:"침착한 관찰형. 낯선 상황에서도 정보를 먼저 모으며 필요할 때는 분명하게 의견을 낸다.",job:"낮에는 도서관 자료실 또는 기록 관리 분야에 종사해 왔다.",line:"첫 출근에는 동료들의 질문을 받아가며 소속과 역할을 파악하려 한다."},
+{p:"빠른 행동형. 위기 앞에서 먼저 움직이지만 판단을 서두르지 않으려고 노력한다.",job:"낮에는 체육 강사나 안전 관련 아르바이트를 해 왔다.",line:"첫 출근부터 현장에 나가고 싶지만 선배들의 지시에 귀를 기울인다."},
+{p:"사교적인 조율형. 분위기를 읽고 사람들의 장점을 연결하는 데 능하다.",job:"낮에는 카페나 서비스 분야에서 일하며 다양한 사람을 만났다.",line:"처음 본 선배들의 호들갑에도 웃음을 잃지 않고 자연스럽게 인사를 건넨다."},
+{p:"호기심 많은 탐구형. 이해되지 않는 현상을 보면 끝까지 이유를 찾아내고 싶어 한다.",job:"낮에는 대학생으로 연구와 공부를 병행해 왔다.",line:"첫 출근부터 49층의 장비와 상황실을 둘러보며 궁금증을 품는다."}
+];
+let idx=0,answers=Array(qs.length).fill(null),resultText="";
+const el=id=>document.getElementById(id);
+function render(){let q=qs[idx];el("step").textContent=String(idx+1).padStart(2,"0")+" / 06";el("bar").style.width=((idx+1)/qs.length*100)+"%";el("question").textContent=q.q;el("options").replaceChildren();q.a.forEach((a,i)=>{const b=document.createElement("button");b.type="button";b.className="opt";b.textContent=a[0];b.setAttribute("aria-pressed",String(answers[idx]===i));b.addEventListener("click",()=>{answers[idx]=i;render()});el("options").append(b)});el("prev").disabled=idx===0;el("next").disabled=answers[idx]===null;el("next").textContent=idx===qs.length-1?"결과 확인":"다음"}
+function finish(){let red=0,blue=0;answers.forEach((v,i)=>{red+=qs[i].a[v][1];blue+=qs[i].a[v][2]});const team=red>blue?"1팀":blue>red?"2팀":answers[0]===0?"1팀":"2팀";const teamLabel=team==="1팀"?"1팀 · RED / 현장 대응":"2팀 · BLUE / 조사·연계 대응";const people=team==="1팀"?"최현 · 남궁도준 · 나까무라":"강태희 · 윤세현 · 한도윤";const aIndex=(answers[2]*2+answers[4]+(team==="1팀"?0:1))%abilities.length;const ability=abilities[aIndex];const st=styles[(answers[0]+answers[3]+answers[5])%styles.length];const rank=answers.filter(v=>v===1).length>=4?"B급":"C급";el("team").textContent=teamLabel;el("team").className="team "+(team==="1팀"?"red":"blue");el("people").textContent="추천 동료: "+people;el("rank").textContent=rank+" · 야간 각성자";el("ability").textContent=ability.n;el("abilityDesc").textContent=ability.d;el("weakness").textContent=ability.w;el("personality").textContent="성격: "+st.p;el("background").textContent="주간 생활: "+st.job;el("intro").textContent="첫 출근: "+st.line;resultText="[ORBIS 신입 요원 추천 설정]\n소속: 균열 대응 "+team+"\n각성 등급: "+rank+"\n능력: "+ability.n+" — "+ability.d+"\n약점: "+ability.w+"\n성격: "+st.p+"\n낮의 생활: "+st.job+"\n시작 상황: "+st.line+"\n특이사항: 오랜만에 발령받은 신입으로 동료들의 반가운 관심을 받는다. 기본적인 호의는 연애 감정이 아니다.\n※ 이름·나이·성별·팀·능력은 자유롭게 변경 가능.";el("test").classList.add("hidden");el("result").classList.remove("hidden");el("result").scrollIntoView({behavior:"smooth",block:"start"})}
+el("prev").onclick=()=>{if(idx>0){idx--;render()}};
+el("next").onclick=()=>{if(answers[idx]===null)return;if(idx<qs.length-1){idx++;render()}else finish()};
+el("retry").onclick=()=>{idx=0;answers.fill(null);el("result").classList.add("hidden");el("test").classList.remove("hidden");render();scrollTo({top:0,behavior:"smooth"})};
+el("copy").onclick=async()=>{try{await navigator.clipboard.writeText(resultText);el("status").textContent="복사 완료! 크랙 프로필에 붙여 넣으세요."}catch(e){const t=document.createElement("textarea");t.value=resultText;document.body.append(t);t.select();document.execCommand("copy");t.remove();el("status").textContent="복사했습니다."}};
+render();
+</script>
+</body></html>
