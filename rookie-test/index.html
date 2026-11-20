@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#12151c">
-<title>ORBIS | 신입 요원 자동 추천</title>
+<title>ORBIS | 신입 요원 랜덤 설정 생성기</title>
 <style>
 :root{font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo",sans-serif;color:#24252b;background:#25242a}
 *{box-sizing:border-box}body{margin:0}button,input{font:inherit}button{cursor:pointer}
@@ -34,63 +34,78 @@ button.secondary{background:#48484d}button:disabled{opacity:.4}.hidden{display:n
 .official{border-left:4px solid #b73542;background:#e9e2d7;padding:12px 14px;font-size:12px;color:#4c4346;line-height:1.7;margin-top:17px}
 footer{text-align:center;margin-top:42px;font-size:10px;color:#777079;line-height:1.9}
 @media(max-width:360px){.wrap{padding-left:12px;padding-right:12px}.card{padding:16px}h1{font-size:28px}}
+
+.form-row{display:grid;gap:7px;margin:0 0 17px}.form-row label{font-size:12px;font-weight:850;color:#733841}.field{display:block;width:100%;padding:14px 12px;border:1px solid #bdb2a5;border-radius:3px;background:#faf8f3;color:#20242d;font-size:14px}.field:focus{outline:2px solid #c8323c;outline-offset:1px}.hint{font-size:11px;color:#766e73;line-height:1.6}.result-name{font-weight:900;color:#28252a;font-size:19px;margin-top:18px}.ribbon{margin-top:12px;padding:10px 13px;background:#f5e7e7;border-left:4px solid #c8323c;color:#633b3c;font-size:12px;line-height:1.7}
 </style>
 </head>
 <body>
 <main class="wrap">
 <header class="top"><div class="brand">◉ <b>ORBIS</b> / ROK</div><a href="../night-shift/">← 인사명부</a></header>
-<p class="eyebrow">대한민국지부 / 신입 인사 적성평가 · 제001호</p>
-<h1>백만 년 만의 신입,<br>어느 팀으로 갈까?</h1>
-<p class="sub">선배들의 뜨거운 관심 속 시작된 첫 출근.<br>6가지 질문에 답하면 추천 팀부터 이능력, 약점, 성격, 과거 직업까지 자동으로 정리해 드립니다.</p>
-<span class="pill">◈ 신규 각성자 적성 평가 · 6문항</span><div class="official"><strong>인사 발령 안내</strong><br>오랜만에 발령된 신규 요원의 추천 배치 자료입니다. 선택에 정답은 없으며 최종 소속과 능력은 직접 결정할 수 있습니다.</div>
+<p class="eyebrow">대한민국지부 / 신규 요원 배정 추천 · 제001호</p>
+<h1>백만 년 만의 신입,<br>어떤 요원이 될까?</h1>
+<p class="sub">이름과 성별, 원하는 능력만 적어 주세요.<br>ORBIS 인사관리 시스템이 팀·등급·능력 활용법·약점과 추천 설정을 무작위로 생성합니다.</p>
+<span class="pill">◈ 신규 요원 랜덤 설정 생성기</span><div class="official"><strong>인사 발령 안내</strong><br>백만 년 만에 발령된 신규 요원에게 기존 직원들은 대체로 호의적입니다. 생성 결과는 선택 가능한 설정 예시이며, 연애 감정이나 관계를 강제하지 않습니다.</div>
 <section class="card" id="test">
-<div class="num" id="step"></div><div class="progress"><div class="bar" id="bar"></div></div>
-<h2 id="question"></h2><div class="options" id="options"></div>
-<div class="nav"><button type="button" class="action secondary" id="prev">이전</button><button type="button" class="action" id="next">다음</button></div>
+<h2>신규 요원 등록 신청서</h2>
+<div class="form-row"><label for="user-name">01 / 이름</label><input id="user-name" class="field" maxlength="30" placeholder="예: 이서준" autocomplete="off"></div>
+<div class="form-row"><label for="user-gender">02 / 성별</label><select id="user-gender" class="field"><option value="">선택하지 않음</option><option value="남성">남성</option><option value="여성">여성</option><option value="논바이너리">논바이너리</option><option value="직접 설정">직접 설정 / 비공개</option></select></div>
+<div class="form-row"><label for="user-ability">03 / 원하는 이능력</label><input id="user-ability" class="field" maxlength="70" placeholder="예: 그림자 조작, 얼음, 순간이동" autocomplete="off"><span class="hint">원하는 능력을 자유롭게 적어 주세요. 비워두면 능력 자체도 랜덤으로 추천해요.</span></div>
+<button type="button" class="action" id="generate" style="width:100%">◈ 인사 발령서 랜덤 생성</button>
+<div class="ribbon">※ 동일한 정보를 유지하고 다시 뽑을 수 있습니다. 결과가 마음에 들지 않으면 언제든 재생성하세요.</div>
 </section>
 <section class="card hidden" id="result" aria-live="polite">
 <div class="result-kicker">ORBIS / PERSONNEL DECISION · 참고용</div><div class="seal" aria-hidden="true">인사<br>검토필</div>
-<div class="team" id="team"></div><div class="people" id="people"></div>
+<div class="result-name" id="resultName"></div><div class="team" id="team"></div><div class="people" id="people"></div>
 <div class="label">AWAKENING CLASS</div><div class="value" id="rank"></div>
 <div class="label">CORE ABILITY</div><div class="value" id="ability"></div><p class="desc" id="abilityDesc"></p>
 <div class="label">WEAKNESS / OVERLOAD</div><p class="desc" id="weakness"></p>
 <div class="profile"><h3>🪪 신입 요원 추천 설정</h3><p id="personality"></p><p id="background"></p><p id="intro"></p></div>
 <p class="note">결과는 창작용 추천일 뿐 확정 설정이 아닙니다. 이름, 나이, 성별, 팀, 등급, 능력은 자유롭게 수정하세요. 기존 ORBIS 요원들과의 연애 관계는 자동 확정되지 않습니다.</p>
-<div class="actions"><button type="button" class="action" id="copy">▣ 크랙용 추천 설정 전체 복사</button><button type="button" class="action secondary" id="retry">다시 검사하기</button><a href="../night-shift/" style="display:block;text-align:center;padding:12px">인사명부로 돌아가기 ↗</a><div class="status" id="status"></div></div>
+<div class="actions"><button type="button" class="action" id="copy">▣ 크랙용 추천 설정 전체 복사</button><button type="button" class="action secondary" id="retry">같은 설정으로 다시 뽑기</button><a href="../night-shift/" style="display:block;text-align:center;padding:12px">인사명부로 돌아가기 ↗</a><div class="status" id="status"></div></div>
 </section>
 <footer>ORBIS KOREA BRANCH / RESTRICTED FILE<br>궤도의 경계를 지키고 현실의 질서를 유지합니다.</footer>
 </main>
 <script>
-const qs=[
-{q:"서울 도심에 균열 경보가 울렸다. 당신은?",a:[["출입을 통제하고 현장 안전을 확보한다",2,0],["기록을 살피며 발생 원인부터 찾는다",0,2],["동료들과 역할을 나눠 대응한다",1,1]]},
-{q:"위험한 상황에서 자신의 장점은?",a:[["빠른 판단과 행동력",2,0],["섬세한 관찰과 추론",0,2],["상황에 맞춰 유연하게 협력",1,1]]},
-{q:"가장 끌리는 이능력은?",a:[["방어막과 위협 제압",2,0],["흔적 감지와 패턴 분석",0,2],["이동과 협력 지원",1,1]]},
-{q:"누군가 내 실수를 지적한다면?",a:[["바로 고치고 실전에서 만회한다",2,0],["원인을 확인한 뒤 재발을 막는다",0,2],["동료와 해결책을 함께 찾는다",1,1]]},
-{q:"어떤 근무가 더 재미있을까?",a:[["긴박한 현장 출동",2,0],["수상한 사건 추적",0,2],["합동 작전과 팀 플레이",1,1]]},
-{q:"첫 출근, 선배들이 몰려든다면?",a:[["당당하게 먼저 자기소개한다",2,0],["차분하게 질문에 답한다",0,2],["웃으며 분위기에 적응한다",1,1]]}
-];
-const abilities=[
-{n:"경계막 형성",d:"일정 범위를 보호하는 방호 경계를 전개한다.",w:"넓은 범위를 장시간 유지하면 급격히 소모되며 경계 외부는 방어하지 못한다."},
-{n:"잔류 파동 감지",d:"균열에 남은 미세한 흔적을 감지하고 이동 경로를 파악한다.",w:"흔적이 겹치면 정보가 혼선되어 감각 과부하와 두통이 생긴다."},
-{n:"단거리 위치 전이",d:"시야 안의 짧은 거리를 순간적으로 이동한다.",w:"연속 사용하면 거리 감각이 흐려지고 이동 범위가 제한된다."},
-{n:"동조 신호",d:"팀원의 행동과 능력 발동 타이밍을 감지해 협동 효율을 높인다.",w:"연결 대상이 많아질수록 집중력이 떨어지고 피로가 증가한다."},
-{n:"중력 고정",d:"짧은 시간 대상의 움직임을 제한한다.",w:"무거운 대상이나 다수에게 사용할 때 신체 부담이 크게 증가한다."},
-{n:"이상 패턴 투시",d:"균열 주변에 반복되는 이상 패턴을 시각적으로 읽는다.",w:"복잡한 현장에서는 시야 혼탁과 눈의 통증이 발생한다."}
-];
-const styles=[
-{p:"침착한 관찰형. 낯선 상황에서도 정보를 먼저 모으며 필요할 때는 분명하게 의견을 낸다.",job:"낮에는 도서관 자료실 또는 기록 관리 분야에 종사해 왔다.",line:"첫 출근에는 동료들의 질문을 받아가며 소속과 역할을 파악하려 한다."},
-{p:"빠른 행동형. 위기 앞에서 먼저 움직이지만 판단을 서두르지 않으려고 노력한다.",job:"낮에는 체육 강사나 안전 관련 아르바이트를 해 왔다.",line:"첫 출근부터 현장에 나가고 싶지만 선배들의 지시에 귀를 기울인다."},
-{p:"사교적인 조율형. 분위기를 읽고 사람들의 장점을 연결하는 데 능하다.",job:"낮에는 카페나 서비스 분야에서 일하며 다양한 사람을 만났다.",line:"처음 본 선배들의 호들갑에도 웃음을 잃지 않고 자연스럽게 인사를 건넨다."},
-{p:"호기심 많은 탐구형. 이해되지 않는 현상을 보면 끝까지 이유를 찾아내고 싶어 한다.",job:"낮에는 대학생으로 연구와 공부를 병행해 왔다.",line:"첫 출근부터 49층의 장비와 상황실을 둘러보며 궁금증을 품는다."}
-];
-let idx=0,answers=Array(qs.length).fill(null),resultText="";
 const el=id=>document.getElementById(id);
-function render(){let q=qs[idx];el("step").textContent=String(idx+1).padStart(2,"0")+" / 06";el("bar").style.width=((idx+1)/qs.length*100)+"%";el("question").textContent=q.q;el("options").replaceChildren();q.a.forEach((a,i)=>{const b=document.createElement("button");b.type="button";b.className="opt";b.textContent=a[0];b.setAttribute("aria-pressed",String(answers[idx]===i));b.addEventListener("click",()=>{answers[idx]=i;render()});el("options").append(b)});el("prev").disabled=idx===0;el("next").disabled=answers[idx]===null;el("next").textContent=idx===qs.length-1?"결과 확인":"다음"}
-function finish(){let red=0,blue=0;answers.forEach((v,i)=>{red+=qs[i].a[v][1];blue+=qs[i].a[v][2]});const team=red>blue?"1팀":blue>red?"2팀":answers[0]===0?"1팀":"2팀";const teamLabel=team==="1팀"?"1팀 · RED / 현장 대응":"2팀 · BLUE / 조사·연계 대응";const people=team==="1팀"?"최현 · 남궁도준 · 나까무라":"강태희 · 윤세현 · 한도윤";const aIndex=(answers[2]*2+answers[4]+(team==="1팀"?0:1))%abilities.length;const ability=abilities[aIndex];const st=styles[(answers[0]+answers[3]+answers[5])%styles.length];const rank=answers.filter(v=>v===1).length>=4?"B급":"C급";el("team").textContent=teamLabel;el("team").className="team "+(team==="1팀"?"red":"blue");el("people").textContent="추천 동료: "+people;el("rank").textContent=rank+" · 야간 각성자";el("ability").textContent=ability.n;el("abilityDesc").textContent=ability.d;el("weakness").textContent=ability.w;el("personality").textContent="성격: "+st.p;el("background").textContent="주간 생활: "+st.job;el("intro").textContent="첫 출근: "+st.line;resultText="[ORBIS 신입 요원 추천 설정]\n소속: 균열 대응 "+team+"\n각성 등급: "+rank+"\n능력: "+ability.n+" — "+ability.d+"\n약점: "+ability.w+"\n성격: "+st.p+"\n낮의 생활: "+st.job+"\n시작 상황: "+st.line+"\n특이사항: 오랜만에 발령받은 신입으로 동료들의 반가운 관심을 받는다. 기본적인 호의는 연애 감정이 아니다.\n※ 이름·나이·성별·팀·능력은 자유롭게 변경 가능.";el("test").classList.add("hidden");el("result").classList.remove("hidden");el("result").scrollIntoView({behavior:"smooth",block:"start"})}
-el("prev").onclick=()=>{if(idx>0){idx--;render()}};
-el("next").onclick=()=>{if(answers[idx]===null)return;if(idx<qs.length-1){idx++;render()}else finish()};
-el("retry").onclick=()=>{idx=0;answers.fill(null);el("result").classList.add("hidden");el("test").classList.remove("hidden");render();scrollTo({top:0,behavior:"smooth"})};
-el("copy").onclick=async()=>{try{await navigator.clipboard.writeText(resultText);el("status").textContent="복사 완료! 크랙 프로필에 붙여 넣으세요."}catch(e){const t=document.createElement("textarea");t.value=resultText;document.body.append(t);t.select();document.execCommand("copy");t.remove();el("status").textContent="복사했습니다."}};
-render();
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const powerPool=["중력 조작","그림자 조작","결계 생성","잔상 추적","공간 도약","소리 조율","자기장 제어","기억 잔향 감지","열기 응축","빛 굴절","물의 흐름 조작","시간 감각 가속"];
+const variations=[
+{label:"정밀형",desc:p=>p+"의 효과를 좁은 범위에 정교하게 집중시켜 작은 대상이나 상황을 세밀하게 다룬다.",weak:"다수의 대상을 동시에 처리하면 집중력이 크게 저하된다."},
+{label:"방호형",desc:p=>p+"을(를) 활용해 동료를 보호하고 위험을 일시적으로 분산시킨다.",weak:"보호 범위를 넓히면 지속 시간이 급격히 짧아진다."},
+{label:"기동형",desc:p=>p+"을(를) 순간적으로 활용해 빠르게 이동하거나 위치를 바꾸는 작전에 특화된다.",weak:"짧은 시간에 반복하면 방향 감각에 혼란이 생긴다."},
+{label:"탐지형",desc:p=>p+"의 미세한 반응으로 주변 이상 징후와 균열의 흔적을 감지한다.",weak:"강한 외부 자극이나 복잡한 환경에서 감각이 과부하된다."},
+{label:"제압형",desc:p=>p+"의 출력을 한순간 높여 위협을 억제하거나 움직임을 방해한다.",weak:"한 번에 출력이 집중되어 사용 직후 회복 시간이 필요하다."},
+{label:"연계형",desc:p=>p+"의 효과를 동료의 능력과 맞춰 협력 작전의 효율을 높인다.",weak:"팀원과 호흡이 맞지 않으면 효과가 불안정해진다."}
+];
+const personalities=["낯을 조금 가리지만 친해지면 장난기가 많은 편","눈치가 빠르고 침착하지만 엉뚱한 구석이 있는 편","사교적이고 농담을 잘 받아주지만 업무에는 진지한 편","행동이 빠르고 호기심이 많아 새로운 사건을 그냥 지나치지 못하는 편","무뚝뚝해 보이지만 동료를 꼼꼼하게 챙기는 편","일할 때는 신중하고 쉬는 시간에는 자유분방한 편"];
+const dayJobs=["대학교 재학생","카페 아르바이트생","출판사 사무직","프리랜서 디자이너","서점 직원","헬스장 트레이너","영상 편집자","개발자","박물관 안내 직원","취업 준비생"];
+const starters=["첫 출근 날, 선배들이 한꺼번에 몰려와 질문을 쏟아낸다.","배치가 결정되자마자 선배와 함께 사내 시설을 둘러보게 된다.","49층 상황실에서 첫 근무를 시작하는데 뜻밖의 소동이 발생한다.","첫 교대 근무 중 다른 팀에서 합동 순찰 지원 요청이 들어온다.","이름표를 받자마자 사내 익명 게시판에 신입 등장 소식이 올라온다."];
+const ranks=["A급","B급","B급","C급","C급","D급"];
+let resultText="";
+function generate(){
+const name=el("user-name").value.trim()||"이름 미정";
+const gender=el("user-gender").value||"미설정";
+const base=el("user-ability").value.trim()||pick(powerPool);
+const v=pick(variations),team=pick(["1팀","2팀"]),rank=pick(ranks),personality=pick(personalities),job=pick(dayJobs),starter=pick(starters);
+const members=team==="1팀"?"최현 · 남궁도준 · 나까무라":"강태희 · 윤세현 · 한도윤";
+const teamTitle=team==="1팀"?"1팀 · RED / 균열 대응":"2팀 · BLUE / 균열 대응";
+const desc=v.desc(base); const weakness=v.weak;
+el("resultName").textContent=name+" / "+gender;
+el("team").textContent=teamTitle;
+el("team").className="team "+(team==="1팀"?"red":"blue");
+el("people").textContent="배정 팀 동료: "+members;
+el("rank").textContent=rank+" · 야간 각성자";
+el("ability").textContent=base+" · "+v.label;
+el("abilityDesc").textContent=desc;
+el("weakness").textContent=weakness;
+el("personality").textContent="성격: "+personality;
+el("background").textContent="낮의 직업: "+job;
+el("intro").textContent="첫 출근 추천 상황: "+starter;
+resultText="[ORBIS 신입 요원 추천 설정]\n이름: "+name+"\n성별: "+gender+"\n소속: 균열 대응 "+team+"\n각성 등급: "+rank+"\n이능력: "+base+" ("+v.label+")\n활용: "+desc+"\n약점: "+weakness+"\n성격: "+personality+"\n낮의 직업: "+job+"\n첫 출근: "+starter+"\n특이사항: 백만 년 만의 신입 요원으로 선배들의 호의적인 관심을 받는다. 이는 자동적인 연애 감정이 아니다.\n※ 능력은 일몰 후에만 활성화. 추천 설정은 자유롭게 수정 가능.";
+el("result").classList.remove("hidden");el("status").textContent="";
+el("result").scrollIntoView({behavior:"smooth",block:"start"});
+}
+el("generate").onclick=generate;el("retry").onclick=generate;
+el("copy").onclick=async()=>{try{await navigator.clipboard.writeText(resultText);el("status").textContent="복사 완료! 크랙 프로필에 붙여 넣으세요."}catch(e){const t=document.createElement("textarea");t.value=resultText;document.body.append(t);t.select();const success=document.execCommand("copy");t.remove();el("status").textContent=success?"복사 완료!":"복사에 실패했습니다. 브라우저 복사 권한을 확인해 주세요."}};
 </script>
 </body></html>
